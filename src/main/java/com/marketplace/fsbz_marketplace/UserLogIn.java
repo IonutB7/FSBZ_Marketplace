@@ -20,4 +20,9 @@ public class UserLogIn {
     private Button loginButton;
     @FXML
     private Button cancelButton;
+
+    public void setCancelButtonOnAction(ActionEvent event) {
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
+    }
 }
