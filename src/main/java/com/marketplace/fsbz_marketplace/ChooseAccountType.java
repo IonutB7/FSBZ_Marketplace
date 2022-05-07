@@ -40,6 +40,25 @@ public class ChooseAccountType implements Initializable {
             stage.setTitle("User log-in");
             stage.setScene(scene);
             stage.show();
+
+            Stage stage1 = (Stage) userButton.getScene().getWindow();
+            stage1.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+    public void adminButtonOnAction() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("adminLogIn.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Admin log-in");
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) userButton.getScene().getWindow();
+            stage1.close();
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();

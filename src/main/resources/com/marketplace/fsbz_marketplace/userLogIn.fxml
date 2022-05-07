@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.UserLogIn">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="250.0" />
@@ -24,12 +23,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="cancelButton" layoutX="250.0" layoutY="248.0" mnemonicParsing="false" text="Cancel" />
-            <Button fx:id="registerButton" layoutX="246.0" layoutY="176.0" mnemonicParsing="false" text="Register" />
+            <Button fx:id="cancelButton" layoutX="250.0" layoutY="248.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
+            <Button fx:id="registerButton" layoutX="246.0" layoutY="176.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" text="Register" />
             <Button fx:id="loginButton" layoutX="250.0" layoutY="219.0" mnemonicParsing="false" text="Log-in" />
             <PasswordField layoutX="55.0" layoutY="251.0" />
          </children>
       </AnchorPane>
    </children>
 </AnchorPane>
-

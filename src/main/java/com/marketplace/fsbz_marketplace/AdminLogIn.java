@@ -16,16 +16,16 @@ import java.util.ResourceBundle;
 
 import java.net.URL;
 
-public class UserLogIn {
+public class AdminLogIn {
     @FXML
-    private Button registerButton;
+    private Button registerAdminButton;
     @FXML
-    private Button loginButton;
+    private Button loginAdminButton;
     @FXML
-    private Button cancelButton;
+    private Button cancelAdminButton;
 
-    public void setCancelButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
+    public void setAdminCancelButtonOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) cancelAdminButton.getScene().getWindow();
         stage.close();
 
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("chooseAccountType.fxml"));
@@ -34,11 +34,11 @@ public class UserLogIn {
         stage.setScene(scene);
         stage.show();
     }
-    public void setRegisterButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) registerButton.getScene().getWindow();
+    public void setAdminRegisterButtonOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) registerAdminButton.getScene().getWindow();
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userRegister.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("adminRegister.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 700);
         stage.setTitle("Create new account");
         stage.setScene(scene);
