@@ -5,6 +5,9 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.UserLogIn">
@@ -17,7 +20,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="55.0" layoutY="176.0" />
+            <TextField fx:id="userTextField" layoutX="55.0" layoutY="176.0" text="Username" />
             <Label layoutX="58.0" layoutY="218.0" text="Password">
                <font>
                   <Font size="18.0" />
@@ -25,8 +28,29 @@
             </Label>
             <Button fx:id="cancelButton" layoutX="250.0" layoutY="248.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
             <Button fx:id="registerButton" layoutX="246.0" layoutY="176.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" text="Register" />
-            <Button fx:id="loginButton" layoutX="250.0" layoutY="219.0" mnemonicParsing="false" text="Log-in" />
-            <PasswordField layoutX="55.0" layoutY="251.0" />
+            <Button fx:id="loginButton" layoutX="250.0" layoutY="219.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log-in" />
+            <PasswordField fx:id="enterPasswordField" layoutX="55.0" layoutY="251.0" text="Password" />
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="47.0" layoutY="298.0" prefHeight="0.0" prefWidth="238.0" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9684210419654846" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
          </children>
       </AnchorPane>
    </children>

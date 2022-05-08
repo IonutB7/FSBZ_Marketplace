@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 public class UserRegister {
     @FXML
@@ -26,4 +27,6 @@ public class UserRegister {
         stage.setScene(scene);
         stage.show();
     }
+
+
 }
