@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
@@ -80,7 +81,18 @@ public class UserLogIn {
             while(queryResult.next()){
                 if(queryResult.getInt(1)==1){
                     loginMessageLabel.setText("Congratulation!");
+
+                    Stage stage = (Stage) loginButton.getScene().getWindow();
+                    stage.close();
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("marketplaceInterface.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 600, 700);
+                    stage.setTitle("FS:BZ Marketplace");
+                    stage.setScene(scene);
+                    stage.show();
+
                 }else{
+                    loginMessageLabel.setTextFill(Paint.valueOf("#FF0000"));
                     loginMessageLabel.setText("Invalid login.Please try again.");
 
                 }
