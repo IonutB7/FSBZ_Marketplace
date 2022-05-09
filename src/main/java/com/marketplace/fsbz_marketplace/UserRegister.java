@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Statement;
 
+
 public class UserRegister {
     @FXML
     private Button registrationButton;
@@ -57,6 +58,8 @@ public class UserRegister {
         }
     }
 
+
+
     public void registerUser(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -65,10 +68,12 @@ public class UserRegister {
         String lastname = lastnameTextField.getText();
         String email = emailTextField.getText();
         String username = usernameTextField.getText();
-        String password = setPasswordField.getText();
+        String saltvalue = PassBasedEnc.getSaltvalue(30);
+        String encryptedPass = PassBasedEnc.generateSecurePassword(setPasswordField.getText(), saltvalue);
+        int banned = 1;
 
-        String insertFields = "INSERT INTO user_account(lastname,firstname,email,username,password) VALUES ('";
-        String insertValues = firstname+"','" +lastname+"','" +email+"','" +username+"','" +password+"')";
+        String insertFields = "INSERT INTO user_account(firstname,lastname,email,username,encryptedPass,salt,banned) VALUES ('";
+        String insertValues = firstname+"','" +lastname+"','" +email+"','" +username+"','" +encryptedPass+"','"+saltvalue+"','"+banned+"')";
         String insertToRegister = insertFields + insertValues;
 
         try{

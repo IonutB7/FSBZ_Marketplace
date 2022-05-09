@@ -72,15 +72,19 @@ public class UserLogIn {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
 
-        String verifyLogin = "SELECT count(1) FROM user_account WHERE username = '" + userTextField.getText() +"' AND password = '" + enterPasswordField.getText() + "'";
+        String retriveEncryptedPassStatement ="SELECT encryptedPass,salt,banned FROM user_account WHERE username = '" + userTextField.getText() +"'";
 
         try{
-            Statement statement = connectionDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
+           Statement statement = connectionDB.createStatement();
+           ResultSet queryResult = statement.executeQuery(retriveEncryptedPassStatement);
 
             while(queryResult.next()){
-                if(queryResult.getInt(1)==1){
-                    loginMessageLabel.setText("Congratulation!");
+                String proviedPassword = enterPasswordField.getText();
+                String retrivedEncryptedPass = queryResult.getString("encryptedPass");
+                String retrivedSalt = queryResult.getString("salt");
+                int isBanned = queryResult.getInt("banned");
+
+                if(PassBasedEnc.verifyUserPassword(proviedPassword,retrivedEncryptedPass,retrivedSalt)==true&&isBanned==0){
 
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     stage.close();
@@ -91,9 +95,12 @@ public class UserLogIn {
                     stage.setScene(scene);
                     stage.show();
 
+                }else if(isBanned==1){
+                    loginMessageLabel.setTextFill(Paint.valueOf("#FF0000"));
+                    loginMessageLabel.setText("The user is banned.");
                 }else{
                     loginMessageLabel.setTextFill(Paint.valueOf("#FF0000"));
-                    loginMessageLabel.setText("Invalid login.Please try again.");
+                    loginMessageLabel.setText("Invalid username or password.Please try again.");
 
                 }
             }
