@@ -1,15 +1,14 @@
-package com.marketplace.fsbz_marketplace;
+package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 
 import java.io.File;
@@ -17,7 +16,7 @@ import java.util.ResourceBundle;
 
 import java.net.URL;
 
-public class ChooseAccountType implements Initializable {
+public class ChooseAccountTypeController implements Initializable {
     @FXML
     private Button userButton;
     @FXML

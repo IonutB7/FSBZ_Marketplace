@@ -1,16 +1,16 @@
-package com.marketplace.fsbz_marketplace;
+package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class AdminRegister {
+public class AdminRegisterController {
     @FXML
     private Button registrationAdminButton;
     @FXML

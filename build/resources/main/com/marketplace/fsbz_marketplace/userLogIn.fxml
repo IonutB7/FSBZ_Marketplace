@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.UserLogIn">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.UserLogInController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="250.0" />
       <AnchorPane layoutX="250.0" prefHeight="400.0" prefWidth="350.0">
@@ -27,7 +27,7 @@
             <Button fx:id="registerButton" layoutX="246.0" layoutY="176.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" text="Register" />
             <Button fx:id="loginButton" layoutX="250.0" layoutY="219.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log-in" />
             <PasswordField fx:id="enterPasswordField" layoutX="55.0" layoutY="251.0" promptText="Password" />
-            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="47.0" layoutY="298.0" prefHeight="0.0" prefWidth="238.0" textAlignment="CENTER" textFill="#08f500">
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="47.0" layoutY="298.0" prefHeight="0.0" prefWidth="238.0" textAlignment="CENTER" textFill="#FF0000">
                <font>
                   <Font size="13.0" />
                </font>

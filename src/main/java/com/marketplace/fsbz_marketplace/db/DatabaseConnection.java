@@ -1,4 +1,4 @@
-package com.marketplace.fsbz_marketplace;
+package com.marketplace.fsbz_marketplace.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

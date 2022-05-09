@@ -1,5 +1,6 @@
-package com.marketplace.fsbz_marketplace;
+package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MarketplaceInterface {
+public class MarketplaceInterfaceController {
 
     @FXML
     private Button logOutButton;

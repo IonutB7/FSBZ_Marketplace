@@ -1,4 +1,4 @@
-package com.marketplace.fsbz_marketplace;
+package com.marketplace.fsbz_marketplace.utilities;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -9,7 +9,7 @@ import java.util.Random;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-class PassBasedEnc
+public class PassBasedEnc
 {
     /* Declaration of variables */
     private static final Random random = new SecureRandom();
