@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="551.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MyInventoryController">
+   <children>
+      <TableView fx:id="inventoryTableView" layoutX="50.0" layoutY="56.0" prefHeight="441.0" prefWidth="834.0">
+        <columns>
+          <TableColumn fx:id="itemNumberColumn" prefWidth="84.79995727539062" text="Item Number" />
+          <TableColumn fx:id="inventoryIdColumn" prefWidth="119.19998168945312" text="Inventory Id" />
+            <TableColumn fx:id="nameColumn" prefWidth="121.60005187988281" text="Name" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="114.39996337890625" text="Description" />
+            <TableColumn fx:id="categoryColumn" prefWidth="103.199951171875" text="Category" />
+            <TableColumn fx:id="wearColumn" prefWidth="72.0" text="Wear" />
+            <TableColumn fx:id="priceColumn" prefWidth="125.5999755859375" text="Price" />
+            <TableColumn fx:id="quantityColumn" prefWidth="97.60009765625" text="Quantity" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

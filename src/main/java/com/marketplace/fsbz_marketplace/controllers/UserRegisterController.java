@@ -52,7 +52,7 @@ public class UserRegisterController {
         stage.show();
     }
 
-    public void registerButtonOnAction(ActionEvent event){
+    public void registerButtonOnAction(ActionEvent event) throws IOException {
         if(setPasswordField.getText().equals(confirmPasswordField.getText())){
 
             String firstname = firstnameTextField.getText();
@@ -64,7 +64,14 @@ public class UserRegisterController {
 
             UserServices.registerUser(firstname, lastname, email, username, saltvalue, encryptedPass);
 
-            registrationMessageLabel.setText("The user has been registered.");
+            Stage stage = (Stage) registrationButton.getScene().getWindow();
+            stage.close();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 700);
+            stage.setTitle("Account Login");
+            stage.setScene(scene);
+            stage.show();
 
         }else{
             confirmPasswordLabel.setText("Password does not match");
