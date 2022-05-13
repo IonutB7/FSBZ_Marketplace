@@ -4,6 +4,7 @@ import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.StoreInventoryHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -45,22 +46,10 @@ public class StoreInventoryController implements Initializable {
     private Button userWalletButton;
 
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) userWalletButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userWallet.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(userWalletButton,"userWallet.fxml",600,700);
     }
     public void setGoBackButtonOnAction(ActionEvent event)  throws IOException {
-        Stage stage = (Stage) storeGoBackButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("marketplaceInterface.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(storeGoBackButton,"marketplaceInterface.fxml",600,700);
     }
 
 

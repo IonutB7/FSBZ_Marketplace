@@ -1,6 +1,7 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,34 +37,22 @@ public class ChooseAccountTypeController implements Initializable {
 
     public void userButtonOnAction() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            Stage stage = new Stage();
-            stage.setTitle("User log-in");
-            stage.setScene(scene);
-            stage.show();
 
-            Stage stage1 = (Stage) userButton.getScene().getWindow();
-            stage1.close();
+            FxmlUtilities.sceneTransiton(userButton,"userLogIn.fxml",600,700);
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
+            Platform.exit();
         }
     }
     public void adminButtonOnAction() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("adminLogIn.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            Stage stage = new Stage();
-            stage.setTitle("Admin log-in");
-            stage.setScene(scene);
-            stage.show();
-
-            Stage stage1 = (Stage) adminButton.getScene().getWindow();
-            stage1.close();
+            FxmlUtilities.sceneTransiton(adminButton,"adminLogIn.fxml",600,700);
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
+            Platform.exit();
         }
     }
 

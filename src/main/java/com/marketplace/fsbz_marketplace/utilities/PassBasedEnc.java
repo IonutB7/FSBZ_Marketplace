@@ -11,13 +11,13 @@ import javax.crypto.spec.PBEKeySpec;
 
 public class PassBasedEnc
 {
-    /* Declaration of variables */
+
     private static final Random random = new SecureRandom();
     private static final String characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final int iterations = 10000;
     private static final int keylength = 256;
 
-    /* Method to generate the salt value. */
+
     public static String getSaltvalue(int length)
     {
         String characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -32,7 +32,7 @@ public class PassBasedEnc
 
     }
 
-    /* Method to generate the hash value */
+
     public static byte[] hash(char[] password, byte[] salt)
     {
         PBEKeySpec spec = new PBEKeySpec(password, salt, iterations, keylength);
@@ -52,7 +52,7 @@ public class PassBasedEnc
         }
     }
 
-    /* Method to encrypt the password using the original password and salt value. */
+
     public static String generateSecurePassword(String password, String salt)
     {
         String finalval = null;
@@ -64,16 +64,15 @@ public class PassBasedEnc
         return finalval;
     }
 
-    /* Method to verify if both password matches or not */
+
     public static boolean verifyUserPassword(String providedPassword,
                                              String securedPassword, String salt)
     {
         boolean finalval = false;
 
-        /* Generate New secure password with the same salt */
+
         String newSecurePassword = generateSecurePassword(providedPassword, salt);
 
-        /* Check if two passwords are equal */
         finalval = newSecurePassword.equalsIgnoreCase(securedPassword);
 
         return finalval;

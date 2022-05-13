@@ -1,5 +1,8 @@
 package com.marketplace.fsbz_marketplace.model;
 
+import javafx.beans.property.FloatProperty;
+import javafx.beans.property.SimpleFloatProperty;
+
 import java.util.*;
 
 public class User {
@@ -8,7 +11,7 @@ public class User {
     private String email;
     private String username;
 
-    private float  balance;
+    private SimpleFloatProperty balance = new SimpleFloatProperty(this, "balance");
     private ArrayList<Item> userInventory;
 
     private ArrayList<Transaction> userTransationList;
@@ -49,11 +52,15 @@ public class User {
     }
 
     public float getBalance() {
-        return balance;
+        return balance.get();
     }
 
     public void setBalance(float balance) {
-        this.balance = balance;
+        this.balance.set(balance);
+    }
+
+    public FloatProperty balanceProperty(){
+        return balance;
     }
 
     public ArrayList<Item> getUserInventory() {

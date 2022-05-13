@@ -4,12 +4,12 @@ import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.BannedUserException;
 import com.marketplace.fsbz_marketplace.exceptions.InexistentUserException;
 import com.marketplace.fsbz_marketplace.exceptions.UserPasswordInvalidException;
-import com.marketplace.fsbz_marketplace.model.Item;
-import com.marketplace.fsbz_marketplace.model.StoreInventoryHolder;
-import com.marketplace.fsbz_marketplace.model.User;
+import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
-import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
+import com.marketplace.fsbz_marketplace.services.WalletServices;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -44,7 +44,7 @@ public class UserLogInController {
 
 
     @FXML
-    private void setUserInstance(ActionEvent event,String username) {
+    private void setUserInstance(String username) {
         User currentUser = new User();
         UserServices.initializeUser(currentUser,username);
         InventoryServices.initializeUserInventory(currentUser, currentUser.getInventoryId());
@@ -52,32 +52,26 @@ public class UserLogInController {
         holder.setUser(currentUser);
     }
 
-    private void setStoreInvetoryInstance(ActionEvent event) {
+    private void setStoreInvetoryInstance() {
         ArrayList<Item> storeInventory = new ArrayList<>();
         InventoryServices.initializeStoreInventory(storeInventory);
         StoreInventoryHolder holder = StoreInventoryHolder.getInstance();
         holder.setStoreInventory(storeInventory);
     }
 
-    public void setCancelButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage)cancelButton.getScene().getWindow();
-        stage.close();
+    private void setStoreCouponList(){
+        ArrayList<Coupon> storeCouponList = new ArrayList<>();
+        WalletServices.loadStoreCoupons(storeCouponList);
+        StoreCouponHolder holder = StoreCouponHolder.getInstance();
+        holder.setStoreCouponList(storeCouponList);
+    }
 
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("chooseAccountType.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+    public void setCancelButtonOnAction(ActionEvent event) throws IOException {
+
+        FxmlUtilities.sceneTransiton(cancelButton,"chooseAccountType.fxml",600,700);
     }
     public void setRegisterButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) registerButton.getScene().getWindow();
-        stage.close();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userRegister.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(registerButton,"userRegister.fxml",600,700);
     }
 
 
@@ -87,17 +81,10 @@ public class UserLogInController {
             try{
                 if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText(),loginButton)==true){
 
-                    setUserInstance(event,userTextField.getText());
-                    setStoreInvetoryInstance(event);
-
-                    Stage stage = (Stage) cancelButton.getScene().getWindow();
-                    stage.close();
-
-                    FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("marketplaceInterface.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-                    stage.setTitle("FZ:BZ Marketplace");
-                    stage.setScene(scene);
-                    stage.show();
+                    setUserInstance(userTextField.getText());
+                    setStoreInvetoryInstance();
+                    setStoreCouponList();
+                    FxmlUtilities.sceneTransiton(loginButton,"marketplaceInterface.fxml",600,700);
                 }
             }catch(InexistentUserException exception1){
                 loginMessageLabel.setText(exception1.getMessage());
@@ -108,6 +95,7 @@ public class UserLogInController {
             }catch (Exception e){
                 e.printStackTrace();
                 e.getCause();
+                Platform.exit();
             }
 
         }else {

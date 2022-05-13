@@ -1,6 +1,7 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,24 +20,10 @@ public class AdminLogInController {
     private Button cancelAdminButton;
 
     public void setAdminCancelButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) cancelAdminButton.getScene().getWindow();
-        stage.close();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("chooseAccountType.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(cancelAdminButton,"chooseAccountType.fxml",600,700);
     }
     public void setAdminRegisterButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) registerAdminButton.getScene().getWindow();
-        stage.close();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("adminRegister.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(registerAdminButton,"adminRegister.fxml",600,700);
     }
 
 }

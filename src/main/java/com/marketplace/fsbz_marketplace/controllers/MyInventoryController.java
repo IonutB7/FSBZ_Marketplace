@@ -4,6 +4,7 @@ import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,23 +43,11 @@ public class MyInventoryController implements Initializable {
     private Button userWalletButton;
 
     public void setGoBackButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) userGoBackButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("marketplaceInterface.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(userGoBackButton,"marketplaceInterface.fxml",600,700);
     }
 
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) userWalletButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userWallet.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(userWalletButton,"userWallet.fxml",600,700);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){

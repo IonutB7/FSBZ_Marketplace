@@ -2,6 +2,7 @@ package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.services.UserServices;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import javafx.event.ActionEvent;
@@ -15,8 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Statement;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class UserRegisterController {
@@ -24,8 +26,6 @@ public class UserRegisterController {
     private Button registrationButton;
     @FXML
     private Label confirmPasswordLabel;
-    @FXML
-    private Label registrationMessageLabel;
     @FXML
     private TextField firstnameTextField;
     @FXML
@@ -41,15 +41,8 @@ public class UserRegisterController {
     @FXML
     private Button cancelButton;
 
-    public void setCancelButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+    public void setCancelButtonOnAction(ActionEvent event) throws IOException, InterruptedException {
+        FxmlUtilities.sceneTransiton(cancelButton,"userLogIn.fxml",600,700);
     }
 
     public void registerButtonOnAction(ActionEvent event) throws IOException {
@@ -63,15 +56,7 @@ public class UserRegisterController {
             String encryptedPass = PassBasedEnc.generateSecurePassword(setPasswordField.getText(), saltvalue);
 
             UserServices.registerUser(firstname, lastname, email, username, saltvalue, encryptedPass);
-
-            Stage stage = (Stage) registrationButton.getScene().getWindow();
-            stage.close();
-
-            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-            stage.setTitle("FZ:BZ Marketplace");
-            stage.setScene(scene);
-            stage.show();
+            FxmlUtilities.sceneTransiton(registrationButton,"userLogIn.fxml",600,700);
 
         }else{
             confirmPasswordLabel.setText("Password does not match");

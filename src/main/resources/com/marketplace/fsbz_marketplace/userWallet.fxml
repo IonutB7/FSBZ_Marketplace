@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.WalletController">
+<AnchorPane prefHeight="458.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.WalletController">
    <children>
       <Button fx:id="storeGoBackButton" layoutX="71.0" layoutY="344.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go back" />
+      <Label fx:id="balanceValueLabel" layoutX="222.0" layoutY="69.0" prefHeight="26.0" prefWidth="122.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="balanceLabel" layoutX="93.0" layoutY="70.0" prefHeight="27.0" prefWidth="122.0" text="Balance:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="codeTextField" layoutX="215.0" layoutY="173.0" />
+      <Label fx:id="enterCodeLabel" layoutX="20.0" layoutY="172.0" prefHeight="27.0" prefWidth="122.0" text="Enter code:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="validateCodeButton" layoutX="397.0" layoutY="173.0" mnemonicParsing="false" onAction="#validateCodeButtonOnAction" text="Validate code" />
+      <Label fx:id="enterAmountLabel" layoutX="20.0" layoutY="225.0" prefHeight="34.0" prefWidth="196.0" text="Enter withdraw amount:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="amountTextField" layoutX="215.0" layoutY="229.0" />
+      <Button fx:id="withdrawButton" layoutX="397.0" layoutY="229.0" mnemonicParsing="false" onAction="#withdrawButtonOnAction" text="Withdraw " />
+      <Label fx:id="codeMessageLabel" layoutX="495.0" layoutY="176.0" prefHeight="26.0" prefWidth="196.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="withdrawMessageLabel" layoutX="478.0" layoutY="229.0" prefHeight="26.0" prefWidth="196.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

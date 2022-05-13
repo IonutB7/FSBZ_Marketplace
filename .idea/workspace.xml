@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-3:Added User Inventory and Items System">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/WalletController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/StoreInventoryHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/storeInventory.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userWallet.fxml" afterDir="false" />
+    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-4:Created item selection and Store Inventory">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/exceptions/InexistentCouponException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/exceptions/InsufficientAmountException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/exceptions/InvalidCouponException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/exceptions/WalletExceptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/Coupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/StoreCouponHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/WalletServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -20,31 +21,36 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminRegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminRegisterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/ChooseAccountTypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/ChooseAccountTypeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserLogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserLogInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserRegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserRegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/WalletController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/WalletController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/InventoryServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/InventoryServices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/utilities/PassBasedEnc.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/utilities/PassBasedEnc.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/chooseAccountType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/chooseAccountType.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userInventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userInventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userRegister.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userRegister.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userWallet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userWallet.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminRegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/ChooseAccountTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/ChooseAccountTypeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserLogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/WalletController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/InventoryServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/InventoryServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/UserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/chooseAccountType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/chooseAccountType.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userInventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userInventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/PassBasedEnc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/PassBasedEnc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userRegister.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userRegister.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userWallet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userWallet.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +163,8 @@
       <workItem from="1652205342536" duration="1049000" />
       <workItem from="1652275825900" duration="19228000" />
       <workItem from="1652297032009" duration="4109000" />
-      <workItem from="1652368858289" duration="11199000" />
+      <workItem from="1652368858289" duration="13803000" />
+      <workItem from="1652445569812" duration="14099000" />
     </task>
     <task id="LOCAL-00001" summary="Another Test">
       <created>1651684339335</created>
@@ -187,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652298128658</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="CM-4:Created item selection and Store Inventory">
+      <created>1652442830303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652442830303</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,17 +236,7 @@
     <MESSAGE value="CM-1:" />
     <MESSAGE value="CM-1:The created acount its stored in the database" />
     <MESSAGE value="CM-3:Added User Inventory and Items System" />
-    <option name="LAST_COMMIT_MESSAGE" value="CM-3:Added User Inventory and Items System" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/WalletController.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="CM-4:Created item selection and Store Inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="CM-4:Created item selection and Store Inventory" />
   </component>
 </project>

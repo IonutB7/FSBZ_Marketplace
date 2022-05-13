@@ -3,6 +3,7 @@ package com.marketplace.fsbz_marketplace.controllers;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.model.UserHolder;
+import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,43 +26,19 @@ public class MarketplaceInterfaceController {
 
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) storeInventoryButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userInventory.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(storeInventoryButton,"userInventory.fxml",600,700);
     }
 
     public void setStoreInventoryButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) myInventoryButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("storeInventory.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(myInventoryButton,"storeInventory.fxml",600,700);
     }
 
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) logOutButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(logOutButton,"userLogIn.fxml",600,700);
     }
 
     public void setMyWalletButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) myWalletButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userWallet.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("FZ:BZ Marketplace");
-        stage.setScene(scene);
-        stage.show();
+        FxmlUtilities.sceneTransiton(myWalletButton,"userWallet.fxml",600,700);
     }
 
 }

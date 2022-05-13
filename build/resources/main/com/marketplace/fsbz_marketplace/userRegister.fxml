@@ -77,11 +77,6 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Label id="registrationMessageLabel" fx:id="registrationMessageLabel" alignment="CENTER" layoutX="91.0" layoutY="115.0" prefHeight="40.0" prefWidth="413.0" textFill="#00ff14">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

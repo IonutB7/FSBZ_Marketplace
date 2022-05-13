@@ -1,24 +1,38 @@
 package com.marketplace.fsbz_marketplace.services;
 
-import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.*;
-import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
 
 public class UserServices {
 
+
+    public static void updateUserBalance(float newBalanceValue,int accId){
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String updateUserBalance = "UPDATE user_account SET balance ="+newBalanceValue+" WHERE account_id ="+accId+";";
+
+        try{
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(updateUserBalance);
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     public static void initializeUser(User currentUser,String username) {
 
@@ -140,4 +154,6 @@ public class UserServices {
             }
         return false;
     }
+
+
 }
