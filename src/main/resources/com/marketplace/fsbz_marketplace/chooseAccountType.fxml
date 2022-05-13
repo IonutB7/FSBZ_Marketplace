@@ -30,6 +30,7 @@
                 </Label>
                 <Button fx:id="userButton" layoutX="144.0" layoutY="155.0" mnemonicParsing="false" onAction="#userButtonOnAction" text="User" />
                 <Button fx:id="adminButton" layoutX="138.0" layoutY="208.0" mnemonicParsing="false" onAction="#adminButtonOnAction" text="Admin" />
+            <Button fx:id="exitButton" layoutX="146.0" layoutY="265.0" mnemonicParsing="false" onAction="#exitButtonOnAction" text="Exit" />
             </children>
         </AnchorPane>
     </right>

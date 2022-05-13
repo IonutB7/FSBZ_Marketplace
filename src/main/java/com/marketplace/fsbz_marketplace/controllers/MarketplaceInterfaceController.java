@@ -19,15 +19,27 @@ public class MarketplaceInterfaceController {
     @FXML
     private Button myInventoryButton;
     @FXML private Button logOutButton;
+    @FXML private Button storeInventoryButton;
 
+    @FXML private Button myWalletButton;
 
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) myInventoryButton.getScene().getWindow();
+        Stage stage = (Stage) storeInventoryButton.getScene().getWindow();
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userInventory.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("My inventory");
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setStoreInventoryButtonOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) myInventoryButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("storeInventory.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }
@@ -35,15 +47,21 @@ public class MarketplaceInterfaceController {
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) logOutButton.getScene().getWindow();
         stage.close();
-
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("User Log-in");
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }
 
-    private User receiveUserData() {
-        return UserHolder.getInstance().getUser();
+    public void setMyWalletButtonOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) myWalletButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userWallet.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
     }
+
 }

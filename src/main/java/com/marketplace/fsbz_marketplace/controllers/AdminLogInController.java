@@ -24,7 +24,7 @@ public class AdminLogInController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("chooseAccountType.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Choose Account Type");
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }
@@ -34,7 +34,7 @@ public class AdminLogInController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("adminRegister.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("Create new account");
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }

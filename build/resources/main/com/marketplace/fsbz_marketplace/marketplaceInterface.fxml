@@ -7,27 +7,23 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MarketplaceInterfaceController">
    <children>
       <Button fx:id="logOutButton" layoutX="518.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Log-out" />
-      <Button fx:id="myInventoryButton" layoutX="133.0" layoutY="92.0" mnemonicParsing="false" onAction="#setMyInventoryButtonOnAction" prefHeight="10.0" prefWidth="334.0" text="My Inventory">
+      <Button fx:id="myInventoryButton" layoutX="133.0" layoutY="160.0" mnemonicParsing="false" onAction="#setMyInventoryButtonOnAction" prefHeight="10.0" prefWidth="334.0" text="My Inventory">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="133.0" layoutY="207.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="334.0" text="Store">
+      <Button fx:id="storeInventoryButton" layoutX="133.0" layoutY="207.0" mnemonicParsing="false" onAction="#setStoreInventoryButtonOnAction" prefHeight="2.0" prefWidth="334.0" text="Store">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="133.0" layoutY="148.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="334.0" text="My Wallet">
+      <Button fx:id="myWalletButton" layoutX="482.0" layoutY="24.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="10.0" prefWidth="101.0" text="My Wallet" />
+      <Button layoutX="133.0" layoutY="256.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="334.0" text="Ledger">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="133.0" layoutY="264.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="334.0" text="Ledger">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="492.0" layoutY="14.0" mnemonicParsing="false" text="Help Section" />
-      <Button layoutX="487.0" layoutY="48.0" mnemonicParsing="false" text="Report Section" />
+      <Button layoutX="491.0" layoutY="57.0" mnemonicParsing="false" text="Help Section" />
+      <Button layoutX="485.0" layoutY="93.0" mnemonicParsing="false" text="Report Section" />
    </children>
 </AnchorPane>

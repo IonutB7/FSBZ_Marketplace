@@ -47,7 +47,7 @@ public class UserRegisterController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("User log-in");
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }
@@ -69,7 +69,7 @@ public class UserRegisterController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userLogIn.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-            stage.setTitle("Account Login");
+            stage.setTitle("FZ:BZ Marketplace");
             stage.setScene(scene);
             stage.show();
 

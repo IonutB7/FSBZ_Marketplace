@@ -38,12 +38,14 @@ public class UserServices {
                 int retrivedInventoryId=queryResult.getInt("inventory_id");
                 String retrivedEmail=queryResult.getString("email");
                 String retrivedUsername=queryResult.getString("username");
+                float retrivedBalance=queryResult.getFloat("balance");
 
 
                 currentUser.setAcountId(retrivedAcountId);
                 currentUser.setInventoryId(retrivedInventoryId);
                 currentUser.setEmail(retrivedEmail);
                 currentUser.setUsername(retrivedUsername);
+                currentUser.setBalance(retrivedBalance);
 
             }
 
@@ -85,11 +87,12 @@ public class UserServices {
 
         int banned = 0;
         int adminAproved = 1;
+        float balance = 1000;
         int inventory_id=retriveLastUserId(connectDB);
         inventory_id++;
 
-        String insertFields = "INSERT INTO user_account(inventory_id,firstname,lastname,email,username,encryptedPass,salt,banned,adminAproved) VALUES ('";
-        String insertValues = inventory_id+"','"+firstname+"','" +lastname+"','" +email+"','" +username+"','" +encryptedPass+"','"+saltvalue+"','"+banned+"','"+adminAproved+"')";
+        String insertFields = "INSERT INTO user_account(inventory_id,firstname,lastname,email,username,encryptedPass,salt,balance,banned,adminAproved) VALUES ('";
+        String insertValues = inventory_id+"','"+firstname+"','" +lastname+"','" +email+"','" +username+"','" +encryptedPass+"','"+saltvalue+"','"+balance+"','"+banned+"','"+adminAproved+"')";
         String insertToRegister = insertFields + insertValues;
 
         try{

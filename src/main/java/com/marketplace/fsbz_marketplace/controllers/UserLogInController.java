@@ -4,6 +4,8 @@ import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.BannedUserException;
 import com.marketplace.fsbz_marketplace.exceptions.InexistentUserException;
 import com.marketplace.fsbz_marketplace.exceptions.UserPasswordInvalidException;
+import com.marketplace.fsbz_marketplace.model.Item;
+import com.marketplace.fsbz_marketplace.model.StoreInventoryHolder;
 import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.UserHolder;
@@ -22,7 +24,7 @@ import javafx.event.ActionEvent;
 import com.marketplace.fsbz_marketplace.services.UserServices;
 
 import java.io.IOException;
-import java.sql.Connection;
+import java.util.ArrayList;
 
 
 public class UserLogInController {
@@ -50,13 +52,20 @@ public class UserLogInController {
         holder.setUser(currentUser);
     }
 
+    private void setStoreInvetoryInstance(ActionEvent event) {
+        ArrayList<Item> storeInventory = new ArrayList<>();
+        InventoryServices.initializeStoreInventory(storeInventory);
+        StoreInventoryHolder holder = StoreInventoryHolder.getInstance();
+        holder.setStoreInventory(storeInventory);
+    }
+
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
         stage.close();
 
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("chooseAccountType.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Account Login");
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }
@@ -66,7 +75,7 @@ public class UserLogInController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userRegister.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 700);
-        stage.setTitle("Create new account");
+        stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
     }
@@ -79,6 +88,7 @@ public class UserLogInController {
                 if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText(),loginButton)==true){
 
                     setUserInstance(event,userTextField.getText());
+                    setStoreInvetoryInstance(event);
 
                     Stage stage = (Stage) cancelButton.getScene().getWindow();
                     stage.close();

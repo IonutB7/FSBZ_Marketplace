@@ -1,6 +1,7 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +24,8 @@ public class ChooseAccountTypeController implements Initializable {
     private Button adminButton;
     @FXML
     private ImageView logoImageView;
+    @FXML
+    private Button exitButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,12 +59,18 @@ public class ChooseAccountTypeController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
-            Stage stage1 = (Stage) userButton.getScene().getWindow();
+            Stage stage1 = (Stage) adminButton.getScene().getWindow();
             stage1.close();
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }
     }
+
+    public void exitButtonOnAction() {
+            Platform.exit();
+    }
+
+
 
 }

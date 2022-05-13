@@ -7,6 +7,8 @@ public class User {
     private int inventoryId;
     private String email;
     private String username;
+
+    private float  balance;
     private ArrayList<Item> userInventory;
 
     private ArrayList<Transaction> userTransationList;
@@ -44,6 +46,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 
     public ArrayList<Item> getUserInventory() {
