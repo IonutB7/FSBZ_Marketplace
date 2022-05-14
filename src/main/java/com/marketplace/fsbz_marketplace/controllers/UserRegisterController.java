@@ -42,7 +42,7 @@ public class UserRegisterController {
     private Button cancelButton;
 
     public void setCancelButtonOnAction(ActionEvent event) throws IOException, InterruptedException {
-        FxmlUtilities.sceneTransiton(cancelButton,"interfaces/userLogIn.fxml",600,700);
+        FxmlUtilities.sceneTransiton(cancelButton,"interfaces/userLogIn.fxml",1280,720);
     }
 
     public void registerButtonOnAction(ActionEvent event) throws IOException {
@@ -56,7 +56,7 @@ public class UserRegisterController {
             String encryptedPass = PassBasedEnc.generateSecurePassword(setPasswordField.getText(), saltvalue);
 
             UserServices.registerUser(firstname, lastname, email, username, saltvalue, encryptedPass);
-            FxmlUtilities.sceneTransiton(registrationButton,"interfaces/userLogIn.fxml",600,700);
+            FxmlUtilities.sceneTransiton(registrationButton,"interfaces/userLogIn.fxml",1280,720);
 
         }else{
             confirmPasswordLabel.setText("Password does not match");

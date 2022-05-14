@@ -8,8 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -20,13 +22,16 @@ import java.net.URL;
 
 public class ChooseAccountTypeController implements Initializable {
     @FXML
-    private Button userButton;
-    @FXML
-    private Button adminButton;
-    @FXML
     private ImageView logoImageView;
     @FXML
-    private Button exitButton;
+    private AnchorPane userAnchor;
+    @FXML
+    private AnchorPane adminAnchor;
+    @FXML
+    private Label chooseAccType;
+    @FXML
+    private Label accType;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,10 +40,10 @@ public class ChooseAccountTypeController implements Initializable {
         logoImageView.setImage(logoImage);
     }
 
-    public void userButtonOnAction() {
+    public void userAnchorOnAction() {
         try {
 
-            FxmlUtilities.sceneTransiton(userButton,"interfaces/userLogIn.fxml",600,700);
+            FxmlUtilities.sceneTransiton1(userAnchor,"interfaces/userLogIn.fxml",1280,720);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,9 +51,9 @@ public class ChooseAccountTypeController implements Initializable {
             Platform.exit();
         }
     }
-    public void adminButtonOnAction() {
+    public void adminAnchorOnAction() {
         try {
-            FxmlUtilities.sceneTransiton(adminButton,"interfaces/adminLogIn.fxml",600,700);
+            FxmlUtilities.sceneTransiton1(adminAnchor,"interfaces/adminLogIn.fxml",1280,720);
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
@@ -56,9 +61,6 @@ public class ChooseAccountTypeController implements Initializable {
         }
     }
 
-    public void exitButtonOnAction() {
-            Platform.exit();
-    }
 
 
 

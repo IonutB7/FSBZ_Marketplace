@@ -46,10 +46,10 @@ public class StoreInventoryController implements Initializable {
     private Button userWalletButton;
 
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",600,700);
+        FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",1280,720);
     }
     public void setGoBackButtonOnAction(ActionEvent event)  throws IOException {
-        FxmlUtilities.sceneTransiton(storeGoBackButton,"interfaces/marketplaceInterface.fxml",600,700);
+        FxmlUtilities.sceneTransiton(storeGoBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
     }
 
 

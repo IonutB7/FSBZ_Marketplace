@@ -43,11 +43,11 @@ public class MyInventoryController implements Initializable {
     private Button userWalletButton;
 
     public void setGoBackButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(userGoBackButton,"interfaces/marketplaceInterface.fxml",600,700);
+        FxmlUtilities.sceneTransiton(userGoBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
     }
 
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",600,700);
+        FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",1280,720);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
