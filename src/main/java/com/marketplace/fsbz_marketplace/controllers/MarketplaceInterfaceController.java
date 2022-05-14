@@ -26,19 +26,19 @@ public class MarketplaceInterfaceController {
 
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(storeInventoryButton,"userInventory.fxml",600,700);
+        FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/userInventory.fxml",600,700);
     }
 
     public void setStoreInventoryButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(myInventoryButton,"storeInventory.fxml",600,700);
+        FxmlUtilities.sceneTransiton(myInventoryButton,"interfaces/storeInventory.fxml",600,700);
     }
 
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(logOutButton,"userLogIn.fxml",600,700);
+        FxmlUtilities.sceneTransiton(logOutButton,"interfaces/userLogIn.fxml",600,700);
     }
 
     public void setMyWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(myWalletButton,"userWallet.fxml",600,700);
+        FxmlUtilities.sceneTransiton(myWalletButton,"interfaces/userWallet.fxml",600,700);
     }
 
 }

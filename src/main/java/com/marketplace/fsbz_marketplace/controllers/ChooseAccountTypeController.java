@@ -30,7 +30,7 @@ public class ChooseAccountTypeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        File logoFile = new File("images/logo.png");
+        File logoFile = new File("src/main/resources/com/marketplace/fsbz_marketplace/images/logo.png");
         Image logoImage = new Image(logoFile.toURI().toString());
         logoImageView.setImage(logoImage);
     }
@@ -38,7 +38,7 @@ public class ChooseAccountTypeController implements Initializable {
     public void userButtonOnAction() {
         try {
 
-            FxmlUtilities.sceneTransiton(userButton,"userLogIn.fxml",600,700);
+            FxmlUtilities.sceneTransiton(userButton,"interfaces/userLogIn.fxml",600,700);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,7 +48,7 @@ public class ChooseAccountTypeController implements Initializable {
     }
     public void adminButtonOnAction() {
         try {
-            FxmlUtilities.sceneTransiton(adminButton,"adminLogIn.fxml",600,700);
+            FxmlUtilities.sceneTransiton(adminButton,"interfaces/adminLogIn.fxml",600,700);
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();

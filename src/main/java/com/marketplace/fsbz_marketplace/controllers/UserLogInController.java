@@ -68,10 +68,10 @@ public class UserLogInController {
 
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
 
-        FxmlUtilities.sceneTransiton(cancelButton,"chooseAccountType.fxml",600,700);
+        FxmlUtilities.sceneTransiton(cancelButton,"interfaces/chooseAccountType.fxml",600,700);
     }
     public void setRegisterButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(registerButton,"userRegister.fxml",600,700);
+        FxmlUtilities.sceneTransiton(registerButton,"interfaces/userRegister.fxml",600,700);
     }
 
 
@@ -84,7 +84,7 @@ public class UserLogInController {
                     setUserInstance(userTextField.getText());
                     setStoreInvetoryInstance();
                     setStoreCouponList();
-                    FxmlUtilities.sceneTransiton(loginButton,"marketplaceInterface.fxml",600,700);
+                    FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",600,700);
                 }
             }catch(InexistentUserException exception1){
                 loginMessageLabel.setText(exception1.getMessage());

@@ -20,10 +20,10 @@ public class AdminLogInController {
     private Button cancelAdminButton;
 
     public void setAdminCancelButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(cancelAdminButton,"chooseAccountType.fxml",600,700);
+        FxmlUtilities.sceneTransiton(cancelAdminButton,"interfaces/chooseAccountType.fxml",600,700);
     }
     public void setAdminRegisterButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(registerAdminButton,"adminRegister.fxml",600,700);
+        FxmlUtilities.sceneTransiton(registerAdminButton,"interfaces/adminRegister.fxml",600,700);
     }
 
 }

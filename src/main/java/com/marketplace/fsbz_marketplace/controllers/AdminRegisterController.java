@@ -18,6 +18,6 @@ public class AdminRegisterController {
     private Button cancelAdminButton;
 
     public void setCancelAdminButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(cancelAdminButton,"adminLogIn.fxml",600,700);
+        FxmlUtilities.sceneTransiton(cancelAdminButton,"interfaces/adminLogIn.fxml",600,700);
     }
 }

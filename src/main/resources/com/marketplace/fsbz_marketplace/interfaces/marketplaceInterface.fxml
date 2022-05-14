@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MarketplaceInterfaceController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MarketplaceInterfaceController">
    <children>
       <Button fx:id="logOutButton" layoutX="518.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Log-out" />
       <Button fx:id="myInventoryButton" layoutX="133.0" layoutY="160.0" mnemonicParsing="false" onAction="#setMyInventoryButtonOnAction" prefHeight="10.0" prefWidth="334.0" text="My Inventory">

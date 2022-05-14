@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.ChooseAccountTypeController">
+    <right>
+        <AnchorPane prefHeight="720.0" prefWidth="759.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="318.0" layoutY="87.0" prefHeight="43.0" prefWidth="160.0" text="Select account type">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            <Button fx:id="exitButton" layoutX="380.0" layoutY="635.0" mnemonicParsing="false" onAction="#exitButtonOnAction" text="Exit" />
+            <AnchorPane layoutX="155.0" layoutY="213.0" prefHeight="313.0" prefWidth="200.0">
+               <children>
+                      <Button fx:id="userButton" layoutX="81.0" layoutY="274.0" mnemonicParsing="false" onAction="#userButtonOnAction" text="User" />
+                  <ImageView fitHeight="245.0" fitWidth="175.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="442.0" layoutY="213.0" prefHeight="313.0" prefWidth="200.0">
+               <children>
+                      <Button fx:id="adminButton" layoutX="75.0" layoutY="274.0" mnemonicParsing="false" onAction="#adminButtonOnAction" text="Admin" />
+                  <ImageView fitHeight="237.0" fitWidth="188.0" layoutX="6.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/admin.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+    </right>
+   <center>
+        <AnchorPane prefHeight="720.0" prefWidth="525.0" style="-fx-background-color: #747474;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="logoImageView" fitHeight="279.0" fitWidth="505.0" layoutX="10.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+   </center>
+</BorderPane>

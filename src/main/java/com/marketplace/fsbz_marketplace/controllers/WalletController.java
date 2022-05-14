@@ -81,6 +81,6 @@ public class WalletController implements Initializable {
     }
 
     public void setGoBackButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(storeGoBackButton,"marketplaceInterface.fxml",600,700);
+        FxmlUtilities.sceneTransiton(storeGoBackButton,"interfaces/marketplaceInterface.fxml",600,700);
     }
 }
