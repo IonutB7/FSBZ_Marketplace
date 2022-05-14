@@ -1,27 +1,19 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
-import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.Item;
-import com.marketplace.fsbz_marketplace.model.StoreInventoryHolder;
+import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StoreInventoryController implements Initializable {
@@ -36,7 +28,7 @@ public class StoreInventoryController implements Initializable {
     @FXML private TableColumn<Item,String> storeCategoryColumn;
     @FXML private TableColumn<Item,String> storeWearColumn;
     @FXML private TableColumn<Item,Float> storePriceColumn;
-    @FXML private TableColumn<Item,Integer> storeQuantityColumn;
+    @FXML private TableColumn<Item,Boolean> storeStatTrackColumn;
     @FXML
     private Button storeGoBackButton;
 
@@ -45,6 +37,11 @@ public class StoreInventoryController implements Initializable {
     @FXML
     private Button userWalletButton;
 
+    public void setSelectedItemsList(){
+        ObservableList<Item> selectedItems = storeInventoryTableView.getSelectionModel().getSelectedItems();
+        SelectedItemsHolder holder = SelectedItemsHolder.getInstance();
+        holder.setSelectedItemsList(selectedItems);
+    }
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(userWalletButton,"userWallet.fxml",600,700);
     }
@@ -54,8 +51,8 @@ public class StoreInventoryController implements Initializable {
 
 
     public void setCheckoutButtonOnAction(ActionEvent event)  throws IOException {
-        ObservableList<Item> selectedItems = storeInventoryTableView.getSelectionModel().getSelectedItems();
-        System.out.println(selectedItems);
+            setSelectedItemsList();
+            FxmlUtilities.sceneTransiton(checkoutButton,"paymentMethod.fxml",600,700);
     }
 
     @Override
@@ -68,9 +65,10 @@ public class StoreInventoryController implements Initializable {
                                                     storeCategoryColumn,
                                                     storeWearColumn,
                                                     storePriceColumn,
-                                                    storeQuantityColumn);
+                                                    storeStatTrackColumn);
 
         storeInventoryTableView.setItems(InventoryServices.getStoreItems());
+
         storeInventoryTableView.setOnMouseClicked(event ->
                 storeInventoryTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE));
 

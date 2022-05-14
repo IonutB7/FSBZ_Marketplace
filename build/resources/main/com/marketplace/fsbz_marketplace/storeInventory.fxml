@@ -5,10 +5,10 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="585.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.StoreInventoryController">
+<AnchorPane prefHeight="582.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.StoreInventoryController">
    <children>
       <Button fx:id="storeGoBackButton" layoutX="36.0" layoutY="486.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go Back" />
-      <TableView fx:id="storeInventoryTableView" layoutX="25.0" layoutY="68.0" prefHeight="390.0" prefWidth="826.0">
+      <TableView fx:id="storeInventoryTableView" layoutX="25.0" layoutY="77.0" prefHeight="382.0" prefWidth="846.0">
          <columns>
             <TableColumn fx:id="storeItemNumberColumn" prefWidth="84.79995727539062" text="Item Number" />
             <TableColumn fx:id="storeInventoryIdColumn" prefWidth="119.19998168945312" text="Inventory Id" />
@@ -17,7 +17,7 @@
             <TableColumn fx:id="storeCategoryColumn" prefWidth="103.199951171875" text="Category" />
             <TableColumn fx:id="storeWearColumn" prefWidth="81.5999755859375" text="Wear" />
             <TableColumn fx:id="storePriceColumn" prefWidth="116.00006103515625" text="Price" />
-            <TableColumn fx:id="storeQuantityColumn" prefWidth="97.60009765625" text="Quantity" />
+            <TableColumn fx:id="storeStatTrackColumn" prefWidth="75.0" text="Stat Strack" />
          </columns>
       </TableView>
       <Button fx:id="checkoutButton" layoutX="184.0" layoutY="486.0" mnemonicParsing="false" onAction="#setCheckoutButtonOnAction" text="Checkout" />

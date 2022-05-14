@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="580.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MyInventoryController">
    <children>
-      <TableView fx:id="userInventoryTableView" layoutX="50.0" layoutY="56.0" prefHeight="446.0" prefWidth="850.0">
+      <TableView fx:id="userInventoryTableView" layoutX="14.0" layoutY="56.0" prefHeight="450.0" prefWidth="816.0">
         <columns>
           <TableColumn fx:id="userItemNumberColumn" prefWidth="84.79995727539062" text="Item Number" />
           <TableColumn fx:id="userInventoryIdColumn" prefWidth="119.19998168945312" text="Inventory Id" />
@@ -16,7 +16,7 @@
             <TableColumn fx:id="userCategoryColumn" prefWidth="103.199951171875" text="Category" />
             <TableColumn fx:id="userWearColumn" prefWidth="72.0" text="Wear" />
             <TableColumn fx:id="userPriceColumn" prefWidth="125.5999755859375" text="Price" />
-            <TableColumn fx:id="userQuantityColumn" prefWidth="97.60009765625" text="Quantity" />
+            <TableColumn fx:id="userStatTrackColumn" prefWidth="75.0" text="Stat Track" />
         </columns>
       </TableView>
       <Button fx:id="userGoBackButton" layoutX="50.0" layoutY="506.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go Back" />

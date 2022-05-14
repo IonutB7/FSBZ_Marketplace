@@ -35,7 +35,7 @@ public class MyInventoryController implements Initializable {
     @FXML private TableColumn<Item,String> userCategoryColumn;
     @FXML private TableColumn<Item,String> userWearColumn;
     @FXML private TableColumn<Item,Float> userPriceColumn;
-    @FXML private TableColumn<Item,Integer> userQuantityColumn;
+    @FXML private TableColumn<Item,Boolean> userStatTrackColumn;
 
     @FXML
     private Button userGoBackButton;
@@ -59,7 +59,7 @@ public class MyInventoryController implements Initializable {
                                                     userCategoryColumn,
                                                     userWearColumn,
                                                     userPriceColumn,
-                                                    userQuantityColumn);
+                                                    userStatTrackColumn);
 
         userInventoryTableView.setItems(InventoryServices.getUserItems());
     }
