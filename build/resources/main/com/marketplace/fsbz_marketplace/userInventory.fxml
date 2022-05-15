@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -29,7 +30,7 @@
          </font>
       </Label>
       <Label fx:id="userTotalValueLabel" layoutX="721.0" layoutY="520.0" prefHeight="39.0" prefWidth="134.0" />
-      <Button fx:id="sellItemsButton" layoutX="158.0" layoutY="527.0" mnemonicParsing="false" text="Sell items" />
+      <Button fx:id="sellItemsButton" layoutX="158.0" layoutY="527.0" mnemonicParsing="false" onAction="#setSellItemsButtonOnAction" text="Sell items" />
       <Button fx:id="finishTradeButton" layoutX="273.0" layoutY="527.0" mnemonicParsing="false" onAction="#setFinishTradeButtonOnAction" text="Finish trade" />
       <Label fx:id="userTotalValueLabel1" layoutX="731.0" layoutY="530.0" prefHeight="39.0" prefWidth="134.0" />
       <Label fx:id="userTotalValueLabel11" layoutX="741.0" layoutY="540.0" prefHeight="39.0" prefWidth="134.0" />
@@ -39,5 +40,11 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="userSearchLabel" layoutX="40.0" layoutY="19.0" prefHeight="26.0" prefWidth="150.0" text="Search bar:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userSearchTextField" layoutX="213.0" layoutY="20.0" prefHeight="26.0" prefWidth="274.0" />
    </children>
 </AnchorPane>

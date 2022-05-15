@@ -1,29 +1,22 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
-import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
-import com.marketplace.fsbz_marketplace.exceptions.InsufficientAmountException;
+
 import com.marketplace.fsbz_marketplace.exceptions.InsufficientItemValueException;
 import com.marketplace.fsbz_marketplace.exceptions.UserItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
-import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +37,14 @@ public class MyInventoryController implements Initializable {
     @FXML private TableColumn<Item,String> userWearColumn;
     @FXML private TableColumn<Item,Float> userPriceColumn;
     @FXML private TableColumn<Item,Boolean> userStatTrackColumn;
+
+
+    @FXML
+    private TextField userSearchTextField;
+
+    @FXML
+    private Label userSearchLabel;
+
 
     @FXML
     private Label userTotalValueLabel;
@@ -94,6 +95,11 @@ public class MyInventoryController implements Initializable {
         }
     }
 
+    public void setSellItemsButtonOnAction(ActionEvent event)throws IOException{
+        InventoryServices.sellUserItems();
+        FxmlUtilities.sceneTransiton(sellItemsButton,"marketplaceInterface.fxml",600,700);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
@@ -132,6 +138,25 @@ public class MyInventoryController implements Initializable {
         });
 
         FxmlUtilities.setMultipleSelctionModeEnable(userInventoryTableView);
+
+
+        FilteredList<Item> filteredData = new FilteredList<>(InventoryServices.getUserItems(), b -> true);
+
+        userSearchTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(item -> {
+
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            String lowerCaseFilter = newValue.toLowerCase();
+
+            return InventoryServices.verifySearchColumns(item,lowerCaseFilter);
+        }));
+
+
+        SortedList<Item> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(userInventoryTableView.comparatorProperty());
+        userInventoryTableView.setItems(sortedData);
     }
 
     public void setTransitionFromPaymentMethod(boolean transitionFromPaymentMethod) {

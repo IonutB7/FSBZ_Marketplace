@@ -7,6 +7,8 @@ import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.beans.binding.Bindings;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
@@ -37,7 +39,11 @@ public class StoreInventoryController implements Initializable {
     @FXML private TableColumn<Item,Boolean> storeStatTrackColumn;
     @FXML
     private Button storeGoBackButton;
+    @FXML
+    private TextField storeSearchTextField;
 
+    @FXML
+    private Label storeSearchLabel;
     @FXML
     private Label storeTotalValueLabel;
     @FXML
@@ -105,6 +111,23 @@ public class StoreInventoryController implements Initializable {
         });
 
         FxmlUtilities.setMultipleSelctionModeEnable(storeInventoryTableView);
+        FilteredList<Item> filteredData = new FilteredList<>(InventoryServices.getStoreItems(), b -> true);
+
+        storeSearchTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(item -> {
+
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            String lowerCaseFilter = newValue.toLowerCase();
+
+            return InventoryServices.verifySearchColumns(item,lowerCaseFilter);
+        }));
+
+
+        SortedList<Item> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(storeInventoryTableView.comparatorProperty());
+        storeInventoryTableView.setItems(sortedData);
 
     }
 

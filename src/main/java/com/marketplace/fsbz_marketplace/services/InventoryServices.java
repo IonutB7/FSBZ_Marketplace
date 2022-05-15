@@ -240,10 +240,56 @@ public class InventoryServices {
         }
     }
 
+    public static void sellUserItems(){
+        ObservableList<Item> selectedUserItems = SelectedItemsHolder.getInstance().getSelectedItemsUserInventory();
+        float totalUserItemsValue =SelectedItemsHolder.getInstance().getTotalValueUserItems();
+
+
+
+        float commision = 5*totalUserItemsValue/100;
+        float newBalanceValue = UserHolder.getInstance().getUser().getBalance()+totalUserItemsValue-commision;
+        int currentUserAccountId = UserHolder.getInstance().getUser().getAcountId();
+
+        UserHolder.getInstance().getUser().setBalance(newBalanceValue);
+        UserServices.updateUserBalance(newBalanceValue,currentUserAccountId);
+
+        InventoryServices.changeItemsInventoryId(selectedUserItems,0);
+
+        transferSelectedItems(0,selectedUserItems);
+        UserServices.removeUserSelectedItems(selectedUserItems);
+        addStoreSelectedItems(selectedUserItems);
+
+    }
+
      public static void changeItemsInventoryId(ObservableList<Item> selectedItems,int inventoryId){
         for(int i=0;i<selectedItems.size();i++){
             selectedItems.get(i).setInventoryId(inventoryId);
         }
+     }
+
+
+     public static boolean verifySearchColumns(Item item,String lowerCaseFilter){
+
+        if(String.valueOf(item.getItemNumber()).toLowerCase().contains(lowerCaseFilter))
+            return true;
+        else if (String.valueOf(item.getInventoryId()).toLowerCase().contains(lowerCaseFilter))
+             return true;
+         else if (item.getName().toLowerCase().contains(lowerCaseFilter))
+             return true;
+         else if (item.getDescription().toLowerCase().contains(lowerCaseFilter))
+             return true;
+        else if (item.getCategory().toLowerCase().contains(lowerCaseFilter))
+            return true;
+        else if (item.getWear().toLowerCase().contains(lowerCaseFilter))
+            return true;
+        else if (String.valueOf(item.getPrice()).toLowerCase().contains(lowerCaseFilter))
+            return true;
+        else if (String.valueOf(item.getName()).toLowerCase().contains(lowerCaseFilter))
+            return true;
+        else if (String.valueOf(item.isStatTrack()).toLowerCase().contains(lowerCaseFilter))
+            return true;
+         else
+             return false;
      }
 
 }
