@@ -1,20 +1,26 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.exceptions.StoreItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
+import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class StoreInventoryController implements Initializable {
 
@@ -33,14 +39,22 @@ public class StoreInventoryController implements Initializable {
     private Button storeGoBackButton;
 
     @FXML
-    private Button checkoutButton;
+    private Label storeTotalValueLabel;
+    @FXML
+    private Label storeTotalValueMessage;
+    @FXML
+    private Label checkOutMessageLabel;
+    @FXML
+    private Button checkOutButton;
     @FXML
     private Button userWalletButton;
 
-    public void setSelectedItemsList(){
-        ObservableList<Item> selectedItems = storeInventoryTableView.getSelectionModel().getSelectedItems();
+    public void setStoreSelectedItemsList(){
+        ObservableList<Item> selectedItems=storeInventoryTableView.getSelectionModel().getSelectedItems();
         SelectedItemsHolder holder = SelectedItemsHolder.getInstance();
-        holder.setSelectedItemsList(selectedItems);
+        holder.setSelectedItemsStoreInventory(selectedItems);
+        float totalValue=InventoryServices.calculateTotalItemValue(selectedItems);
+        holder.setTotalValueStoreItems(totalValue+(5*totalValue)/100);
     }
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(userWalletButton,"userWallet.fxml",600,700);
@@ -50,56 +64,49 @@ public class StoreInventoryController implements Initializable {
     }
 
 
-    public void setCheckoutButtonOnAction(ActionEvent event)  throws IOException {
-            setSelectedItemsList();
-            FxmlUtilities.sceneTransiton(checkoutButton,"paymentMethod.fxml",600,700);
+
+    public void setCheckOutButtonOnAction(ActionEvent event)  throws IOException {
+        try{
+            if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                FxmlUtilities.sceneTransiton(checkOutButton,"paymentMethod.fxml",600,700);
+            }else{
+                throw new StoreItemsNotSelectedException("No items selected!");
+            }
+
+        }catch (StoreItemsNotSelectedException exception){
+            checkOutMessageLabel.setText(exception.getMessage());
+        }
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        InventoryServices services = new InventoryServices();
+        services.resetSelectedStoreItem();
+
+        storeTotalValueLabel.textProperty().bind(Bindings.convert(SelectedItemsHolder.getInstance().totalValueStoreItemsProperty()));
 
         InventoryServices.setInventoryTableCollumns(storeItemNumberColumn,
-                                                    storeInventoryIdColumn,
-                                                    storeNameColumn,
-                                                    storeDescriptionColumn,
-                                                    storeCategoryColumn,
-                                                    storeWearColumn,
-                                                    storePriceColumn,
-                                                    storeStatTrackColumn);
+                storeInventoryIdColumn,
+                storeNameColumn,
+                storeDescriptionColumn,
+                storeCategoryColumn,
+                storeWearColumn,
+                storePriceColumn,
+                storeStatTrackColumn);
 
         storeInventoryTableView.setItems(InventoryServices.getStoreItems());
 
-        storeInventoryTableView.setOnMouseClicked(event ->
-                storeInventoryTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE));
-
-        storeInventoryTableView.addEventFilter(MouseEvent.MOUSE_PRESSED, evt -> {
-            Node node = evt.getPickResult().getIntersectedNode();
-
-            while (node != null && node != storeInventoryTableView && !(node instanceof TableRow)) {
-                node = node.getParent();
-            }
-
-            if (node instanceof TableRow) {
-                evt.consume();
-
-                TableRow row = (TableRow) node;
-                TableView tv = row.getTableView();
-
-                tv.requestFocus();
-
-                if (!row.isEmpty()) {
-                    int index = row.getIndex();
-                    if (row.isSelected()) {
-                        tv.getSelectionModel().clearSelection(index);
-                    } else {
-                        tv.getSelectionModel().select(index);
-                    }
-                }
+        storeInventoryTableView.setOnMouseClicked(event -> {
+            storeInventoryTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            if (event.getButton().equals(MouseButton.PRIMARY)) {
+                setStoreSelectedItemsList();
             }
         });
 
-    }
+        FxmlUtilities.setMultipleSelctionModeEnable(storeInventoryTableView);
 
+    }
 
 
 

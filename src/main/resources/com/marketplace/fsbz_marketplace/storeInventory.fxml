@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="582.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.StoreInventoryController">
+<AnchorPane prefHeight="645.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.StoreInventoryController">
    <children>
       <Button fx:id="storeGoBackButton" layoutX="36.0" layoutY="486.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go Back" />
       <TableView fx:id="storeInventoryTableView" layoutX="25.0" layoutY="77.0" prefHeight="382.0" prefWidth="846.0">
@@ -20,7 +22,19 @@
             <TableColumn fx:id="storeStatTrackColumn" prefWidth="75.0" text="Stat Strack" />
          </columns>
       </TableView>
-      <Button fx:id="checkoutButton" layoutX="184.0" layoutY="486.0" mnemonicParsing="false" onAction="#setCheckoutButtonOnAction" text="Checkout" />
+      <Button fx:id="checkOutButton" layoutX="184.0" layoutY="486.0" mnemonicParsing="false" onAction="#setCheckOutButtonOnAction" text="Checkout" />
       <Button fx:id="userWalletButton" layoutX="762.0" layoutY="14.0" mnemonicParsing="false" onAction="#setUserWalletButtonOnAction" text="My wallet" />
+      <Label fx:id="storeTotalValueMessage" layoutX="545.0" layoutY="488.0" prefHeight="46.0" prefWidth="134.0" text="Transation value:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="storeTotalValueLabel" layoutX="703.0" layoutY="492.0" prefHeight="39.0" prefWidth="134.0" />
+      <Label fx:id="storeTotalValueLabel1" layoutX="713.0" layoutY="502.0" prefHeight="39.0" prefWidth="134.0" />
+      <Label fx:id="checkOutMessageLabel" layoutX="183.0" layoutY="531.0" prefHeight="6.0" prefWidth="286.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

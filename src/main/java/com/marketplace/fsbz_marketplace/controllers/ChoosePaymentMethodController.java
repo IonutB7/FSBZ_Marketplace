@@ -1,5 +1,6 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.exceptions.InsufficientAmountException;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
@@ -9,8 +10,11 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -30,7 +34,7 @@ public class ChoosePaymentMethodController {
         FxmlUtilities.sceneTransiton(cancelOrderButton,"marketplaceInterface.fxml",600,700);
     }
 
-    public void setWithMoneyButtonOnAction(ActionEvent event) throws IOException{
+    public void setWithMoneyButtonOnAction(ActionEvent event){
 
         try {
             InventoryServices.executePaymentWithMoney();
@@ -45,5 +49,16 @@ public class ChoosePaymentMethodController {
         }
     }
 
+    public void setWithItemsButtonOnAction(ActionEvent event) throws IOException{
+        Stage stage = (Stage) withItemsButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("userInventory.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
+        MyInventoryController myIC = fxmlLoader.getController();
+        myIC.setTransitionFromPaymentMethod(true);
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

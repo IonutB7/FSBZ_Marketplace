@@ -2,8 +2,12 @@ package com.marketplace.fsbz_marketplace.utilities;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +22,34 @@ public class FxmlUtilities {
         stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void setMultipleSelctionModeEnable(TableView tableView) {
+        tableView.addEventFilter(MouseEvent.MOUSE_PRESSED, evt -> {
+            Node node = evt.getPickResult().getIntersectedNode();
+
+            while (node != null && node != tableView && !(node instanceof TableRow)) {
+                node = node.getParent();
+            }
+
+            if (node instanceof TableRow) {
+                evt.consume();
+
+                TableRow row = (TableRow) node;
+                TableView tv = row.getTableView();
+
+                tv.requestFocus();
+
+                if (!row.isEmpty()) {
+                    int index = row.getIndex();
+                    if (row.isSelected()) {
+                        tv.getSelectionModel().clearSelection(index);
+                    } else {
+                        tv.getSelectionModel().select(index);
+                    }
+                }
+            }
+        });
     }
 
 }

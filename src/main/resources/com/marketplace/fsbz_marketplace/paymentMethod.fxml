@@ -13,7 +13,7 @@
          </font>
       </Label>
       <Button fx:id="withMoneyButton" layoutX="143.0" layoutY="259.0" mnemonicParsing="false" onAction="#setWithMoneyButtonOnAction" text="With money" />
-      <Button fx:id="withItemsButton" layoutX="332.0" layoutY="259.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="With items" />
+      <Button fx:id="withItemsButton" layoutX="332.0" layoutY="259.0" mnemonicParsing="false" onAction="#setWithItemsButtonOnAction" prefHeight="26.0" prefWidth="121.0" text="With items" />
       <Button fx:id="cancelOrderButton" layoutX="244.0" layoutY="334.0" mnemonicParsing="false" onAction="#setCancelOrderButtonOnAction" text="Calcel order" />
       <Label fx:id="chooseMethodMessageLabel" layoutX="143.0" layoutY="297.0" prefHeight="27.0" prefWidth="325.0" textFill="RED">
          <font>

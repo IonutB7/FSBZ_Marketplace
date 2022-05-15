@@ -2,6 +2,8 @@ package com.marketplace.fsbz_marketplace.services;
 
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.InsufficientAmountException;
+import com.marketplace.fsbz_marketplace.exceptions.InsufficientItemValueException;
+import com.marketplace.fsbz_marketplace.exceptions.InventoryExceptions;
 import com.marketplace.fsbz_marketplace.exceptions.WalletExceptions;
 import com.marketplace.fsbz_marketplace.model.*;
 import javafx.collections.FXCollections;
@@ -15,33 +17,46 @@ import java.sql.Statement;
 import java.util.ArrayList;
 public class InventoryServices {
 
-    public static boolean exitsItemInUserInventory(Item item){
-        ArrayList<Item> userItems = UserHolder.getInstance().getUser().getUserInventory();
-        for(Item it:userItems){
-            if(item.getItemNumber()==it.getItemNumber())
-                return true;
-        }
-        return false;
+
+
+    public void resetSelectedUserItem(){
+        SelectedItemsHolder.getInstance().setSelectedItemsUserInventory(null);
+        SelectedItemsHolder.getInstance().setTotalValueUserItems(0);
     }
 
-    public static void transferSelectedItemsToUserDB(int userInventoryId,ObservableList<Item> selectedItems) {
+    public void resetSelectedStoreItem(){
+        SelectedItemsHolder.getInstance().setSelectedItemsStoreInventory(null);
+        SelectedItemsHolder.getInstance().setTotalValueStoreItems(0);
+    }
+
+    public static float calculateTotalItemValue(ObservableList<Item> selectedItems){
+        float totalValue=0;
+        for(Item item:selectedItems){
+            totalValue+=item.getPrice();
+        }
+        return totalValue;
+    }
+
+    public static void transferSelectedItems(int userInventoryId,ObservableList<Item> selectedItems) {
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
         String itemsIdList = "(";
 
+
+
         for (int i = 0; i < selectedItems.size(); i++) {
                 if (i != selectedItems.size() - 1) {
-                    itemsIdList += "'" + selectedItems.get(i).getInventoryId() + "',";
+                    itemsIdList += "'" + selectedItems.get(i).getItemNumber() + "',";
                 } else {
-                    itemsIdList += "'" + selectedItems.get(i).getInventoryId() + "'";
+                    itemsIdList += "'" + selectedItems.get(i).getItemNumber() + "'";
                 }
 
             }
 
             itemsIdList += ")";
 
-            String transferSelectedItems = "UPDATE user_inventory SET inventory_id =" + userInventoryId + " WHERE inventory_id IN " + itemsIdList + ";";
+            String transferSelectedItems = "UPDATE user_inventory SET inventory_id =" + userInventoryId + " WHERE item_number IN " + itemsIdList + ";";
 
             try {
 
@@ -129,9 +144,15 @@ public class InventoryServices {
 
     }
 
-    public static void removeSelectedItems(ObservableList<Item> selectedItems){
+    public static void removeStoreSelectedItems(ObservableList<Item> selectedItems){
         for(Item item:selectedItems){
             StoreInventoryHolder.getInstance().getStoreInventory().remove(item);
+        }
+    }
+
+    public static void addStoreSelectedItems(ObservableList<Item> selectedItems){
+        for(Item item:selectedItems){
+            StoreInventoryHolder.getInstance().getStoreInventory().add(item);
         }
     }
 
@@ -166,27 +187,63 @@ public class InventoryServices {
 
     public static void executePaymentWithMoney()throws WalletExceptions {
 
-        ObservableList<Item> selectedItems = SelectedItemsHolder.getInstance().getSelectedItemsList();
-        float valueItems=0;
-        for(Item item:selectedItems){
-            valueItems+=item.getPrice();
-        }
-        float commission = (5*valueItems)/100;
-        float totalValue =valueItems+commission;
-        if(UserHolder.getInstance().getUser().getBalance()>=totalValue){
-            float newBalanceValue = UserHolder.getInstance().getUser().getBalance()-totalValue;
+        ObservableList<Item> selectedStoreItems = SelectedItemsHolder.getInstance().getSelectedItemsStoreInventory();
+        float totalValueStoreItems =SelectedItemsHolder.getInstance().getTotalValueStoreItems();
+
+        if(UserHolder.getInstance().getUser().getBalance()>=totalValueStoreItems){
+
+            float newBalanceValue = UserHolder.getInstance().getUser().getBalance()-totalValueStoreItems;
             int currentUserAccountId = UserHolder.getInstance().getUser().getAcountId();
+
             UserHolder.getInstance().getUser().setBalance(newBalanceValue);
             UserServices.updateUserBalance(newBalanceValue,currentUserAccountId);
-            transferSelectedItemsToUserDB(UserHolder.getInstance().getUser().getInventoryId(),selectedItems);
-            UserServices.addSelectedItems(selectedItems);
-            removeSelectedItems(selectedItems);
+            InventoryServices.changeItemsInventoryId(selectedStoreItems, UserHolder.getInstance().getUser().getInventoryId());
+
+            transferSelectedItems(currentUserAccountId,selectedStoreItems);
+            UserServices.addUserSelectedItems(selectedStoreItems);
+            removeStoreSelectedItems(selectedStoreItems);
+
         }else{
             throw new InsufficientAmountException("Insufficient money in wallet!");
         }
     }
 
+    public static void executePaymentWithItems()throws InventoryExceptions {
+        ObservableList<Item> selectedUserItems = SelectedItemsHolder.getInstance().getSelectedItemsUserInventory();
+        ObservableList<Item> selectedStoreItems = SelectedItemsHolder.getInstance().getSelectedItemsStoreInventory();
+        float totalUserItemsValue =SelectedItemsHolder.getInstance().getTotalValueUserItems();
+
+        if(totalUserItemsValue>=SelectedItemsHolder.getInstance().getTotalValueStoreItems()){
+
+            float compensation =totalUserItemsValue-SelectedItemsHolder.getInstance().getTotalValueStoreItems();
+            float newBalanceValue = UserHolder.getInstance().getUser().getBalance()+compensation;
+            int currentUserAccountId = UserHolder.getInstance().getUser().getAcountId();
+
+            UserHolder.getInstance().getUser().setBalance(newBalanceValue);
+            UserServices.updateUserBalance(newBalanceValue,currentUserAccountId);
+
+            InventoryServices.changeItemsInventoryId(selectedUserItems,0);
+            InventoryServices.changeItemsInventoryId(selectedStoreItems, UserHolder.getInstance().getUser().getInventoryId());
 
 
+            transferSelectedItems(currentUserAccountId,selectedStoreItems);
+            UserServices.addUserSelectedItems(selectedStoreItems);
+            removeStoreSelectedItems(selectedStoreItems);
+
+
+            transferSelectedItems(0,selectedUserItems);
+            UserServices.removeUserSelectedItems(selectedUserItems);
+            addStoreSelectedItems(selectedUserItems);
+
+        }else{
+            throw new InsufficientItemValueException("The selected items are not equivalent in value!");
+        }
+    }
+
+     public static void changeItemsInventoryId(ObservableList<Item> selectedItems,int inventoryId){
+        for(int i=0;i<selectedItems.size();i++){
+            selectedItems.get(i).setInventoryId(inventoryId);
+        }
+     }
 
 }

@@ -37,9 +37,14 @@ public class UserServices {
         }
     }
 
-    public static void addSelectedItems(ObservableList<Item> selectedItems){
+    public static void addUserSelectedItems(ObservableList<Item> selectedItems){
         for(Item item:selectedItems){
             UserHolder.getInstance().getUser().getUserInventory().add(item);
+        }
+    }
+    public static void removeUserSelectedItems(ObservableList<Item> selectedItems){
+        for(Item item:selectedItems){
+            UserHolder.getInstance().getUser().getUserInventory().remove(item);
         }
     }
     public static void initializeUser(User currentUser,String username) {
