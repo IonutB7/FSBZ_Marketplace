@@ -4,35 +4,41 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.UserLogInController">
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/userLogIn.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.UserLogInController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="250.0" />
-      <AnchorPane layoutX="250.0" prefHeight="400.0" prefWidth="350.0">
+      <AnchorPane fx:id="right" layoutX="575.0" prefHeight="720.0" prefWidth="705.0">
          <children>
-            <Label layoutX="58.0" layoutY="142.0" text="Username">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="userTextField" layoutX="55.0" layoutY="176.0" promptText="Username" />
-            <PasswordField fx:id="enterPasswordField" layoutX="55.0" layoutY="251.0" promptText="Password" />
-            <Label layoutX="58.0" layoutY="218.0" text="Password">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="cancelButton" layoutX="250.0" layoutY="248.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
-            <Button fx:id="registerButton" layoutX="246.0" layoutY="176.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" text="Register" />
-            <Button fx:id="loginButton" layoutX="250.0" layoutY="219.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log-in" />
-            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="47.0" layoutY="298.0" prefHeight="0.0" prefWidth="238.0" textAlignment="CENTER" textFill="#FF0000">
+            <TextField fx:id="userTextField" layoutX="123.0" layoutY="308.0" prefHeight="60.0" prefWidth="460.0" promptText="Username" />
+            <PasswordField fx:id="enterPasswordField" layoutX="123.0" layoutY="409.0" prefHeight="60.0" prefWidth="460.0" promptText="Password" />
+            <Button fx:id="cancelButton" layoutX="296.0" layoutY="612.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
+            <Button fx:id="registerButton" layoutX="285.0" layoutY="661.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" text="Register" />
+            <Button fx:id="loginButton" layoutX="299.0" layoutY="544.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log-in" />
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="90.0" layoutY="488.0" prefHeight="19.0" prefWidth="525.0" textAlignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
+            <ImageView fitHeight="262.0" fitWidth="229.0" layoutX="270.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/skull_logo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="left" prefHeight="720.0" prefWidth="575.0">
+         <children>
+            <ImageView fitHeight="720.0" fitWidth="575.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.jpg" />
+               </image>
+            </ImageView>
+            <Polygon fill="RED" layoutX="492.0" layoutY="268.0" points="-30.0, 452.0, 83.0, 452.0, 83.0, -268.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>

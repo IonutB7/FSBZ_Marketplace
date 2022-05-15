@@ -144,7 +144,7 @@ public class UserServices {
                           return true;
 
                         } else {
-                            throw new UserPasswordInvalidException("The username or password is incorrect.Please try again.");
+                            throw new UserPasswordInvalidException("The username or password is incorrect.");
                         }
                     } else {
                         throw new BannedUserException("The user is banned.");
