@@ -7,21 +7,41 @@
 #userTextField, #enterPasswordField {
     -fx-border-style: solid;
     -fx-border-radius: 0px;
-    -fx-border-color: #737373;
-    -fx-background-color: #737373;
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
 
 }
 #loginMessageLabel {
     -fx-font-family: "Counter-Strike";
 }
-#left {
 
+#loginButton {
 
+    -fx-border-style: solid;
+    -fx-border-radius: 0px;
+    -fx-border-color: #ffffff;
+    -fx-font-size: 28;
+    -fx-text-fill: black;
+    -fx-background-color: #ffffff;
+}
+#registerButton, #cancelButton {
+
+    fx-text-fill: black;
+    -fx-border-style: solid;
+    -fx-border-radius: 0px;
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
 }
 
 #right {
     -fx-background-color: #ff0000;
     -fx-font-family: "Counter-Strike";
     -fx-font-size: 24;
+
+}
+#registerButton:hover, #loginButton:hover, #cancelButton:hover {
+
+    -fx-background-color: #EAEAEA;
 
 }
