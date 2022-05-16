@@ -18,7 +18,7 @@
          </font>
       </Button>
       <Button fx:id="myWalletButton" layoutX="482.0" layoutY="24.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="10.0" prefWidth="101.0" text="My Wallet" />
-      <Button layoutX="133.0" layoutY="256.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="334.0" text="Ledger">
+      <Button fx:id="legerButton" layoutX="133.0" layoutY="256.0" mnemonicParsing="false" onAction="#setLegerButtonOnAction" prefHeight="6.0" prefWidth="334.0" text="Ledger">
          <font>
             <Font size="18.0" />
          </font>

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-7:Implemented trading functionality">
+    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-8:Implemented sell and search functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/TransactionHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/LedgerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userTransactionHistory.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,21 +15,29 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM_[Changes]/mysql-connector-java-8.0.29.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM_[Changes]/protobuf-java-3.19.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/FSBZ_Marketplace-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_2022_5_49_PM__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserLogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserLogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/model/Transaction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/InventoryServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/InventoryServices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userInventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/userInventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/storeInventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/storeInventory.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MyInventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/StoreInventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserLogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/InventoryServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/InventoryServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/storeInventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/storeInventory.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userInventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/userInventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/marketplaceInterface.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +64,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -143,7 +154,9 @@
       <workItem from="1652368858289" duration="13803000" />
       <workItem from="1652445569812" duration="37492000" />
       <workItem from="1652612508845" duration="17879000" />
-      <workItem from="1652630610763" duration="3073000" />
+      <workItem from="1652630610763" duration="3316000" />
+      <workItem from="1652704869816" duration="10081000" />
+      <workItem from="1652715743193" duration="2924000" />
     </task>
     <task id="LOCAL-00001" summary="Another Test">
       <created>1651684339335</created>
@@ -208,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652627968853</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="CM-8:Implemented sell and search functionality">
+      <created>1652635516168</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652635516168</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +267,7 @@
     <MESSAGE value="CM-5:Implemented user wallet(coupons system,withdraw,use coupons)+fxml code factorization" />
     <MESSAGE value="CM-6:The user can buy items from the shop with the wallet" />
     <MESSAGE value="CM-7:Implemented trading functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="CM-7:Implemented trading functionality" />
+    <MESSAGE value="CM-8:Implemented sell and search functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="CM-8:Implemented sell and search functionality" />
   </component>
 </project>

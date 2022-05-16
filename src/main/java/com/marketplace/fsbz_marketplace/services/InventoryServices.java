@@ -197,8 +197,15 @@ public class InventoryServices {
 
             UserHolder.getInstance().getUser().setBalance(newBalanceValue);
             UserServices.updateUserBalance(newBalanceValue,currentUserAccountId);
-            InventoryServices.changeItemsInventoryId(selectedStoreItems, UserHolder.getInstance().getUser().getInventoryId());
 
+            Transaction transaction = LedgerService.createTransaction(currentUserAccountId,
+                    SelectedItemsHolder.getInstance().getTotalValueStoreItems(),
+                    "buying",
+                    "accepted");
+            UserHolder.getInstance().getUser().getUserTransationList().add(transaction);
+            LedgerService.addTransactionToLedger(transaction);
+
+            InventoryServices.changeItemsInventoryId(selectedStoreItems, UserHolder.getInstance().getUser().getInventoryId());
             transferSelectedItems(currentUserAccountId,selectedStoreItems);
             UserServices.addUserSelectedItems(selectedStoreItems);
             removeStoreSelectedItems(selectedStoreItems);
@@ -221,6 +228,13 @@ public class InventoryServices {
 
             UserHolder.getInstance().getUser().setBalance(newBalanceValue);
             UserServices.updateUserBalance(newBalanceValue,currentUserAccountId);
+
+            Transaction transaction = LedgerService.createTransaction(currentUserAccountId,
+                    SelectedItemsHolder.getInstance().getTotalValueStoreItems(),
+                    "trading",
+                    "accepted");
+            UserHolder.getInstance().getUser().getUserTransationList().add(transaction);
+            LedgerService.addTransactionToLedger(transaction);
 
             InventoryServices.changeItemsInventoryId(selectedUserItems,0);
             InventoryServices.changeItemsInventoryId(selectedStoreItems, UserHolder.getInstance().getUser().getInventoryId());
@@ -252,6 +266,13 @@ public class InventoryServices {
 
         UserHolder.getInstance().getUser().setBalance(newBalanceValue);
         UserServices.updateUserBalance(newBalanceValue,currentUserAccountId);
+
+        Transaction transaction = LedgerService.createTransaction(currentUserAccountId,
+                totalUserItemsValue,
+                "selling",
+                "accepted");
+        UserHolder.getInstance().getUser().getUserTransationList().add(transaction);
+        LedgerService.addTransactionToLedger(transaction);
 
         InventoryServices.changeItemsInventoryId(selectedUserItems,0);
 

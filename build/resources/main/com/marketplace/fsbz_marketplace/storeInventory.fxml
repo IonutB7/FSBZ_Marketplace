@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -32,6 +33,12 @@
       <Label fx:id="storeTotalValueLabel" layoutX="703.0" layoutY="492.0" prefHeight="39.0" prefWidth="134.0" />
       <Label fx:id="storeTotalValueLabel1" layoutX="713.0" layoutY="502.0" prefHeight="39.0" prefWidth="134.0" />
       <Label fx:id="checkOutMessageLabel" layoutX="183.0" layoutY="531.0" prefHeight="6.0" prefWidth="286.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="storeSearchTextField" layoutX="217.0" layoutY="32.0" prefHeight="26.0" prefWidth="274.0" />
+      <Label fx:id="storeSearchLabel" layoutX="52.0" layoutY="31.0" prefHeight="26.0" prefWidth="150.0" text="Search bar:">
          <font>
             <Font size="18.0" />
          </font>
