@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +30,13 @@ public class FxmlUtilities {
         stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void  setTriColor(AnchorPane anchor, String id){
+
+        Scene scene = anchor.getScene();
+        Polygon tri = (Polygon) scene.lookup(id);
+        tri.setStyle("-fx-fill: #737373; -fx-stroke: #737373");
     }
 
 }

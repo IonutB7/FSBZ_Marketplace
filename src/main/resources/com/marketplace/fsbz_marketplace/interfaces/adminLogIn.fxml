@@ -23,11 +23,11 @@
         <AnchorPane fx:id="right" layoutX="575.0" prefHeight="720.0" prefWidth="705.0">
             <children>
                 <TextField fx:id="adminTextField" layoutX="123.0" layoutY="308.0" prefHeight="60.0" prefWidth="460.0" promptText="Username" />
+                <PasswordField fx:id="adminPasswordField" layoutX="123.0" layoutY="385.0" prefHeight="60.0" prefWidth="460.0" promptText="Password" />
+                <TextField fx:id="adminCodeField" layoutX="123.0" layoutY="463.0" prefHeight="38.0" prefWidth="460.0" promptText="Admin Code" />
+                <Button fx:id="loginAdminButton" layoutX="123.0" layoutY="542.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="460.0" text="Log-in" />
                 <Button fx:id="cancelAdminButton" layoutX="123.0" layoutY="607.0" mnemonicParsing="false" onAction="#setAdminCancelButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Cancel" />
                 <Button fx:id="registerAdminButton" layoutX="366.0" layoutY="607.0" mnemonicParsing="false" onAction="#setAdminRegisterButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Register" />
-                <Button fx:id="loginAdminButton" layoutX="123.0" layoutY="542.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="460.0" text="Log-in" />
-                <PasswordField fx:id="adminPasswordField" layoutX="123.0" layoutY="385.0" prefHeight="60.0" prefWidth="460.0" promptText="Password" />
-            <TextField fx:id="adminCodeField" layoutX="123.0" layoutY="463.0" prefHeight="38.0" prefWidth="460.0" promptText="Admin Code" />
             <ImageView fitHeight="262.0" fitWidth="229.0" layoutX="249.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/admin.png" />

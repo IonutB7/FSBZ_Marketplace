@@ -1,29 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MarketplaceInterfaceController">
+<AnchorPane fx:id="mainInterface" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/marketplaceInterface.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.MarketplaceInterfaceController">
    <children>
-      <Button fx:id="logOutButton" layoutX="518.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Log-out" />
-      <Button fx:id="myInventoryButton" layoutX="133.0" layoutY="160.0" mnemonicParsing="false" onAction="#setMyInventoryButtonOnAction" prefHeight="10.0" prefWidth="334.0" text="My Inventory">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="storeInventoryButton" layoutX="133.0" layoutY="207.0" mnemonicParsing="false" onAction="#setStoreInventoryButtonOnAction" prefHeight="2.0" prefWidth="334.0" text="Store">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="myWalletButton" layoutX="482.0" layoutY="24.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="10.0" prefWidth="101.0" text="My Wallet" />
-      <Button layoutX="133.0" layoutY="256.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="334.0" text="Ledger">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="491.0" layoutY="57.0" mnemonicParsing="false" text="Help Section" />
-      <Button layoutX="485.0" layoutY="93.0" mnemonicParsing="false" text="Report Section" />
+      <AnchorPane fx:id="right" layoutX="620.0" layoutY="90.0" prefHeight="644.0" prefWidth="660.0">
+         <children>
+            <Button fx:id="logOutButton" layoutX="359.0" layoutY="527.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="50.0" prefWidth="180.0" text="Log-out" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="349.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="menu" prefHeight="90.0" prefWidth="1280.0">
+         <children>
+            <Button fx:id="myInventoryButton" layoutY="-1.0" mnemonicParsing="false" onAction="#setMyInventoryButtonOnAction" prefHeight="90.0" prefWidth="232.0" text="My inventory">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="storeInventoryButton" layoutX="232.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setStoreInventoryButtonOnAction" prefHeight="90.0" prefWidth="147.0" text="Store">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="reportButton" layoutX="1009.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="271.0" text="Report section" />
+            <Button fx:id="helpButton" layoutX="890.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="119.0" text="Help" />
+            <Button fx:id="myWalletButton" layoutX="379.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="90.0" prefWidth="147.0" text="Wallet" />
+            <Button fx:id="ledgerButton" layoutX="526.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="333.0" text="Transaction history">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Polygon fx:id="blkTriangle" layoutX="949.0" layoutY="83.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" stroke="BLACK" strokeType="INSIDE" />
+            <Polygon fx:id="grayTriangle" fill="#737373" layoutX="948.0" layoutY="85.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" rotate="180.0" stroke="#737373" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Polygon fill="#737373" layoutX="433.0" layoutY="277.0" points="187.0, -187.0, 187.0, 457.0, 425.0, -187.0" stroke="#737373" strokeType="INSIDE" />
+      <AnchorPane fx:id="left" layoutY="90.0" prefHeight="644.0" prefWidth="620.0">
+         <children>
+            <ImageView fitHeight="263.0" fitWidth="470.0" layoutX="107.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

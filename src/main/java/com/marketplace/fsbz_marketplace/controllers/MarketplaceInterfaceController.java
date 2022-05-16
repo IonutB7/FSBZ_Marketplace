@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +22,6 @@ public class MarketplaceInterfaceController {
     private Button myInventoryButton;
     @FXML private Button logOutButton;
     @FXML private Button storeInventoryButton;
-
     @FXML private Button myWalletButton;
 
 
@@ -40,5 +40,6 @@ public class MarketplaceInterfaceController {
     public void setMyWalletButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(myWalletButton,"interfaces/userWallet.fxml",1280,720);
     }
+
 
 }
