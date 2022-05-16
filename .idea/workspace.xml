@@ -10,14 +10,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM_[Changes]/mysql-connector-java-8.0.29.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM_[Changes]/protobuf-java-3.19.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_8_2022_5_02_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/css/userLogIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/css/userLogIn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/userLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/userLogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/userLogIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/userLogIn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/userRegister.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/userRegister.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/css/adminLogIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/css/adminLogIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminLogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/adminLogIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/adminLogIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/adminRegister.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/adminRegister.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminLogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminRegister.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminRegister.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/userLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/userLogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/userRegister.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/userRegister.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +148,12 @@
       <workItem from="1652534763052" duration="8078000" />
       <workItem from="1652548547160" duration="4470000" />
       <workItem from="1652553067914" duration="10933000" />
-      <workItem from="1652570951456" duration="8707000" />
+      <workItem from="1652570951456" duration="9606000" />
+      <workItem from="1652581983875" duration="77000" />
+      <workItem from="1652613264951" duration="5794000" />
+      <workItem from="1652629587510" duration="369000" />
+      <workItem from="1652641526930" duration="439000" />
+      <workItem from="1652691132050" duration="2421000" />
     </task>
     <task id="LOCAL-00001" summary="Another Test">
       <created>1651684339335</created>

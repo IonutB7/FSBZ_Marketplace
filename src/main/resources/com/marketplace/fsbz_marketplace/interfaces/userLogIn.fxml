@@ -16,15 +16,15 @@
          <children>
             <TextField fx:id="userTextField" layoutX="123.0" layoutY="308.0" prefHeight="60.0" prefWidth="460.0" promptText="Username" />
             <PasswordField fx:id="enterPasswordField" layoutX="123.0" layoutY="409.0" prefHeight="60.0" prefWidth="460.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="123.0" layoutY="542.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="38.0" prefWidth="460.0" text="Log-in" textAlignment="CENTER" />
             <Button fx:id="cancelButton" layoutX="123.0" layoutY="607.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Cancel" />
             <Button fx:id="registerButton" layoutX="366.0" layoutY="607.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Register" />
-            <Button fx:id="loginButton" layoutX="123.0" layoutY="542.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="38.0" prefWidth="460.0" text="Log-in" textAlignment="CENTER" />
-            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="90.0" layoutY="488.0" prefHeight="19.0" prefWidth="525.0" textAlignment="CENTER">
+           <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="90.0" layoutY="488.0" prefHeight="19.0" prefWidth="525.0" textAlignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <ImageView fitHeight="262.0" fitWidth="229.0" layoutX="269.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="262.0" fitWidth="229.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/user.png" />
                </image>
