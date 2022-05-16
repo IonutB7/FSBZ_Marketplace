@@ -1,7 +1,7 @@
 package com.marketplace.fsbz_marketplace.model;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 public class Item {
 
@@ -13,23 +13,25 @@ public class Item {
     private String category;
     private String wear;
     private float price;
-    private int quantity;
+
+    private boolean statTrack;
+    private int weaponTag;
+
 
     public Item() {
     }
 
-    public Item(int itemNumber,int inventoryId, String nume, String description, String category, String wear, float price, int quantity) {
-        this.itemNumber=itemNumber;
+    public Item(int itemNumber, int inventoryId, String name, String description, String category, String wear, float price, boolean statTrack, int weaponTag) {
+        this.itemNumber = itemNumber;
         this.inventoryId = inventoryId;
-        this.name = nume;
+        this.name = name;
         this.description = description;
         this.category = category;
         this.wear = wear;
         this.price = price;
-        this.quantity = quantity;
+        this.statTrack = statTrack;
+        this.weaponTag = weaponTag;
     }
-
-
 
     public int getItemNumber() {
         return itemNumber;
@@ -86,24 +88,34 @@ public class Item {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public boolean isStatTrack() {
+        return statTrack;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStatTrack(boolean statTrack) {
+        this.statTrack = statTrack;
+    }
+
+    public int getWeaponTag() {
+        return weaponTag;
+    }
+
+    public void setWeaponTag(int weaponTag) {
+        this.weaponTag = weaponTag;
     }
 
     @Override
     public String toString() {
         return "Item{" +
-                "inventoryId=" + inventoryId +
+                "itemNumber=" + itemNumber +
+                ", inventoryId=" + inventoryId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", category='" + category + '\'' +
                 ", wear='" + wear + '\'' +
                 ", price=" + price +
-                ", quantity=" + quantity +
+                ", statTrak=" + statTrack +
+                ", weaponTag=" + weaponTag +
                 '}';
     }
 }

@@ -7,6 +7,7 @@ import com.marketplace.fsbz_marketplace.exceptions.UserPasswordInvalidException;
 import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
+import com.marketplace.fsbz_marketplace.services.LedgerService;
 import com.marketplace.fsbz_marketplace.services.WalletServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
@@ -50,6 +51,7 @@ public class UserLogInController {
         User currentUser = new User();
         UserServices.initializeUser(currentUser,username);
         InventoryServices.initializeUserInventory(currentUser, currentUser.getInventoryId());
+        LedgerService.initializeUserLedger(currentUser,currentUser.getInventoryId());
         UserHolder holder = UserHolder.getInstance();
         holder.setUser(currentUser);
     }

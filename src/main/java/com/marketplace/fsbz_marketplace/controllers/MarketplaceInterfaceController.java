@@ -22,24 +22,31 @@ public class MarketplaceInterfaceController {
     private Button myInventoryButton;
     @FXML private Button logOutButton;
     @FXML private Button storeInventoryButton;
+
     @FXML private Button myWalletButton;
+
+    @FXML private Button ledgerButton;
 
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(myInventoryButton,"interfaces/userInventory.fxml",1280,720);
+        FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/userInventory.fxml",1280,720);
     }
 
     public void setStoreInventoryButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/storeInventory.fxml",1280,720);
+        FxmlUtilities.sceneTransiton(myInventoryButton,"interfaces/storeInventory.fxml",1280,720);
     }
 
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(logOutButton,"interfaces/userLogIn.fxml",1280,720);
+        FxmlUtilities.sceneTransiton(logOutButton,"interfaces/chooseAccountType.fxml",1280,720);
     }
 
     public void setMyWalletButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(myWalletButton,"interfaces/userWallet.fxml",1280,720);
     }
 
+    public void setLedgerButtonOnAction(ActionEvent event) throws IOException{
+        FxmlUtilities.sceneTransiton(ledgerButton,"interfaces/userTransactionHistory.fxml",1280,720);
+
+    }
 
 }

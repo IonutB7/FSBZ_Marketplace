@@ -30,7 +30,7 @@
             <Button fx:id="reportButton" layoutX="1009.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="271.0" text="Report section" />
             <Button fx:id="helpButton" layoutX="890.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="119.0" text="Help" />
             <Button fx:id="myWalletButton" layoutX="379.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="90.0" prefWidth="147.0" text="Wallet" />
-            <Button fx:id="ledgerButton" layoutX="526.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="333.0" text="Transaction history">
+            <Button fx:id="ledgerButton" layoutX="526.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setLedgerButtonOnAction" prefHeight="90.0" prefWidth="333.0" text="Transaction history">
                <font>
                   <Font size="18.0" />
                </font>

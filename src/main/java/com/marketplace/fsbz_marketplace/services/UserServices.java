@@ -3,10 +3,13 @@ package com.marketplace.fsbz_marketplace.services;
 
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.*;
+import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.User;
+import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
 
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 
 
@@ -34,6 +37,16 @@ public class UserServices {
         }
     }
 
+    public static void addUserSelectedItems(ObservableList<Item> selectedItems){
+        for(Item item:selectedItems){
+            UserHolder.getInstance().getUser().getUserInventory().add(item);
+        }
+    }
+    public static void removeUserSelectedItems(ObservableList<Item> selectedItems){
+        for(Item item:selectedItems){
+            UserHolder.getInstance().getUser().getUserInventory().remove(item);
+        }
+    }
     public static void initializeUser(User currentUser,String username) {
 
         DatabaseConnection connectNow = new DatabaseConnection();
