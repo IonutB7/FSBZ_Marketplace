@@ -1,9 +1,7 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
-import com.marketplace.fsbz_marketplace.exceptions.BannedUserException;
-import com.marketplace.fsbz_marketplace.exceptions.InexistentUserException;
-import com.marketplace.fsbz_marketplace.exceptions.UserPasswordInvalidException;
+import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;

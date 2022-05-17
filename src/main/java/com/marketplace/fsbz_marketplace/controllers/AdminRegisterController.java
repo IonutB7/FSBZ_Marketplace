@@ -1,10 +1,7 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
-import com.marketplace.fsbz_marketplace.exceptions.EmptyFieldException;
-import com.marketplace.fsbz_marketplace.exceptions.IncorectEmailException;
-import com.marketplace.fsbz_marketplace.exceptions.IncorrectPasswordExeption;
-import com.marketplace.fsbz_marketplace.exceptions.InsuficientLenghtException;
+import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.services.AdminService;
 import com.marketplace.fsbz_marketplace.services.UserServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
@@ -45,7 +42,7 @@ public class AdminRegisterController {
         FxmlUtilities.sceneTransiton(cancelAdminButton,"interfaces/adminLogIn.fxml",1280,720);
     }
 
-    public void registerButtonOnAction(ActionEvent event) throws IOException {
+    public void registerButtonOnAction(ActionEvent event){
         if(setPasswordField.getText().equals(confirmPasswordField.getText())){
 
             try{
@@ -60,11 +57,11 @@ public class AdminRegisterController {
 
                 UserServices.verifyEmptyFilds(firstname,lastname,email,username,password);
                 UserServices.verifytLenghtCredenial(firstname,lastname,username);
+                UserServices.verifyEmailExistance("admin_db",email);
+                UserServices.verifyUsernameExistance("admin_db",username);
                 UserServices.verifyEmailCorrectness(email);
                 UserServices.verifyPasswordCorrectness(password);
                 AdminService.registerAdmin(firstname, lastname, email, username,saltvalue,encryptedPass,adminCode);
-
-
 
                 FxmlUtilities.sceneTransiton(registerAdminButton,"interfaces/adminLogIn.fxml",1280,720);
                 Stage stage = new Stage();
@@ -82,10 +79,13 @@ public class AdminRegisterController {
                 registerErrorMessage.setText(exception2.getMessage());
             }catch (IncorectEmailException exception3){
                 registerErrorMessage.setText(exception3.getMessage());
-            } catch (IncorrectPasswordExeption exception3){
-                registerErrorMessage.setText(exception3.getMessage());
-            }
-            catch(Exception e){
+            } catch (IncorrectPasswordExeption exception4){
+                registerErrorMessage.setText(exception4.getMessage());
+            } catch(EmailExistsException exception5){
+                registerErrorMessage.setText(exception5.getMessage());
+            }catch(UsernameExistsException exception6){
+                registerErrorMessage.setText(exception6.getMessage());
+            }catch(Exception e){
                 e.printStackTrace();
                 e.getCause();
                 Platform.exit();

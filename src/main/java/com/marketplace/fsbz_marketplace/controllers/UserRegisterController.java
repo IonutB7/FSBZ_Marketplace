@@ -1,15 +1,9 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
-import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
-
-import com.marketplace.fsbz_marketplace.exceptions.EmptyFieldException;
-import com.marketplace.fsbz_marketplace.exceptions.IncorectEmailException;
-import com.marketplace.fsbz_marketplace.exceptions.IncorrectPasswordExeption;
-import com.marketplace.fsbz_marketplace.exceptions.InsuficientLenghtException;
+import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.services.UserServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
-import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,6 +58,8 @@ public class UserRegisterController {
 
                 UserServices.verifyEmptyFilds(firstname,lastname,email,username,password);
                 UserServices.verifytLenghtCredenial(firstname,lastname,username);
+                UserServices.verifyEmailExistance("user_account",email);
+                UserServices.verifyUsernameExistance("user_account",username);
                 UserServices.verifyEmailCorrectness(email);
                 UserServices.verifyPasswordCorrectness(password);
                 UserServices.registerUser(firstname, lastname, email, username,saltvalue,encryptedPass);
@@ -76,15 +72,18 @@ public class UserRegisterController {
             registerErrorMessage.setText(exception3.getMessage());
             } catch (IncorrectPasswordExeption exception3){
                 registerErrorMessage.setText(exception3.getMessage());
-            }
-            catch(Exception e){
+            } catch(EmailExistsException exception4){
+                registerErrorMessage.setText(exception4.getMessage());
+            }catch(UsernameExistsException exception5){
+                registerErrorMessage.setText(exception5.getMessage());
+            }catch(Exception e){
                 e.printStackTrace();
                 e.getCause();
                 Platform.exit();
             }
 
         }else{
-            confirmPasswordLabel.setText("Password does not match");
+            registerErrorMessage.setText("Password does not match");
         }
     }
 
