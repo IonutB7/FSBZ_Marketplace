@@ -9,12 +9,12 @@ import java.sql.Statement;
 public class AdminService {
 
 
-    public static void registerAdmin(String firstname, String lastname, String email, String username, String saltvalue, String encryptedPass){
+    public static void registerAdmin(String firstname, String lastname, String email, String username, String saltvalue, String encryptedPass,String adminCode){
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String adminCode = PassBasedEnc.getSaltvalue(30).substring(0,10);
+
         int activated = 1;
 
 

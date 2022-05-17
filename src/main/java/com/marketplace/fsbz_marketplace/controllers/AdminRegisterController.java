@@ -1,5 +1,6 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.exceptions.EmptyFieldException;
 import com.marketplace.fsbz_marketplace.exceptions.IncorectEmailException;
 import com.marketplace.fsbz_marketplace.exceptions.IncorrectPasswordExeption;
@@ -11,10 +12,10 @@ import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -39,6 +40,7 @@ public class AdminRegisterController {
     private PasswordField confirmPasswordField;
 
 
+
     public void setCancelAdminButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(cancelAdminButton,"interfaces/adminLogIn.fxml",1280,720);
     }
@@ -54,13 +56,26 @@ public class AdminRegisterController {
                 String  password=setPasswordField.getText();
                 String saltvalue = PassBasedEnc.getSaltvalue(30);
                 String encryptedPass = PassBasedEnc.generateSecurePassword(password, saltvalue);
+                String adminCode = PassBasedEnc.getSaltvalue(30).substring(0,10);
 
                 UserServices.verifyEmptyFilds(firstname,lastname,email,username,password);
                 UserServices.verifytLenghtCredenial(firstname,lastname,username);
                 UserServices.verifyEmailCorrectness(email);
                 UserServices.verifyPasswordCorrectness(password);
-                AdminService.registerAdmin(firstname, lastname, email, username,saltvalue,encryptedPass);
+                AdminService.registerAdmin(firstname, lastname, email, username,saltvalue,encryptedPass,adminCode);
+
+
+
                 FxmlUtilities.sceneTransiton(registerAdminButton,"interfaces/adminLogIn.fxml",1280,720);
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminCode.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+                stage.setTitle("FZ:BZ Marketplace");
+                PopUpsController myPOC = fxmlLoader.getController();
+                myPOC.setAdminCode(adminCode);
+                stage.setScene(scene);
+                stage.show();
+
             }catch (EmptyFieldException exception1){
                 registerErrorMessage.setText(exception1.getMessage());
             }catch (InsuficientLenghtException exception2){

@@ -35,7 +35,14 @@ public class FxmlUtilities {
         stage.setScene(scene);
         stage.show();
     }
-
+    public static void sceneTransiton2(String fxmlFileName, int sceneWidth, int sceneHeight)throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource(fxmlFileName));
+        Scene scene = new Scene(fxmlLoader.load(), sceneWidth, sceneHeight);
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
+    }
     public static void  setTriColor(AnchorPane anchor, String id){
 
         Scene scene = anchor.getScene();
