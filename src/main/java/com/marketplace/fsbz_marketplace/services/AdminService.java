@@ -27,7 +27,7 @@ public class AdminService {
 
             while (queryResult.next()) {
 
-                int retrivedAdminId=queryResult.getInt("account_id");
+                int retrivedAdminId=queryResult.getInt("admin_id");
                 String retrivedEmail=queryResult.getString("email");
                 String retrivedUsername=queryResult.getString("username");
 
