@@ -135,7 +135,7 @@ public class UserServices {
         }
     }
 
-    public static boolean validateLogin(String username, String password, Button loginButton)throws CredentialsExceptions,java.sql.SQLException,java.io.IOException{
+    public static boolean validateLogin(String username, String password)throws CredentialsExceptions,java.sql.SQLException{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
 

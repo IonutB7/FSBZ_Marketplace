@@ -81,7 +81,7 @@ public class UserLogInController {
         if(userTextField.getText().isBlank() ==false && enterPasswordField.getText().isBlank()==false){
 
             try{
-                if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText(),loginButton)==true){
+                if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText())==true){
 
                     setUserInstance(userTextField.getText());
                     setStoreInvetoryInstance();
