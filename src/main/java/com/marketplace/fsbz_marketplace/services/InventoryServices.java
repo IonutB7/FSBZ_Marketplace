@@ -17,7 +17,34 @@ import java.sql.Statement;
 import java.util.ArrayList;
 public class InventoryServices {
 
+    public static void deleteSelectedItems(ObservableList<Item> selectedItems){
 
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+        String itemsIdList = "(";
+        for (int i = 0; i < selectedItems.size(); i++) {
+            if (i != selectedItems.size() - 1) {
+                itemsIdList += "'" + selectedItems.get(i).getItemNumber() + "',";
+            } else {
+                itemsIdList += "'" + selectedItems.get(i).getItemNumber() + "'";
+            }
+
+        }
+
+        itemsIdList += ")";
+
+        String transferSelectedItems = "DELETE FROM user_inventory" + " WHERE item_number IN " + itemsIdList + ";";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(transferSelectedItems);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     public void resetSelectedUserItem(){
         SelectedItemsHolder.getInstance().setSelectedItemsUserInventory(null);

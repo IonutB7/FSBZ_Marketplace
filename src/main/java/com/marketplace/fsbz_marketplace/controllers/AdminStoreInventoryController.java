@@ -1,5 +1,6 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.exceptions.StoreItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
@@ -8,11 +9,13 @@ import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,9 +26,17 @@ public class AdminStoreInventoryController implements Initializable {
 
     @FXML
     private Label storeSearchLabel;
+    @FXML
+    private Label storeErrorMessageLabel;
 
     @FXML
     private TableView<Item> storeInventoryTableView;
+    @FXML
+    private Button goBackButton;
+    @FXML
+    private Button deleteItemsButton;
+    @FXML
+    private Button addItemButton;
 
     @FXML private TableColumn<Item,Integer> storeItemNumberColumn;
     @FXML private TableColumn<Item,Integer> storeInventoryIdColumn;
@@ -37,27 +48,14 @@ public class AdminStoreInventoryController implements Initializable {
     @FXML private TableColumn<Item,Boolean> storeStatTrackColumn;
 
 
-    public void setStoreSelectedItemsList(){
-        ObservableList<Item> selectedItems=storeInventoryTableView.getSelectionModel().getSelectedItems();
-        SelectedItemsHolder holder = SelectedItemsHolder.getInstance();
-        holder.setSelectedItemsStoreInventory(selectedItems);
-    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         InventoryServices services = new InventoryServices();
         services.resetSelectedStoreItem();
 
-        InventoryServices.setInventoryTableCollumns(storeItemNumberColumn,
-                storeInventoryIdColumn,
-                storeNameColumn,
-                storeDescriptionColumn,
-                storeCategoryColumn,
-                storeWearColumn,
-                storePriceColumn,
-                storeStatTrackColumn);
-
-        storeInventoryTableView.setItems(InventoryServices.getStoreItems());
+        UpdateTable();
 
         storeInventoryTableView.setOnMouseClicked(event -> {
             storeInventoryTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -85,6 +83,44 @@ public class AdminStoreInventoryController implements Initializable {
         sortedData.comparatorProperty().bind(storeInventoryTableView.comparatorProperty());
         storeInventoryTableView.setItems(sortedData);
 
+    }
+
+    public void UpdateTable(){
+        InventoryServices.setInventoryTableCollumns(storeItemNumberColumn,
+                storeInventoryIdColumn,
+                storeNameColumn,
+                storeDescriptionColumn,
+                storeCategoryColumn,
+                storeWearColumn,
+                storePriceColumn,
+                storeStatTrackColumn);
+
+        storeInventoryTableView.setItems(InventoryServices.getStoreItems());
+    }
+
+    public void setStoreSelectedItemsList(){
+        ObservableList<Item> selectedItems=storeInventoryTableView.getSelectionModel().getSelectedItems();
+        SelectedItemsHolder holder = SelectedItemsHolder.getInstance();
+        holder.setSelectedItemsStoreInventory(selectedItems);
+    }
+
+    public void setGoBackButtonOnAction(ActionEvent event)  throws IOException {
+        FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminMainInterface.fxml",1280,720);
+    }
+
+    public void setDeleteItemsButtonButtonOnAction(ActionEvent event)  throws IOException {
+        try{
+            if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                InventoryServices.removeStoreSelectedItems(SelectedItemsHolder.getInstance().getSelectedItemsStoreInventory());
+                InventoryServices.deleteSelectedItems(SelectedItemsHolder.getInstance().getSelectedItemsStoreInventory());
+                UpdateTable();
+            }else{
+                throw new StoreItemsNotSelectedException("No items selected!");
+            }
+
+        }catch (StoreItemsNotSelectedException exception){
+            storeErrorMessageLabel.setText(exception.getMessage());
+        }
     }
 
 }
