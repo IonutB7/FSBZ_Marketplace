@@ -202,7 +202,7 @@ public class UserServices {
     }
 
     public static void verifyPasswordCorrectness(String password) throws CredentialsExceptions {
-    if(!password.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}"))
+    if(!password.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}"))
         throw  new IncorrectPasswordExeption("The passowrd does not corespond to the needed format!");
     }
 
