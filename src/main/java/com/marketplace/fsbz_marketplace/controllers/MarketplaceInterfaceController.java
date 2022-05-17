@@ -54,9 +54,5 @@ public class MarketplaceInterfaceController {
         FxmlUtilities.sceneTransiton(helpButton,"interfaces/helpSectionController.fxml",1280,630);
     }
 
-    public void setLegerButtonOnAction(ActionEvent event) throws IOException{
-        FxmlUtilities.sceneTransiton(legerButton,"userTransactionHistory.fxml",600,700);
-
-    }
 
 }
