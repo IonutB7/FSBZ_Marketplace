@@ -2,6 +2,7 @@ package com.marketplace.fsbz_marketplace.controllers;
 
 
 import com.marketplace.fsbz_marketplace.exceptions.InsufficientItemValueException;
+import com.marketplace.fsbz_marketplace.exceptions.StoreItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.exceptions.UserItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
@@ -96,9 +97,19 @@ public class MyInventoryController implements Initializable {
     }
 
     public void setSellItemsButtonOnAction(ActionEvent event)throws IOException{
-        InventoryServices.sellUserItems();
-        FxmlUtilities.sceneTransiton(sellItemsButton,"interfaces/marketplaceInterface.fxml",1280,720);
+        try{
+            if(userInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                InventoryServices.sellUserItems();
+                FxmlUtilities.sceneTransiton(sellItemsButton,"interfaces/marketplaceInterface.fxml",1280,720);
+            }else{
+                throw new StoreItemsNotSelectedException("No items selected!");
+            }
+
+        }catch (StoreItemsNotSelectedException exception){
+            tradeItemsMessageLabel.setText(exception.getMessage());
+        }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){

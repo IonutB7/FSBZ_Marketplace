@@ -53,6 +53,13 @@ public class AdminLogInController {
         holder.setStoreInventory(storeInventory);
     }
 
+    private void setWeaponInformationsTable() {
+        ArrayList<WeaponInformation> weaponTable = new ArrayList<>();
+        InventoryServices.initializeWeaponTable(weaponTable);
+        WeaponsTableHolder holder = WeaponsTableHolder.getInstance();
+        holder.setWeaponInformations(weaponTable);
+    }
+
     public void setAdminCancelButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(cancelAdminButton,"interfaces/chooseAccountType.fxml",1280,720);
     }
@@ -68,6 +75,7 @@ public class AdminLogInController {
 
                     setAdminInstance(adminTextField.getText());
                     setStoreInvetoryInstance();
+                    setWeaponInformationsTable();
                     FxmlUtilities.sceneTransiton(loginAdminButton,"interfaces/adminMainInterface.fxml",1280,720);
                 }
             }catch(InexistentUserException exception1){

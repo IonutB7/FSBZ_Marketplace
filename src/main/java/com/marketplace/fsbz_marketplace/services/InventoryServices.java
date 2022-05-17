@@ -171,6 +171,38 @@ public class InventoryServices {
 
     }
 
+    public static void initializeWeaponTable(ArrayList<WeaponInformation> weaponInformationTable) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+        String retriveWeaponTable = "SELECT * FROM weapons_price";
+
+        try{
+
+            Statement statement = connectionDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(retriveWeaponTable);
+
+            while (queryResult.next()) {
+
+                WeaponInformation tempWeaponInformation = new WeaponInformation();
+
+                tempWeaponInformation.setWeaponId(queryResult.getInt("weapon_id"));
+                tempWeaponInformation.setName(queryResult.getString("name"));
+                tempWeaponInformation.setDescription(queryResult.getString("description"));
+                tempWeaponInformation.setCategory(queryResult.getString("category"));
+                tempWeaponInformation.setPrice(queryResult.getFloat("base_price"));
+
+                weaponInformationTable.add(tempWeaponInformation);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
+
+
     public static void removeStoreSelectedItems(ObservableList<Item> selectedItems){
         for(Item item:selectedItems){
             StoreInventoryHolder.getInstance().getStoreInventory().remove(item);

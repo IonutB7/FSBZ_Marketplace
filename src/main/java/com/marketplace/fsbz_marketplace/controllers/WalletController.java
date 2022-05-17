@@ -1,10 +1,10 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 
-import com.marketplace.fsbz_marketplace.exceptions.InexistentCouponException;
-import com.marketplace.fsbz_marketplace.exceptions.InsufficientAmountException;
-import com.marketplace.fsbz_marketplace.exceptions.InvalidCouponException;
+import com.marketplace.fsbz_marketplace.exceptions.*;
+import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
 import com.marketplace.fsbz_marketplace.model.UserHolder;
+import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.services.WalletServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
@@ -54,9 +54,16 @@ public class WalletController implements Initializable {
 
     public void withdrawButtonOnAction(ActionEvent event) throws IOException{
             try{
-                WalletServices.withdrawAmount(Float.parseFloat(amountTextField.getText()));
-            }catch(InsufficientAmountException exception){
-                withdrawMessageLabel.setText(exception.getMessage());
+                if(amountTextField.getText().isEmpty()==false){
+                    WalletServices.withdrawAmount(Float.parseFloat(amountTextField.getText()));
+                }else{
+                    throw new EmptyWithdrawFieldException("The withdraw field is empty!");
+                }
+
+            }catch(InsufficientAmountException exception1){
+                withdrawMessageLabel.setText(exception1.getMessage());
+            } catch(EmptyWithdrawFieldException exception2){
+                withdrawMessageLabel.setText(exception2.getMessage());
             }catch(Exception e){
                 e.printStackTrace();
                 e.getCause();
