@@ -92,6 +92,6 @@ public class TransactionHistoryController implements Initializable {
     }
 
     public void setWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(walletButton,"interfaces/userWallet.fxml",1280,720);
+        FxmlUtilities.sceneTransiton2("interfaces/userWallet.fxml",520,530);
     }
 }

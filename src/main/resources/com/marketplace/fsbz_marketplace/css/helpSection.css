@@ -1,0 +1,32 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#helpSection {
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 17px;
+    -fx-text-fill: white;
+}
+
+.text-area .content {
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+
+.text-area .content{
+    -fx-background-color: black;
+}
+
+#textAnchor {
+
+    -fx-background-color: rgba(0,0,0,0.5);
+
+}
+
+#helpSection {
+
+    -fx-background-image: url("../images/background1.jpg");
+}
+

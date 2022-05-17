@@ -72,7 +72,7 @@ public class MyInventoryController implements Initializable {
     }
 
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",1280,720);
+        FxmlUtilities.sceneTransiton2("interfaces/userWallet.fxml",520,530);
     }
 
 

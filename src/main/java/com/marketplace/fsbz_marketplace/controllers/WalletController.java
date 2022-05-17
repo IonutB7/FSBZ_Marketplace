@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 
 import java.io.IOException;
@@ -63,6 +64,17 @@ public class WalletController implements Initializable {
                 Platform.exit();
             }
     }
+    public void withdrawButtonOnAction1(MouseEvent event) throws IOException{
+        try{
+            WalletServices.withdrawAmount(Float.parseFloat(amountTextField.getText()));
+        }catch(InsufficientAmountException exception){
+            withdrawMessageLabel.setText(exception.getMessage());
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+            Platform.exit();
+        }
+    }
 
     public void validateCodeButtonOnAction(ActionEvent event) throws IOException{
         try {
@@ -80,7 +92,27 @@ public class WalletController implements Initializable {
 
     }
 
+    public void validateCodeButtonOnAction1(MouseEvent event) throws IOException{
+        try {
+            WalletServices.verifyCoupon(codeTextField.getText());
+        }catch (InvalidCouponException exception1){
+            codeMessageLabel.setText(exception1.getMessage());
+
+        } catch (InexistentCouponException exception2) {
+            codeMessageLabel.setText(exception2.getMessage());
+        }catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+            Platform.exit();
+        }
+
+    }
+
     public void setGoBackButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(storeGoBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
+        FxmlUtilities.sceneTransiton3(storeGoBackButton);
+    }
+
+    public void setGoBackButtonOnAction1(MouseEvent event) throws IOException {
+        FxmlUtilities.sceneTransiton3(storeGoBackButton);
     }
 }

@@ -34,16 +34,33 @@
     -fx-background-radius: 0px;
 }
 
-#ledgerButton:hover, #storeInventoryButton:hover, #myInventoryButton:hover, #myWalletButton:hover, #logOutButton:hover{
+ #storeInventoryButton:hover, #myInventoryButton:hover, #myWalletButton:hover, #logOutButton:hover{
 
-    -fx-background-color: #737373;
+    -fx-background-color: white;
 
 }
 
+ #ledgerButton:hover  {
+     -fx-background-color: white;
+ }
+
+ #ledgerButton:hover > #blkTriangle {
+     -fx-fill: white;
+     -fx-stroke: white;
+ }
+
+ #helpButton:hover {
+
+     -fx-background-color: white;
+ }
+ #helpButton:hover > #grayTriangle {
+     -fx-fill: white;
+     -fx-stroke: white;
+ }
 
 
 #helpButton:hover, #reportButton:hover {
-    -fx-background-color: black;
+    -fx-background-color: white;
 }
 
 #left {

@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -40,7 +41,7 @@ public class MarketplaceInterfaceController {
     }
 
     public void setMyWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(myWalletButton,"interfaces/userWallet.fxml",1280,720);
+        FxmlUtilities.sceneTransiton2("interfaces/userWallet.fxml",520,530);
     }
 
     public void setLedgerButtonOnAction(ActionEvent event) throws IOException{
@@ -48,8 +49,17 @@ public class MarketplaceInterfaceController {
 
     }
 
+    public void setLedgerButtonOnAction1(MouseEvent event) throws IOException{
+        FxmlUtilities.sceneTransiton(ledgerButton,"interfaces/userTransactionHistory.fxml",1280,720);
+
+    }
+
     public void setHelpButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(helpButton,"interfaces/helpSectionController.fxml",1280,630);
+        FxmlUtilities.sceneTransiton(helpButton,"interfaces/helpSectionController.fxml",1280,720);
+    }
+
+    public void setHelpButtonOnAction1(MouseEvent event) throws IOException {
+        FxmlUtilities.sceneTransiton(helpButton,"interfaces/helpSectionController.fxml",1280,720);
     }
 
 }

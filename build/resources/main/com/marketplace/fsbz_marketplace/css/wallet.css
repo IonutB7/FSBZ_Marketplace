@@ -1,0 +1,56 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#walletPage {
+
+    -fx-font-family: "Counter-Strike";
+    -fx-background-color: red;
+    -fx-font-size: 24px;
+}
+#balanceLabel {
+
+    -fx-font-family: "Counter-Strike";
+}
+
+#codeTextField, #amountTextField {
+
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: white;
+}
+
+#validateCodeButton, #withdrawButton, #storeGoBackButton {
+
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: white;
+}
+
+#deposit:hover > #depositTriangle {
+    -fx-fill: #EAEAEA;
+    -fx-stroke: #EAEAEA;
+}
+
+#deposit:hover > #validateCodeButton {
+    -fx-background-color: #EAEAEA;
+}
+
+#withdraw:hover > #withdrawTriangle {
+    -fx-fill: #EAEAEA;
+    -fx-stroke: #EAEAEA;
+}
+
+#withdraw:hover > #withdrawButton {
+    -fx-background-color: #EAEAEA;
+}
+
+#back:hover > #triangle {
+    -fx-fill: #EAEAEA;
+    -fx-stroke: #EAEAEA;
+}
+#back:hover > #storeGoBackButton {
+    -fx-background-color: #EAEAEA;
+}

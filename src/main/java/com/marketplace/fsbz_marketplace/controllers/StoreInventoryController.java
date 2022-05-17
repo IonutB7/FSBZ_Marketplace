@@ -63,7 +63,7 @@ public class StoreInventoryController implements Initializable {
         holder.setTotalValueStoreItems(totalValue+(5*totalValue)/100);
     }
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",1280,720);
+        FxmlUtilities.sceneTransiton2("interfaces/userWallet.fxml",520,530);
     }
     public void setGoBackButtonOnAction(ActionEvent event)  throws IOException {
         FxmlUtilities.sceneTransiton(storeGoBackButton,"interfaces/marketplaceInterface.fxml",1280,720);

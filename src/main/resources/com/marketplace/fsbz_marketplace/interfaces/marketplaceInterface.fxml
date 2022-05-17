@@ -31,15 +31,19 @@
                </font>
             </Button>
             <Button fx:id="reportButton" layoutX="1009.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="271.0" text="Report section" />
-            <Button fx:id="helpButton" layoutX="890.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setHelpButtonOnAction" prefHeight="90.0" prefWidth="119.0" text="Help" />
             <Button fx:id="myWalletButton" layoutX="379.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="90.0" prefWidth="147.0" text="Wallet" />
-            <Button fx:id="ledgerButton" layoutX="526.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setLedgerButtonOnAction" prefHeight="90.0" prefWidth="333.0" text="Transaction history">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Polygon fx:id="blkTriangle" layoutX="949.0" layoutY="83.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" stroke="BLACK" strokeType="INSIDE" />
-            <Polygon fx:id="grayTriangle" fill="#737373" layoutX="948.0" layoutY="85.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" rotate="180.0" stroke="#737373" strokeType="INSIDE" />
+            <AnchorPane fx:id="transactionAndHelp" layoutX="526.0" prefHeight="89.0" prefWidth="485.0">
+               <children>
+                  <Button fx:id="helpButton" layoutX="363.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setHelpButtonOnAction" prefHeight="90.0" prefWidth="120.0" text="Help" />
+                  <Polygon fx:id="grayTriangle" fill="#737373" layoutX="421.0" layoutY="85.0" onMouseClicked="#setHelpButtonOnAction1" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" rotate="180.0" stroke="#737373" strokeType="INSIDE" />
+                  <Polygon fx:id="blkTriangle" layoutX="422.0" layoutY="82.0" onMouseClicked="#setLedgerButtonOnAction1" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button fx:id="ledgerButton" layoutY="-1.0" mnemonicParsing="false" onAction="#setLedgerButtonOnAction" prefHeight="90.0" prefWidth="332.0" text="Transaction history">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <Polygon fill="#737373" layoutX="433.0" layoutY="277.0" points="187.0, -187.0, 187.0, 457.0, 425.0, -187.0" stroke="#737373" strokeType="INSIDE" />

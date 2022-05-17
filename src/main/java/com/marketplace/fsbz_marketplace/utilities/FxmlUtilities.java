@@ -36,11 +36,18 @@ public class FxmlUtilities {
         stage.show();
     }
 
-    public static void  setTriColor(AnchorPane anchor, String id){
+    public static void sceneTransiton2(String fxmlFileName, int sceneWidth, int sceneHeight)throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource(fxmlFileName));
+        Scene scene = new Scene(fxmlLoader.load(), sceneWidth, sceneHeight);
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void sceneTransiton3(Button button)throws IOException {
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
 
-        Scene scene = anchor.getScene();
-        Polygon tri = (Polygon) scene.lookup(id);
-        tri.setStyle("-fx-fill: #737373; -fx-stroke: #737373");
     }
 
     public static void setMultipleSelctionModeEnable(TableView tableView) {
