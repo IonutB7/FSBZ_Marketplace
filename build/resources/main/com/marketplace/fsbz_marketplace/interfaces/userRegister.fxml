@@ -85,6 +85,7 @@
       <Polygon fill="WHITE" layoutX="641.0" layoutY="429.0" points="-50.0, 39.0, -36.0, -13.0, -50.0, -13.0" stroke="WHITE" strokeType="INSIDE" />
       <Polygon fill="WHITE" layoutX="624.0" layoutY="492.0" points="-50.0, 39.0, -36.0, -13.0, -50.0, -13.0" stroke="WHITE" strokeType="INSIDE" />
       <Polygon fill="WHITE" layoutX="592.0" layoutY="601.0" points="-50.0, 39.0, -36.0, -13.0, -50.0, -13.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label fx:id="registerErrorMessage" layoutX="111.0" layoutY="543.0" prefHeight="31.0" prefWidth="463.0" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />
