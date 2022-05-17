@@ -2,6 +2,8 @@ package com.marketplace.fsbz_marketplace.services;
 
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.*;
+import com.marketplace.fsbz_marketplace.model.Admin;
+import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
 
 import java.sql.Connection;
@@ -11,6 +13,36 @@ import java.sql.Statement;
 public class AdminService {
 
 
+    public static void initializeAdmin(Admin currentAdmin, String username) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+        String retriveAdmin = "SELECT * FROM admin_db WHERE username =" + "'" + username + "';";
+
+        try{
+
+            Statement statement = connectionDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(retriveAdmin);
+
+            while (queryResult.next()) {
+
+                int retrivedAdminId=queryResult.getInt("account_id");
+                String retrivedEmail=queryResult.getString("email");
+                String retrivedUsername=queryResult.getString("username");
+
+
+                currentAdmin.setAdminId(retrivedAdminId);
+                currentAdmin.setEmail(retrivedEmail);
+                currentAdmin.setUsername(retrivedUsername);
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
     public static boolean validateLogin(String adminUsername, String adminPassword,String adminCode)throws CredentialsExceptions,java.sql.SQLException{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();

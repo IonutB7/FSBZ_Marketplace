@@ -5,8 +5,8 @@ import com.marketplace.fsbz_marketplace.exceptions.AccountNotActivatedException;
 import com.marketplace.fsbz_marketplace.exceptions.BannedUserException;
 import com.marketplace.fsbz_marketplace.exceptions.InexistentUserException;
 import com.marketplace.fsbz_marketplace.exceptions.UserPasswordInvalidException;
-import com.marketplace.fsbz_marketplace.services.AdminService;
-import com.marketplace.fsbz_marketplace.services.UserServices;
+import com.marketplace.fsbz_marketplace.model.*;
+import com.marketplace.fsbz_marketplace.services.*;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AdminLogInController {
     @FXML
@@ -38,6 +39,19 @@ public class AdminLogInController {
     @FXML
     private Label loginMessageLabel;
 
+    private void setAdminInstance(String username) {
+        Admin currentAdmin = new Admin();
+        AdminService.initializeAdmin(currentAdmin,username);
+        AdminHolder holder = AdminHolder.getInstance();
+        holder.setAdmin(currentAdmin);
+    }
+
+    private void setStoreInvetoryInstance() {
+        ArrayList<Item> storeInventory = new ArrayList<>();
+        InventoryServices.initializeStoreInventory(storeInventory);
+        StoreInventoryHolder holder = StoreInventoryHolder.getInstance();
+        holder.setStoreInventory(storeInventory);
+    }
 
     public void setAdminCancelButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(cancelAdminButton,"interfaces/chooseAccountType.fxml",1280,720);
@@ -52,6 +66,8 @@ public class AdminLogInController {
             try{
                 if(AdminService.validateLogin(adminTextField.getText(), adminPasswordField.getText(),adminCodeField.getText())==true){
 
+                    setAdminInstance(adminTextField.getText());
+                    setStoreInvetoryInstance();
                     FxmlUtilities.sceneTransiton(loginAdminButton,"interfaces/adminMainInterface.fxml",1280,720);
                 }
             }catch(InexistentUserException exception1){
