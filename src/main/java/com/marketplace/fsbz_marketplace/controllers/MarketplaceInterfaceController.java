@@ -26,6 +26,8 @@ public class MarketplaceInterfaceController {
     @FXML private Button ledgerButton;
     @FXML private Button helpButton;
 
+    @FXML private Button legerButton;
+
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/userInventory.fxml",1280,720);
@@ -50,6 +52,11 @@ public class MarketplaceInterfaceController {
 
     public void setHelpButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(helpButton,"interfaces/helpSectionController.fxml",1280,630);
+    }
+
+    public void setLegerButtonOnAction(ActionEvent event) throws IOException{
+        FxmlUtilities.sceneTransiton(legerButton,"userTransactionHistory.fxml",600,700);
+
     }
 
 }
