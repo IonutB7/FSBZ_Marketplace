@@ -16,6 +16,9 @@ import javafx.scene.control.Button;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserServices {
 
@@ -168,5 +171,39 @@ public class UserServices {
         return false;
     }
 
+
+    public static void verifyEmptyFilds(String firstname,String lastname,String email,String  username, String password)throws CredentialsExceptions{
+        if(firstname.isEmpty())
+            throw new EmptyFieldException("There exits incompleted fields!");
+        if(lastname.isEmpty())
+            throw new EmptyFieldException("There exits incompleted fields!");
+        if(email.isEmpty())
+            throw new EmptyFieldException("There exits incompleted fields!");
+        if(username.isEmpty())
+            throw new EmptyFieldException("There exits incompleted fields!");
+        if(password.isEmpty())
+            throw new EmptyFieldException("There exits incompleted fields!");
+    }
+
+    public static void verifytLenghtCredenial(String firstname,String lastname,String  username)throws CredentialsExceptions{
+        if(firstname.length()<3||lastname.length()<3||username.length()<3){
+            throw new InsuficientLenghtException("The First Name,Last Name and Username needs to be at least 3 letters long!");
+        }
+    }
+
+    public static void verifyEmailCorrectness(String email)throws CredentialsExceptions{
+        Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+        Matcher m = p.matcher(email);
+        boolean matchFound = m.matches();
+        if (!matchFound) {
+            throw new IncorectEmailException("Invalid email!");
+        }
+
+    }
+
+    public static void verifyPasswordCorrectness(String password) throws CredentialsExceptions {
+    if(!password.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}"))
+        throw  new IncorrectPasswordExeption("The passowrd does not corespond to the needed format!");
+    }
 
 }
