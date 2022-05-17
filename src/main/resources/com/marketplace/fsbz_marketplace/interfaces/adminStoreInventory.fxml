@@ -30,7 +30,7 @@
       <TextField fx:id="storeSearchTextField" layoutX="237.0" layoutY="52.0" prefHeight="26.0" prefWidth="274.0" />
       <Button fx:id="goBackButton" layoutX="46.0" layoutY="589.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go back" />
       <Button fx:id="deleteItemsButton" layoutX="207.0" layoutY="589.0" mnemonicParsing="false" onAction="#setDeleteItemsButtonButtonOnAction" text="Detele items" />
-      <Button fx:id="addItemButton" layoutX="374.0" layoutY="589.0" mnemonicParsing="false" text="Add item" />
+      <Button fx:id="addItemButton" layoutX="374.0" layoutY="589.0" mnemonicParsing="false" onAction="#setAddItemButton" text="Add item" />
       <Label fx:id="storeErrorMessageLabel" layoutX="102.0" layoutY="626.0" prefHeight="39.0" prefWidth="373.0" textFill="#fc0000">
          <font>
             <Font size="18.0" />

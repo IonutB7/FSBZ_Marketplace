@@ -108,6 +108,11 @@ public class AdminStoreInventoryController implements Initializable {
         FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminMainInterface.fxml",1280,720);
     }
 
+    public void setAddItemButton(ActionEvent event) throws IOException{
+        FxmlUtilities.sceneTransiton2("interfaces/adminAddItem.fxml",820,500);
+
+    }
+
     public void setDeleteItemsButtonButtonOnAction(ActionEvent event)  throws IOException {
         try{
             if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
