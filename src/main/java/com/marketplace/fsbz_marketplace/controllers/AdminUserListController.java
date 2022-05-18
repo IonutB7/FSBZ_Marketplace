@@ -1,18 +1,23 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.model.UserListHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.services.UserListServices;
+import com.marketplace.fsbz_marketplace.services.UserServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -94,7 +99,31 @@ public class AdminUserListController implements Initializable {
     public void setSendWarningButtonOnAction(ActionEvent event) throws IOException{
         if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
             UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
-            FxmlUtilities.sceneTransiton(sendWarningButton,"interfaces/adminWarning.fxml",820,500);
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminSanctions.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            AdminSanctionControllers myASC = fxmlLoader.getController();
+            myASC.setAdminIsWarning(true);
+            stage.setTitle("FZ:BZ Marketplace");
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            userListErrorMessageLabel.setText("No user is selected.");
+        }
+
+    }
+
+    public void setBanUserButtonOnAction(ActionEvent event) throws IOException{
+        if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
+            UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminSanctions.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            AdminSanctionControllers myASC = fxmlLoader.getController();
+            myASC.setAdminIsBanning(true);
+            stage.setTitle("FZ:BZ Marketplace");
+            stage.setScene(scene);
+            stage.show();
         }else{
             userListErrorMessageLabel.setText("No user is selected.");
         }
