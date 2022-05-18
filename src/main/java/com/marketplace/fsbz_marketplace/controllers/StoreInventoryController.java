@@ -74,7 +74,7 @@ public class StoreInventoryController implements Initializable {
     public void setCheckOutButtonOnAction(ActionEvent event)  throws IOException {
         try{
             if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
-                FxmlUtilities.sceneTransiton(checkOutButton,"interfaces/paymentMethod.fxml",1280,720);
+                FxmlUtilities.sceneTransiton(checkOutButton,"interfaces/paymentMethod.fxml",520,530);
             }else{
                 throw new StoreItemsNotSelectedException("No items selected!");
             }
@@ -87,7 +87,7 @@ public class StoreInventoryController implements Initializable {
     public void setCheckOutButtonOnAction1(MouseEvent event)  throws IOException {
         try{
             if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
-                FxmlUtilities.sceneTransiton(checkOutButton,"interfaces/paymentMethod.fxml",1280,720);
+                FxmlUtilities.sceneTransiton(checkOutButton,"interfaces/paymentMethod.fxml",520 ,530);
             }else{
                 throw new StoreItemsNotSelectedException("No items selected!");
             }

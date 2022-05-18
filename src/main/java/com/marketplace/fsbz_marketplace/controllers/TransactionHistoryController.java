@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,14 +38,6 @@ public class TransactionHistoryController implements Initializable {
 
     @FXML
     private TextField searchTextField;
-
-    @FXML
-    private Label searchLabel;
-
-    @FXML
-    private Button helpButton;
-    @FXML
-    private Button walletButton;
     @FXML
     private Button goBackButton;
 
@@ -91,7 +84,8 @@ public class TransactionHistoryController implements Initializable {
         FxmlUtilities.sceneTransiton(goBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
     }
 
-    public void setWalletButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton2("interfaces/userWallet.fxml",520,530);
+    public void setGoBackButtonOnAction1(MouseEvent event) throws IOException {
+        FxmlUtilities.sceneTransiton(goBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
     }
+
 }

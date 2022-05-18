@@ -2,23 +2,53 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.ChoosePaymentMethodController">
+<AnchorPane fx:id="choosePayment" prefHeight="530.0" prefWidth="520.0" stylesheets="@../css/paymentMethod.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.ChoosePaymentMethodController">
    <children>
-      <Label fx:id="chooseMethodLabel" layoutX="119.0" layoutY="149.0" prefHeight="37.0" prefWidth="409.0" text="Choose one of the following payment method:">
+      <Label fx:id="chooseMethodLabel" layoutX="56.0" layoutY="95.0" prefHeight="37.0" prefWidth="410.0" stylesheets="@../css/paymentMethod.css" text="choose payment method" textFill="WHITE">
+         <font>
+            <Font name="Counter-Strike Regular" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancelOrderButton" layoutX="178.0" layoutY="416.0" mnemonicParsing="false" onAction="#setCancelOrderButtonOnAction" prefHeight="37.0" prefWidth="152.0" text="cancel order">
+         <font>
+            <Font name="Counter-Strike Regular" size="20.0" />
+         </font></Button>
+      <Label fx:id="chooseMethodMessageLabel" layoutX="92.0" layoutY="367.0" prefHeight="37.0" prefWidth="325.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="withMoneyButton" layoutX="143.0" layoutY="259.0" mnemonicParsing="false" onAction="#setWithMoneyButtonOnAction" text="With money" />
-      <Button fx:id="withItemsButton" layoutX="332.0" layoutY="259.0" mnemonicParsing="false" onAction="#setWithItemsButtonOnAction" prefHeight="26.0" prefWidth="121.0" text="With items" />
-      <Button fx:id="cancelOrderButton" layoutX="244.0" layoutY="334.0" mnemonicParsing="false" onAction="#setCancelOrderButtonOnAction" text="Calcel order" />
-      <Label fx:id="chooseMethodMessageLabel" layoutX="143.0" layoutY="297.0" prefHeight="27.0" prefWidth="325.0" textFill="RED">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <AnchorPane fx:id="moneyAnchor" layoutX="69.0" layoutY="174.0" onMouseClicked="#setWithMoneyButtonOnAction" prefHeight="173.0" prefWidth="163.0">
+         <children>
+            <ImageView fitHeight="124.0" fitWidth="157.0" layoutX="7.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/money.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="21.0" layoutY="142.0" prefHeight="17.0" prefWidth="121.0" text="with money" textFill="WHITE">
+               <font>
+                  <Font name="Counter-Strike Regular" size="24.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="itemsAnchor" layoutX="287.0" layoutY="182.0" onMouseClicked="#setWithItemsButtonOnAction" prefHeight="173.0" prefWidth="161.0">
+         <children>
+            <ImageView fitHeight="124.0" fitWidth="137.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/weapons.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="20.0" layoutY="135.0" prefHeight="17.0" prefWidth="121.0" text="with items" textFill="WHITE">
+               <font>
+                  <Font name="Counter-Strike Regular" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

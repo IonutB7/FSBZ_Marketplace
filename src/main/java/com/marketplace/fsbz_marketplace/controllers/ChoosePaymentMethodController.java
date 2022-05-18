@@ -14,6 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,16 +31,20 @@ public class ChoosePaymentMethodController {
     private Button withItemsButton;
     @FXML
     private Button cancelOrderButton;
+    @FXML
+    private AnchorPane moneyAnchor;
+    @FXML
+    private AnchorPane itemsAnchor;
 
     public void setCancelOrderButtonOnAction(ActionEvent event)  throws IOException {
         FxmlUtilities.sceneTransiton(cancelOrderButton,"interfaces/marketplaceInterface.fxml",1280 ,720);
     }
 
-    public void setWithMoneyButtonOnAction(ActionEvent event){
+    public void setWithMoneyButtonOnAction(MouseEvent event){
 
         try {
             InventoryServices.executePaymentWithMoney();
-            FxmlUtilities.sceneTransiton(withMoneyButton,"interfaces/marketplaceInterface.fxml",1280,720);
+            FxmlUtilities.sceneTransiton1(moneyAnchor,"interfaces/marketplaceInterface.fxml",1280,720);
 
         }catch (InsufficientAmountException exception){
             chooseMethodMessageLabel.setText(exception.getMessage());
@@ -49,8 +55,8 @@ public class ChoosePaymentMethodController {
         }
     }
 
-    public void setWithItemsButtonOnAction(ActionEvent event) throws IOException{
-        Stage stage = (Stage) withItemsButton.getScene().getWindow();
+    public void setWithItemsButtonOnAction(MouseEvent event) throws IOException{
+        Stage stage = (Stage) itemsAnchor.getScene().getWindow();
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/userInventory.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
