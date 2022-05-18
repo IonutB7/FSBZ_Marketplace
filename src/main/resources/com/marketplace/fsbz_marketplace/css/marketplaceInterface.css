@@ -40,11 +40,11 @@
 
 }
 
- #ledgerButton:hover  {
+ #transHistory:hover > #ledgerButton {
      -fx-background-color: white;
  }
 
- #ledgerButton:hover > #blkTriangle {
+ #transHistory:hover > #blkTriangle {
      -fx-fill: white;
      -fx-stroke: white;
  }
@@ -53,13 +53,13 @@
 
      -fx-background-color: white;
  }
- #helpButton:hover > #grayTriangle {
+ #helpBtn:hover > #grayTriangle {
      -fx-fill: white;
      -fx-stroke: white;
  }
 
 
-#helpButton:hover, #reportButton:hover {
+#helpBtn:hover, #reportButton:hover {
     -fx-background-color: white;
 }
 

@@ -1,0 +1,126 @@
+@font-face {
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+
+}
+
+#userInventoryPage {
+
+    -fx-font-family: "Counter-Strike";
+    -fx-background-image: url("../images/backgroundTables.jpg");
+    -fx-font-size: 24px;
+}
+
+#userInventoryTableView {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+
+#userTotalValueMessage {
+    -fx-font-family: "Counter-Strike";
+}
+.TableColumn {
+    fx-text-fill: white !important;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+#userSearchTextField {
+
+    -fx-background-color: white;
+    -fx-text-fill: red;
+    -fx-background-radius: 0px;
+    -fx-border-style: none;
+    -fx-prompt-text-fill: red;
+}
+
+.table-view {
+    -fx-background-color: rgba(0,0,0,0.4);
+
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: rgba(0,0,0,0.8);
+}
+
+.table-view .corner {
+    -fx-background-color: rgba(0,0,0,0.8);
+}
+
+.table-view .column-header{
+    -fx-background-color: red;
+    -fx-background-radius: 0px;
+}
+
+#value {
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+
+}
+
+.table-row-cell:even{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+
+}
+
+#userWalletButton {
+
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: black;
+    -fx-text-fill: red;
+
+}
+
+#finishTradeButton, #sellItemsButton, #userGoBackButton{
+    -fx-background-color: white;
+    -fx-text-fill: red;
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+}
+
+#finishTrade:hover > #triangle1 , #sellItems:hover > #triangle2{
+    -fx-fill: red;
+    -fx-stroke: red;
+}
+
+#finishTrade:hover > #finishTradeButton , #sellItems:hover > #sellItemsButton, #userGoBackButton:hover{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+
+
+
+#myWlt:hover > #triangle {
+    -fx-stroke: red;
+    -fx-fill: red;
+}
+
+#myWlt:hover > #userWalletButton {
+    -fx-background-color: red;
+    -fx-text-fill: black;
+}
+
+.TableView > .TableColumn {
+    -fx-background-color: red;
+}
