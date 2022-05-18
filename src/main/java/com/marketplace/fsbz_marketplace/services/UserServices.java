@@ -115,13 +115,13 @@ public class UserServices {
         Connection connectDB = connectNow.getConnection();
 
         int banned = 0;
-        int adminAproved = 1;
+        int warned = 0;
         float balance = 1000;
         int inventory_id=retriveLastUserId(connectDB);
         inventory_id++;
 
-        String insertFields = "INSERT INTO user_account(inventory_id,firstname,lastname,email,username,encryptedPass,salt,balance,banned,adminAproved) VALUES ('";
-        String insertValues = inventory_id+"','"+firstname+"','" +lastname+"','" +email+"','" +username+"','" +encryptedPass+"','"+saltvalue+"','"+balance+"','"+banned+"','"+adminAproved+"')";
+        String insertFields = "INSERT INTO user_account(inventory_id,firstname,lastname,email,username,encryptedPass,salt,balance,banned,warned) VALUES ('";
+        String insertValues = inventory_id+"','"+firstname+"','" +lastname+"','" +email+"','" +username+"','" +encryptedPass+"','"+saltvalue+"','"+balance+"','"+banned+"','"+warned+"')";
         String insertToRegister = insertFields + insertValues;
 
         try{

@@ -34,7 +34,10 @@ public class AdminMainInterfaceController {
         stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
-        //FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/adminStoreInventory.fxml",1280,720);
+    }
+
+    public void setUserListButtonOnAction(ActionEvent event)throws IOException{
+        FxmlUtilities.sceneTransiton(userListButton,"interfaces/adminUserList.fxml",1280,720);
     }
 
 

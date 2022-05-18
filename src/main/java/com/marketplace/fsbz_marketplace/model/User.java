@@ -11,6 +11,10 @@ public class User {
     private String email;
     private String username;
 
+    private boolean warned;
+
+    private boolean banned;
+
     private SimpleFloatProperty balance = new SimpleFloatProperty(this, "balance");
     private ArrayList<Item> userInventory;
 
@@ -79,6 +83,22 @@ public class User {
         this.userTransationList = userTransationList;
     }
 
+    public boolean isWarned() {
+        return warned;
+    }
+
+    public void setWarned(boolean warned) {
+        this.warned = warned;
+    }
+
+    public boolean isBanned() {
+        return banned;
+    }
+
+    public void setBanned(boolean banned) {
+        this.banned = banned;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -86,6 +106,9 @@ public class User {
                 ", inventoryId=" + inventoryId +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
+                ", warned=" + warned +
+                ", banned=" + banned +
+                ", balance=" + balance +
                 ", userInventory=" + userInventory +
                 ", userTransationList=" + userTransationList +
                 '}';
