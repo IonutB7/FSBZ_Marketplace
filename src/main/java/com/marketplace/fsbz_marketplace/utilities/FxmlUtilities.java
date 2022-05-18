@@ -48,6 +48,9 @@ public class FxmlUtilities {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
 
+        Scene scene = anchor.getScene();
+        Polygon tri = (Polygon) scene.lookup(id);
+        tri.setStyle("-fx-fill: #737373; -fx-stroke: #737373");
     }
 
     public static void setMultipleSelctionModeEnable(TableView tableView) {

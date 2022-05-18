@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="646.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminUserListController">
+   <children>
+      <TableView fx:id="userListInventoryTableView" layoutX="26.0" layoutY="107.0" prefHeight="464.0" prefWidth="816.0">
+         <columns>
+            <TableColumn fx:id="userListAccountIdColumn" prefWidth="84.79995727539062" text="Account Id" />
+            <TableColumn fx:id="userListInventoryIdColumn" prefWidth="137.59994506835938" text="Inventory Id" />
+            <TableColumn fx:id="userListUsernameColumn" prefWidth="141.60003662109375" text="Username" />
+            <TableColumn fx:id="userListEmailColumn" prefWidth="218.4000244140625" text="Email" />
+            <TableColumn fx:id="userListBalanceColumn" prefWidth="111.20001220703125" text="Balance" />
+            <TableColumn fx:id="userListWarnedColumn" prefWidth="124.00006103515625" text="Warned" />
+         </columns>
+      </TableView>
+      <TextField fx:id="userListSearchTextField" layoutX="190.0" layoutY="31.0" prefHeight="29.0" prefWidth="256.0" />
+      <Label fx:id="userListSearchLabel" layoutX="76.0" layoutY="27.0" prefHeight="38.0" prefWidth="105.0" text="Search bar:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="goBackButton" layoutX="121.0" layoutY="592.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go back" />
+      <Button fx:id="sendWarningButton" layoutX="402.0" layoutY="592.0" mnemonicParsing="false" onAction="#setSendWarningButtonOnAction" text="Send warning" />
+      <Button fx:id="banUserButton" layoutX="632.0" layoutY="592.0" mnemonicParsing="false" text="Ban user" />
+      <Label text="Label" />
+      <Label fx:id="userListErrorMessageLabel" layoutX="482.0" layoutY="27.0" prefHeight="30.0" prefWidth="288.0" />
+   </children>
+</AnchorPane>

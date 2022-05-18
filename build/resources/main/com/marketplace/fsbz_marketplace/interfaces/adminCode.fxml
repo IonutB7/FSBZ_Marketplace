@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.PopUpsController">
+   <children>
+      <TextArea fx:id="adminCodeTextArea" layoutX="178.0" layoutY="81.0" prefHeight="247.0" prefWidth="266.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

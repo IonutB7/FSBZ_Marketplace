@@ -121,8 +121,17 @@ public class MyInventoryController implements Initializable {
     }
 
     public void setSellItemsButtonOnAction(ActionEvent event)throws IOException{
-        InventoryServices.sellUserItems();
-        FxmlUtilities.sceneTransiton(sellItemsButton,"interfaces/marketplaceInterface.fxml",1280,720);
+        try{
+            if(userInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                InventoryServices.sellUserItems();
+                FxmlUtilities.sceneTransiton(sellItemsButton,"interfaces/marketplaceInterface.fxml",1280,720);
+            }else{
+                throw new StoreItemsNotSelectedException("No items selected!");
+            }
+
+        }catch (StoreItemsNotSelectedException exception){
+            tradeItemsMessageLabel.setText(exception.getMessage());
+        }
     }
 
     public void setSellItemsButtonOnAction1(MouseEvent event)throws IOException{
