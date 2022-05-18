@@ -1,6 +1,7 @@
 package com.marketplace.fsbz_marketplace.model;
 
 import javafx.beans.property.SimpleFloatProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public final class WeaponsTableHolder {
     public void setWeaponInformations(ArrayList<WeaponInformation> weaponInformations) {
         this.weaponsTable = weaponInformations;
     }
+
 
 }
 

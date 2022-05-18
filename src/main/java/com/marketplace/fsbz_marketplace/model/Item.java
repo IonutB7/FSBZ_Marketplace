@@ -15,14 +15,12 @@ public class Item {
     private float price;
 
     private boolean statTrack;
-    private int weaponTag;
 
 
     public Item() {
     }
 
-    public Item(int itemNumber, int inventoryId, String name, String description, String category, String wear, float price, boolean statTrack, int weaponTag) {
-        this.itemNumber = itemNumber;
+    public Item(int itemNumber, int inventoryId, String name, String description, String category, String wear, float price, boolean statTrack){
         this.inventoryId = inventoryId;
         this.name = name;
         this.description = description;
@@ -30,7 +28,6 @@ public class Item {
         this.wear = wear;
         this.price = price;
         this.statTrack = statTrack;
-        this.weaponTag = weaponTag;
     }
 
     public int getItemNumber() {
@@ -96,13 +93,6 @@ public class Item {
         this.statTrack = statTrack;
     }
 
-    public int getWeaponTag() {
-        return weaponTag;
-    }
-
-    public void setWeaponTag(int weaponTag) {
-        this.weaponTag = weaponTag;
-    }
 
     @Override
     public String toString() {
@@ -115,7 +105,6 @@ public class Item {
                 ", wear='" + wear + '\'' +
                 ", price=" + price +
                 ", statTrak=" + statTrack +
-                ", weaponTag=" + weaponTag +
                 '}';
     }
 }

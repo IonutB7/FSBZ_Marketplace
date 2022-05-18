@@ -3,8 +3,10 @@ package com.marketplace.fsbz_marketplace.services;
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.model.Admin;
-import com.marketplace.fsbz_marketplace.model.User;
+import com.marketplace.fsbz_marketplace.model.WeaponInformation;
+import com.marketplace.fsbz_marketplace.model.WeaponsTableHolder;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -101,5 +103,6 @@ public class AdminService {
             e.getCause();
         }
     }
+
 
 }

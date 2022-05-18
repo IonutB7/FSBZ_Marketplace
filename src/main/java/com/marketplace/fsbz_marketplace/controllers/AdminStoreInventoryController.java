@@ -1,6 +1,8 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.exceptions.StoreItemsNotSelectedException;
+import com.marketplace.fsbz_marketplace.model.AdminStoreControllerHolder;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
@@ -11,15 +13,21 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminStoreInventoryController implements Initializable {
+
 
     @FXML
     private TextField storeSearchTextField;
@@ -50,8 +58,7 @@ public class AdminStoreInventoryController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
         InventoryServices services = new InventoryServices();
         services.resetSelectedStoreItem();
 
@@ -110,7 +117,6 @@ public class AdminStoreInventoryController implements Initializable {
 
     public void setAddItemButton(ActionEvent event) throws IOException{
         FxmlUtilities.sceneTransiton2("interfaces/adminAddItem.fxml",820,500);
-
     }
 
     public void setDeleteItemsButtonButtonOnAction(ActionEvent event)  throws IOException {

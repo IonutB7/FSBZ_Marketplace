@@ -121,7 +121,6 @@ public class InventoryServices {
                 tempItem.setCategory(queryResult.getString("category"));
                 tempItem.setWear(queryResult.getString("wear"));
                 tempItem.setPrice(queryResult.getFloat("price"));
-                tempItem.setWeaponTag(queryResult.getInt("weapon_tag"));
                 tempItem.setStatTrack(queryResult.getBoolean("stat_track"));
 
                 retrievedInventoryList.add(tempItem);
@@ -159,7 +158,6 @@ public class InventoryServices {
                 tempItem.setCategory(queryResult.getString("category"));
                 tempItem.setWear(queryResult.getString("wear"));
                 tempItem.setPrice(queryResult.getFloat("price"));
-                tempItem.setWeaponTag(queryResult.getInt("weapon_tag"));
                 tempItem.setStatTrack(queryResult.getBoolean("stat_track"));
 
                 retrivedStoreItems.add(tempItem);
@@ -274,6 +272,32 @@ public class InventoryServices {
         }
     }
 
+    public static int retriveLastItemId() {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String retriveLastUserId ="SELECT MAX(item_number) FROM user_inventory;";
+        int retriveResult=0;
+
+        try{
+
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(retriveLastUserId);
+
+            if(queryResult.next()){
+                retriveResult=queryResult.getInt(1);
+            }else{
+                return retriveResult;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        return retriveResult;
+    }
+
     public static void executePaymentWithItems()throws InventoryExceptions {
         ObservableList<Item> selectedUserItems = SelectedItemsHolder.getInstance().getSelectedItemsUserInventory();
         ObservableList<Item> selectedStoreItems = SelectedItemsHolder.getInstance().getSelectedItemsStoreInventory();
@@ -371,5 +395,96 @@ public class InventoryServices {
          else
              return false;
      }
+
+    public static void setComboBoxFields(ObservableList<String> weaponsNames, ObservableList<String> weaponsWears,
+                                         ObservableList<String> weaponsStatTrack){
+
+        for(WeaponInformation weaponInformation: WeaponsTableHolder.getInstance().getWeaponInformations()){
+            weaponsNames.add(weaponInformation.getName());
+        }
+        weaponsWears.add("Factory New");
+        weaponsWears.add("Minimal Wear");
+        weaponsWears.add("Field-Tested");
+        weaponsWears.add("Well-Worn");
+        weaponsWears.add("Battle-Scarred");
+        weaponsStatTrack.add("True");
+        weaponsStatTrack.add("False");
+
+
+    }
+
+    public static float calculateItemPrice(String name,String wear,boolean statTrack){
+        float price=0;
+        for(WeaponInformation weaponInformation:WeaponsTableHolder.getInstance().getWeaponInformations()){
+            if(weaponInformation.getName().equals(name)){
+                price=weaponInformation.getPrice();
+            }
+        }
+
+
+        switch(wear) {
+            case "Factory New":
+                price+=10*price/100;
+                break;
+            case "Minimal Wear":
+                price+=5*price/100;
+                break;
+            case "Field-Tested":
+                price+=0*price/100;
+            case "Well-Worn":
+                price-=5*price/100;
+            case "Battle-Scarred":
+                price-=10*price/100;
+        }
+
+        if(statTrack==true){
+            price+=5*price/100;
+        }
+
+        return price;
+
+    }
+
+    public static String returnWeaponDescription(String name){
+        String weaponDescription="";
+        for(WeaponInformation weaponInformation:WeaponsTableHolder.getInstance().getWeaponInformations()){
+            if(weaponInformation.getName().equals(name)){
+                weaponDescription= weaponInformation.getDescription();
+            }
+        }
+        return weaponDescription;
+    }
+
+    public static String returnWeaponCategory(String name){
+        String weaponCategory="";
+        for(WeaponInformation weaponInformation:WeaponsTableHolder.getInstance().getWeaponInformations()){
+            if(weaponInformation.getName().equals(name)){
+                weaponCategory= weaponInformation.getCategory();
+            }
+        }
+        return weaponCategory;
+    }
+
+    public static void addItemToStoreDB(String name,String category, String description,  String wear, Float price, Boolean statTrack){
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        int boolToTinyInt=(statTrack) ? 1 : 0;
+
+        String insertFields = "INSERT INTO user_inventory(inventory_id,name,description,category,wear,price,stat_track) VALUES ('";
+        String insertValues = "0"+"','"+name+"','"+description+"','" +category+"','" +wear+"','" +price+"','" +boolToTinyInt+"')";
+        String insertToRegister = insertFields + insertValues;
+
+        try{
+
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(insertToRegister);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
 }

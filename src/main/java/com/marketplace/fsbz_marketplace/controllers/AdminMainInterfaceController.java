@@ -1,9 +1,14 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.model.AdminStoreControllerHolder;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -20,7 +25,16 @@ public class AdminMainInterfaceController {
     private Button feedbackSectionButton;
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/adminStoreInventory.fxml",1280,720);
+
+        Stage stage = (Stage) storeInventoryButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminStoreInventory.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        AdminStoreControllerHolder.getInstance().setAdminStoreInventoryController(fxmlLoader.getController());
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
+        //FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/adminStoreInventory.fxml",1280,720);
     }
 
 
