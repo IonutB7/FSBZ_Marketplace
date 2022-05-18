@@ -84,6 +84,19 @@ public class StoreInventoryController implements Initializable {
         }
     }
 
+    public void setCheckOutButtonOnAction1(MouseEvent event)  throws IOException {
+        try{
+            if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                FxmlUtilities.sceneTransiton(checkOutButton,"interfaces/paymentMethod.fxml",1280,720);
+            }else{
+                throw new StoreItemsNotSelectedException("No items selected!");
+            }
+
+        }catch (StoreItemsNotSelectedException exception){
+            checkOutMessageLabel.setText(exception.getMessage());
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

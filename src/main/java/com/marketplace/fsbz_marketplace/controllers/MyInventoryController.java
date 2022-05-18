@@ -17,6 +17,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Polygon;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,6 +62,10 @@ public class MyInventoryController implements Initializable {
     private Button sellItemsButton;
     @FXML
     private Button finishTradeButton;
+    @FXML
+    private Polygon triangle1;
+    @FXML
+    private Polygon triangle2;
 
     public void setUserSelectedItemsList(){
         ObservableList<Item> selectedItems=userInventoryTableView.getSelectionModel().getSelectedItems();
@@ -95,7 +101,31 @@ public class MyInventoryController implements Initializable {
         }
     }
 
+    public void setFinishTradeButtonOnAction1(MouseEvent event){
+        try {
+            if(userInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                InventoryServices.executePaymentWithItems();
+                FxmlUtilities.sceneTransiton(finishTradeButton,"interfaces/marketplaceInterface.fxml",1280,720);
+            }else{
+                throw new UserItemsNotSelectedException("No items selected!");
+            }
+        }catch (InsufficientItemValueException exception1){
+            tradeItemsMessageLabel.setText(exception1.getMessage());
+        }catch (UserItemsNotSelectedException exception2){
+            tradeItemsMessageLabel.setText(exception2.getMessage());
+        } catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+            Platform.exit();
+        }
+    }
+
     public void setSellItemsButtonOnAction(ActionEvent event)throws IOException{
+        InventoryServices.sellUserItems();
+        FxmlUtilities.sceneTransiton(sellItemsButton,"interfaces/marketplaceInterface.fxml",1280,720);
+    }
+
+    public void setSellItemsButtonOnAction1(MouseEvent event)throws IOException{
         InventoryServices.sellUserItems();
         FxmlUtilities.sceneTransiton(sellItemsButton,"interfaces/marketplaceInterface.fxml",1280,720);
     }
@@ -107,12 +137,16 @@ public class MyInventoryController implements Initializable {
         services.resetSelectedUserItem();
 
         finishTradeButton.setVisible(false);
+        triangle1.setVisible(false);
+
         userGoBackButton.setText("Go back");
 
         Platform.runLater(() -> {
             if(transitionFromPaymentMethod) {
                 finishTradeButton.setVisible(true);
+                triangle1.setVisible(true);
                 sellItemsButton.setVisible(false);
+                triangle2.setVisible(false);
                 userGoBackButton.setText("Cancel trade");
             }
         });

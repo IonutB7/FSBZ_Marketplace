@@ -23,10 +23,10 @@
             <TableColumn fx:id="userStatTrackColumn" prefWidth="153.0" text="stat track" />
         </columns>
       </TableView>
-      <Button fx:id="userGoBackButton" layoutX="89.0" layoutY="651.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="47.0" prefWidth="197.0" />
-      <Label fx:id="userTotalValueLabel1" layoutX="723.0" layoutY="14.0" prefHeight="39.0" prefWidth="134.0" />
-      <Label fx:id="userTotalValueLabel11" layoutX="874.0" layoutY="14.0" prefHeight="39.0" prefWidth="134.0" />
-      <Label fx:id="tradeItemsMessageLabel" layoutX="746.0" layoutY="54.0" prefHeight="26.0" prefWidth="247.0" textFill="RED">
+      <Button fx:id="userGoBackButton" layoutX="89.0" layoutY="651.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="197.0" />
+      <Label fx:id="userTotalValueLabel1" layoutX="647.0" layoutY="14.0" prefHeight="39.0" prefWidth="247.0" />
+      <Label fx:id="userTotalValueLabel11" layoutX="350.0" layoutY="2.0" prefHeight="39.0" prefWidth="640.0" />
+      <Label fx:id="tradeItemsMessageLabel" layoutX="381.0" layoutY="2.0" prefHeight="39.0" prefWidth="640.0" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>
@@ -39,28 +39,28 @@
             <Button fx:id="userWalletButton" layoutX="30.0" mnemonicParsing="false" onAction="#setUserWalletButtonOnAction" prefHeight="45.0" prefWidth="176.0" text="my wallet" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="value" layoutX="848.0" layoutY="651.0" prefHeight="47.0" prefWidth="339.0">
+      <AnchorPane fx:id="totalValueAnchor" layoutX="848.0" layoutY="651.0" prefHeight="47.0" prefWidth="343.0">
          <children>
             <Label fx:id="userTotalValueMessage" layoutX="14.0" layoutY="1.0" prefHeight="46.0" prefWidth="197.0" text="Total item value:" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="userTotalValueLabel" layoutX="213.0" layoutY="4.0" prefHeight="39.0" prefWidth="126.0" textFill="RED" />
+            <Label fx:id="userTotalValueLabel" layoutX="217.0" layoutY="4.0" prefHeight="39.0" prefWidth="126.0" textFill="RED" />
          </children>
       </AnchorPane>
       <Polygon layoutX="864.0" layoutY="651.0" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="userTotalValueLabel12" layoutX="821.0" layoutY="38.0" prefHeight="39.0" prefWidth="120.0" textFill="WHITE" />
+      <Label fx:id="userTotalValueLabel12" layoutX="320.0" layoutY="2.0" prefHeight="39.0" prefWidth="640.0" textFill="WHITE" />
       <AnchorPane fx:id="finishTrade" layoutX="570.0" layoutY="651.0" prefHeight="47.0" prefWidth="200.0">
          <children>
             <Button fx:id="finishTradeButton" mnemonicParsing="false" onAction="#setFinishTradeButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="finish trade" />
-            <Polygon fx:id="triangle1" fill="WHITE" layoutX="212.0" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
+            <Polygon fx:id="triangle1" fill="WHITE" layoutX="212.0" onMouseClicked="#setFinishTradeButtonOnAction1" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="sellItems" layoutX="324.0" layoutY="651.0" prefHeight="47.0" prefWidth="200.0">
          <children>
-            <Polygon fx:id="triangle2" fill="WHITE" layoutX="212.0" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
-            <Button fx:id="sellItemsButton" mnemonicParsing="false" onAction="#setSellItemsButtonOnAction" prefHeight="47.0" prefWidth="167.0" text="sell items" />
+            <Polygon fx:id="triangle2" fill="WHITE" layoutX="212.0" onMouseClicked="#setSellItemsButtonOnAction1" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
+            <Button fx:id="sellItemsButton" mnemonicParsing="false" onAction="#setSellItemsButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="sell items" />
          </children>
       </AnchorPane>
    </children>

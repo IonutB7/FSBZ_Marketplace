@@ -11,16 +11,21 @@
     -fx-font-size: 24px;
 }
 
+#userSearchTextField {
+
+    -fx-background-color: white;
+    -fx-text-fill: red;
+    -fx-background-radius: 0px;
+    -fx-border-style: none;
+    -fx-prompt-text-fill: red;
+}
+
 #userInventoryTableView {
     -fx-font-size: 20px;
-    -fx-text-fill: white;
 }
 
 #userTotalValueMessage {
     -fx-font-family: "Counter-Strike";
-}
-.TableColumn {
-    fx-text-fill: white !important;
 }
 
 .table-view .virtual-flow .scroll-bar:vertical,
@@ -32,41 +37,38 @@
     -fx-background-color: transparent;
 }
 
-#userSearchTextField {
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, white, black);
+}
 
-    -fx-background-color: white;
-    -fx-text-fill: red;
-    -fx-background-radius: 0px;
-    -fx-border-style: none;
-    -fx-prompt-text-fill: red;
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, white, black);
 }
 
 .table-view {
-    -fx-background-color: rgba(0,0,0,0.4);
+    -fx-background-color: rgba(0,0,0,0.6);
 
 }
-.table-view .column-header-background .filler {
-    -fx-background-color: rgba(0,0,0,0.8);
-}
 
-.table-view .corner {
-    -fx-background-color: rgba(0,0,0,0.8);
-}
 
 .table-view .column-header{
-    -fx-background-color: red;
+    -fx-background-color: white;
     -fx-background-radius: 0px;
+    -fx-text-fill: white;
 }
 
-#value {
+#totalValueAnchor {
     -fx-text-fill: white;
     -fx-background-color: black;
 }
 
 .table-view .table-cell{
     -fx-border-color: transparent;
-    -fx-padding: 2 0 2 10px;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-padding: 10px;
 }
+
 
 .table-row-cell:odd{
     -fx-background-color: transparent;
@@ -109,7 +111,10 @@
 }
 
 
-
+#userInventoryTableView > .TableColumnBase {
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
 
 #myWlt:hover > #triangle {
     -fx-stroke: red;
@@ -121,6 +126,6 @@
     -fx-text-fill: black;
 }
 
-.TableView > .TableColumn {
-    -fx-background-color: red;
+#userTotalValueLabel12, #userTotalValueLabel1, #tradeItemsMessageLabel {
+    -fx-font-family: "Counter-Strike";
 }

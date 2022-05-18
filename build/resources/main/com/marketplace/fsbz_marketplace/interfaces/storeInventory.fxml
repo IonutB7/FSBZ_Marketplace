@@ -6,42 +6,55 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="645.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.StoreInventoryController">
+<AnchorPane fx:id="storeInventoryPage" prefHeight="720.0" prefWidth="1280.0" snapToPixel="false" stylesheets="@../css/storeInventory.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.StoreInventoryController">
    <children>
-      <Button fx:id="storeGoBackButton" layoutX="36.0" layoutY="486.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go Back" />
-      <TableView fx:id="storeInventoryTableView" layoutX="25.0" layoutY="77.0" prefHeight="382.0" prefWidth="846.0">
+      <TableView fx:id="storeInventoryTableView" layoutX="89.0" layoutY="103.0" prefHeight="533.0" prefWidth="1102.0" stylesheets="@../css/myInventory.css">
          <columns>
-            <TableColumn fx:id="storeItemNumberColumn" prefWidth="84.79995727539062" text="Item Number" />
-            <TableColumn fx:id="storeInventoryIdColumn" prefWidth="119.19998168945312" text="Inventory Id" />
-            <TableColumn fx:id="storeNameColumn" prefWidth="121.60005187988281" text="Name" />
-            <TableColumn fx:id="storeDescriptionColumn" prefWidth="114.39996337890625" text="Description" />
-            <TableColumn fx:id="storeCategoryColumn" prefWidth="103.199951171875" text="Category" />
-            <TableColumn fx:id="storeWearColumn" prefWidth="81.5999755859375" text="Wear" />
-            <TableColumn fx:id="storePriceColumn" prefWidth="116.00006103515625" text="Price" />
-            <TableColumn fx:id="storeStatTrackColumn" prefWidth="75.0" text="Stat Strack" />
+            <TableColumn fx:id="storeItemNumberColumn" prefWidth="72.0" text="item id" />
+            <TableColumn fx:id="storeInventoryIdColumn" prefWidth="133.0" text="inventory id" />
+            <TableColumn fx:id="storeNameColumn" minWidth="0.0" prefWidth="157.0" text="name" />
+            <TableColumn fx:id="storeDescriptionColumn" prefWidth="153.0" text="description" />
+            <TableColumn fx:id="storeCategoryColumn" prefWidth="160.0" text="category" />
+            <TableColumn fx:id="storeWearColumn" prefWidth="159.0" text="wear" />
+            <TableColumn fx:id="storePriceColumn" prefWidth="114.0" text="price" />
+            <TableColumn fx:id="storeStatTrackColumn" prefWidth="153.0" text="stat track" />
          </columns>
       </TableView>
-      <Button fx:id="checkOutButton" layoutX="184.0" layoutY="486.0" mnemonicParsing="false" onAction="#setCheckOutButtonOnAction" text="Checkout" />
-      <Button fx:id="userWalletButton" layoutX="762.0" layoutY="14.0" mnemonicParsing="false" onAction="#setUserWalletButtonOnAction" text="My wallet" />
-      <Label fx:id="storeTotalValueMessage" layoutX="545.0" layoutY="488.0" prefHeight="46.0" prefWidth="134.0" text="Transation value:">
+      <Button fx:id="storeGoBackButton" layoutX="89.0" layoutY="651.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="197.0" text="go back" />
+      <Label fx:id="storeTotalValueLabel1" layoutX="350.0" layoutY="2.0" prefHeight="39.0" prefWidth="640.0" />
+      <Label fx:id="tradeItemsMessageLabel" layoutX="541.0" layoutY="655.0" prefHeight="39.0" prefWidth="258.0" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="storeTotalValueLabel" layoutX="703.0" layoutY="492.0" prefHeight="39.0" prefWidth="134.0" />
-      <Label fx:id="storeTotalValueLabel1" layoutX="713.0" layoutY="502.0" prefHeight="39.0" prefWidth="134.0" />
-      <Label fx:id="checkOutMessageLabel" layoutX="183.0" layoutY="531.0" prefHeight="6.0" prefWidth="286.0" textFill="RED">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="storeSearchTextField" layoutX="217.0" layoutY="32.0" prefHeight="26.0" prefWidth="274.0" />
-      <Label fx:id="storeSearchLabel" layoutX="52.0" layoutY="31.0" prefHeight="26.0" prefWidth="150.0" text="Search bar:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <TextField fx:id="storeSearchTextField" layoutX="89.0" layoutY="44.0" prefHeight="46.0" prefWidth="640.0" promptText="Search item" />
+      <Polygon fill="WHITE" layoutX="815.0" layoutY="43.0" points="-86.0, 47.0, -52.0, 47.0, -86.0, 1.0" stroke="WHITE" strokeType="INSIDE" />
+      <AnchorPane fx:id="myWlt" layoutX="985.0" layoutY="44.0" prefHeight="47.0" prefWidth="201.0">
+         <children>
+            <Polygon fx:id="triangle" layoutX="46.0" layoutY="-1.0" points="-46.0, 1.0, -16.0, 47.0, -16.0, 1.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button fx:id="userWalletButton" layoutX="30.0" mnemonicParsing="false" onAction="#setUserWalletButtonOnAction" prefHeight="45.0" prefWidth="176.0" text="my wallet" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="totalValueAnchor" layoutX="848.0" layoutY="651.0" prefHeight="47.0" prefWidth="343.0">
+         <children>
+            <Label fx:id="storeTotalValueMessage" layoutX="14.0" layoutY="1.0" prefHeight="46.0" prefWidth="197.0" text="Total item value:" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="storeTotalValueLabel" layoutX="219.0" layoutY="4.0" prefHeight="39.0" prefWidth="125.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+      <Polygon layoutX="864.0" layoutY="651.0" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="checkOutMessageLabel" layoutX="541.0" layoutY="655.0" prefHeight="39.0" prefWidth="258.0" textFill="RED" />
+      <AnchorPane fx:id="checkOut" layoutX="324.0" layoutY="651.0" prefHeight="47.0" prefWidth="200.0">
+         <children>
+            <Polygon fx:id="triangle2" fill="WHITE" layoutX="212.0" onMouseClicked="#setCheckOutButtonOnAction1" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
+            <Button fx:id="checkOutButton" mnemonicParsing="false" onAction="#setCheckOutButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="check out" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
