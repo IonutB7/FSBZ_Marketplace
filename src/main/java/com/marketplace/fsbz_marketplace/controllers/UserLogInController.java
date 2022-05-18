@@ -83,6 +83,18 @@ public class UserLogInController {
             try{
                 if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText())==true){
 
+                    if(UserServices.verifyIfWarned(userTextField.getText())==true){
+                        Stage stage = new Stage();
+                        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+                        String warningContent=UserServices.getWarningContent(userTextField.getText());
+                        PopUpsController myPUC = fxmlLoader.getController();
+                        myPUC.setBanningContent(warningContent);
+                        stage.setTitle("FZ:BZ Marketplace");
+                        stage.setScene(scene);
+                        stage.show();
+                    }
+
                     setUserInstance(userTextField.getText());
                     setStoreInvetoryInstance();
                     setStoreCouponList();
