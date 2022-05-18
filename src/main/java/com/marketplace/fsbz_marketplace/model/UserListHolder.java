@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public final class UserListHolder {
 
     private ArrayList<User> userList;
+
+    private int lastUserId;
     private final static com.marketplace.fsbz_marketplace.model.UserListHolder INSTANCE = new com.marketplace.fsbz_marketplace.model.UserListHolder();
 
     private UserListHolder() {}
@@ -19,5 +21,13 @@ public final class UserListHolder {
 
     public ArrayList<User>  getUserList() {
         return this.userList;
+    }
+
+    public int getLastUserId() {
+        return lastUserId;
+    }
+
+    public void setLastUserId(int lastUserId) {
+        this.lastUserId = lastUserId;
     }
 }

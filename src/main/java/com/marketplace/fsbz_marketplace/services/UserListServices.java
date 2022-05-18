@@ -18,6 +18,34 @@ import java.util.ArrayList;
 
 public class UserListServices {
 
+    public static void sendUserWarningDB(int userAcountId,String warningContent) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String setUserAsWarned = "UPDATE user_account SET warned =1 WHERE account_id ="+userAcountId+";";
+        String setWarningContent = "UPDATE user_account SET content ='"+warningContent+"' WHERE account_id ="+userAcountId+";";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(setUserAsWarned);
+            statement.executeUpdate(setWarningContent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public static void setWarningForUser(int accId){
+        for(int i=0;i<UserListHolder.getInstance().getUserList().size();i++){
+            if(UserListHolder.getInstance().getUserList().get(i).getAcountId()==accId){
+                UserListHolder.getInstance().getUserList().get(i).setWarned(true);
+                return;
+            }
+        }
+    }
     public static void initializeUserList(ArrayList<User> retrivedUsers) {
 
         DatabaseConnection connectNow = new DatabaseConnection();

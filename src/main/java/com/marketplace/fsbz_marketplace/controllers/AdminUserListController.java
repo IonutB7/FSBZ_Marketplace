@@ -2,6 +2,7 @@ package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.User;
+import com.marketplace.fsbz_marketplace.model.UserListHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.services.UserListServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
@@ -88,6 +89,16 @@ public class AdminUserListController implements Initializable {
 
     public void setGoBackButtonOnAction(ActionEvent event)  throws IOException {
         FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminMainInterface.fxml",1280,720);
+    }
+
+    public void setSendWarningButtonOnAction(ActionEvent event) throws IOException{
+        if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
+            UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
+            FxmlUtilities.sceneTransiton(sendWarningButton,"interfaces/adminWarning.fxml",820,500);
+        }else{
+            userListErrorMessageLabel.setText("No user is selected.");
+        }
+
     }
 
 

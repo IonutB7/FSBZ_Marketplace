@@ -65,7 +65,7 @@ public class AdminRegisterController {
 
                 FxmlUtilities.sceneTransiton(registerAdminButton,"interfaces/adminLogIn.fxml",1280,720);
                 Stage stage = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminCode.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
                 stage.setTitle("FZ:BZ Marketplace");
                 PopUpsController myPOC = fxmlLoader.getController();
