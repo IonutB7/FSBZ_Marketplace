@@ -71,6 +71,7 @@ public class AdminUserListController implements Initializable {
         UpdateTable();
 
 
+
         FilteredList<User> filteredData = new FilteredList<>(UserListServices.getUserList(), b -> true);
 
         userListSearchTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(user -> {

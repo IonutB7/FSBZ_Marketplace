@@ -1,5 +1,6 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
+import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.model.UserListHolder;
 import com.marketplace.fsbz_marketplace.services.UserListServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
@@ -53,6 +54,13 @@ public class AdminSanctionControllers implements Initializable {
                 if(adminIsWarning){
                     UserListServices.sendUserWarningDB(UserListHolder.getInstance().getLastUserId(),sanctionContentTextArea.getText());
                     UserListServices.setWarningForUser(UserListHolder.getInstance().getLastUserId());
+                    Stage stage = (Stage) sendButton.getScene().getWindow();
+                    stage.close();
+                }
+                if(adminIsBanning){
+                    UserListServices.banUserDB(UserListHolder.getInstance().getLastUserId(),sanctionContentTextArea.getText());
+                    User bannedUser=UserListServices.setBanUser(UserListHolder.getInstance().getLastUserId());
+                    UserListServices.transferUserToBanList(bannedUser);
                     Stage stage = (Stage) sendButton.getScene().getWindow();
                     stage.close();
                 }

@@ -7,7 +7,7 @@
    <children>
       <Button fx:id="storeInventoryButton" layoutX="241.0" layoutY="89.0" mnemonicParsing="false" onAction="#setMyInventoryButtonOnAction" prefHeight="40.0" prefWidth="269.0" text="Store Inventory" />
       <Button fx:id="userListButton" layoutX="241.0" layoutY="157.0" mnemonicParsing="false" onAction="#setUserListButtonOnAction" prefHeight="40.0" prefWidth="269.0" text="User List" />
-      <Button fx:id="banListButton" layoutX="241.0" layoutY="220.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="269.0" text="Ban List" />
+      <Button fx:id="banListButton" layoutX="241.0" layoutY="220.0" mnemonicParsing="false" onAction="#setBanListButtonOnAction" prefHeight="40.0" prefWidth="269.0" text="Ban List" />
       <Button fx:id="feedbackSectionButton" layoutX="241.0" layoutY="291.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="269.0" text="Feedback Section" />
       <Button fx:id="logOutButton" layoutX="241.0" layoutY="381.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="40.0" prefWidth="269.0" text="Log-out" />
    </children>
