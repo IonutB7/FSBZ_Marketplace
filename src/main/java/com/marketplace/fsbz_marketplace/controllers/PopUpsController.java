@@ -17,10 +17,8 @@ public class PopUpsController implements Initializable {
 
     private String adminCode;
     private boolean fromAdminRegister=false;
-    private String warningContent;
-    private boolean isWarned=false;
-    private String banningContent;
-    private boolean isBanned=false;
+    private String sanctionContent;
+    private boolean isSanctioned=false;
     @FXML
     private TextArea messageTextArea;
     @FXML
@@ -33,10 +31,8 @@ public class PopUpsController implements Initializable {
         Platform.runLater(() -> {
             if(fromAdminRegister)
                 messageTextArea.setText("Your admin code is:"+adminCode);
-            if(isWarned)
-                messageTextArea.setText(warningContent);
-            if(isBanned)
-                messageTextArea.setText(banningContent);
+            if(isSanctioned)
+                messageTextArea.setText(sanctionContent);
             });
     }
 
@@ -45,14 +41,9 @@ public class PopUpsController implements Initializable {
         stage.close();
     }
 
-    public void setWarningContent(String warningContent) {
-        this.warningContent = warningContent;
-        this.isWarned=true;
-    }
-
-    public void setBanningContent(String banningContent) {
-        this.banningContent = banningContent;
-        this.isBanned=true;
+    public void setSanctionContent(String sanctionContent) {
+        this.sanctionContent = sanctionContent;
+        this.isSanctioned=true;
     }
 
     public void setAdminCode(String adminCode){

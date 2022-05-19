@@ -15,7 +15,7 @@
          </font>
       </Label>
       <Button fx:id="cancelButton" layoutX="77.0" layoutY="494.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
-      <Button fx:id="sendButton" layoutX="521.0" layoutY="494.0" mnemonicParsing="false" onAction="#setSendButtonOnAction" text="Send" />
+      <Button fx:id="sendButton" layoutX="579.0" layoutY="494.0" mnemonicParsing="false" onAction="#setSendButtonOnAction" text="Send" />
       <Label fx:id="sanctionErrorMessage" layoutX="204.0" layoutY="452.0" prefHeight="41.0" prefWidth="276.0">
          <font>
             <Font size="18.0" />

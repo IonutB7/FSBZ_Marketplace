@@ -80,38 +80,32 @@ public class UserLogInController {
     public void loginButtonOnAction(ActionEvent event){
         if(userTextField.getText().isBlank() ==false && enterPasswordField.getText().isBlank()==false){
 
-            try{
-                if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText())==true){
+            try {
+                try{
+                    if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText())==true){
 
-                    if(UserServices.verifyIfWarned(userTextField.getText())==true){
-                        Stage stage = new Stage();
-                        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-                        String warningContent=UserServices.getWarningContent(userTextField.getText());
-                        PopUpsController myPUC = fxmlLoader.getController();
-                        myPUC.setBanningContent(warningContent);
-                        stage.setTitle("FZ:BZ Marketplace");
-                        stage.setScene(scene);
-                        stage.show();
+                        if(UserServices.verifyIfWarned(userTextField.getText())==true){
+                           FxmlUtilities.setSanctionPopUp(userTextField.getText());
+                        }
+
+                        setUserInstance(userTextField.getText());
+                        setStoreInvetoryInstance();
+                        setStoreCouponList();
+                        FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",1280,720);
                     }
-
-                    setUserInstance(userTextField.getText());
-                    setStoreInvetoryInstance();
-                    setStoreCouponList();
-                    FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",1280,720);
+                }catch(InexistentUserException exception1){
+                    loginMessageLabel.setText(exception1.getMessage());
+                }catch (BannedUserException exception2){
+                    FxmlUtilities.setSanctionPopUp(userTextField.getText());
+                }catch(UserPasswordInvalidException exception3){
+                    loginMessageLabel.setText(exception3.getMessage());
                 }
-            }catch(InexistentUserException exception1){
-                loginMessageLabel.setText(exception1.getMessage());
-            }catch (BannedUserException exception2){
-                loginMessageLabel.setText(exception2.getMessage());
-            }catch(UserPasswordInvalidException exception3){
-                loginMessageLabel.setText(exception3.getMessage());
+
             }catch (Exception e){
                 e.printStackTrace();
                 e.getCause();
                 Platform.exit();
             }
-
         }else {
             loginMessageLabel.setText("Please enter username and password.");
         }
