@@ -2,6 +2,7 @@ package com.marketplace.fsbz_marketplace.controllers;
 
 
 import com.marketplace.fsbz_marketplace.exceptions.InsufficientItemValueException;
+import com.marketplace.fsbz_marketplace.exceptions.StoreItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.exceptions.UserItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;

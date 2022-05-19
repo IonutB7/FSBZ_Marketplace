@@ -28,4 +28,22 @@
     -fx-background-radius: 0px;
 }
 
-#storeInventoryButton, #logOutButton, #userListButton
+#storeInventoryButton:hover, #logOutButton:hover, #userListButton:hover,#banListAnchor:hover > #banListButton  {
+    -fx-background-color: white;
+}
+#banListAnchor:hover > #blkTriangle, #feedBackAnchor:hover > #grayTriangle {
+    -fx-fill: white;
+    -fx-stroke: white;
+}
+
+#feedBackAnchor:hover > #feedbackSectionButton {
+    -fx-background-color: white;
+}
+
+#left {
+    -fx-background-color: #737373;
+}
+
+#right {
+    -fx-background-color: black;
+}

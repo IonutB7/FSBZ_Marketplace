@@ -14,7 +14,7 @@
             <Button fx:id="logOutButton" layoutX="359.0" layoutY="527.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="50.0" prefWidth="180.0" text="Log-out" />
             <ImageView fitHeight="253.0" fitWidth="288.0" layoutX="355.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/user.png" />
+                  <Image url="@../images/admin.png" />
                </image></ImageView>
          </children>
       </AnchorPane>
@@ -30,14 +30,22 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="feedbackSectionButton" layoutX="917.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="363.0" text="feedback section" />
-            <Button fx:id="banListButton" layoutX="581.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setBanListButtonOnAction" prefHeight="90.0" prefWidth="278.0" text="ban list" textAlignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Polygon fx:id="blkTriangle" layoutX="949.0" layoutY="83.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" stroke="BLACK" strokeType="INSIDE" />
-            <Polygon fx:id="grayTriangle" fill="#737373" layoutX="958.0" layoutY="84.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" rotate="180.0" stroke="#737373" strokeType="INSIDE" />
+            <AnchorPane fx:id="banListAnchor" layoutX="581.0" layoutY="-1.0" prefHeight="90.0" prefWidth="310.0">
+               <children>
+                  <Button fx:id="banListButton" mnemonicParsing="false" onAction="#setBanListButtonOnAction" prefHeight="90.0" prefWidth="278.0" text="ban list" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Polygon fx:id="blkTriangle" layoutX="368.0" layoutY="83.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="feedBackAnchor" layoutX="859.0" layoutY="1.0" prefHeight="90.0" prefWidth="411.0">
+               <children>
+                  <Polygon fx:id="grayTriangle" fill="#737373" layoutX="89.0" layoutY="85.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" rotate="180.0" stroke="#737373" strokeType="INSIDE" />
+                  <Button fx:id="feedbackSectionButton" layoutX="31.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="390.0" text="feedback section" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <Polygon fill="#737373" layoutX="433.0" layoutY="277.0" points="187.0, -187.0, 187.0, 457.0, 425.0, -187.0" stroke="#737373" strokeType="INSIDE" />

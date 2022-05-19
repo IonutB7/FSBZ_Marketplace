@@ -11,7 +11,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -49,6 +48,7 @@ public class FxmlUtilities {
     public static void sceneTransiton3(Button button)throws IOException {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
+    }
 
     public static void setSanctionPopUp(String username) throws IOException,SQLException {
         Stage stage = new Stage();
@@ -60,12 +60,6 @@ public class FxmlUtilities {
         stage.setTitle("FZ:BZ Marketplace");
         stage.setScene(scene);
         stage.show();
-    }
-    public static void  setTriColor(AnchorPane anchor, String id){
-
-        Scene scene = anchor.getScene();
-        Polygon tri = (Polygon) scene.lookup(id);
-        tri.setStyle("-fx-fill: #737373; -fx-stroke: #737373");
     }
 
     public static void setMultipleSelctionModeEnable(TableView tableView) {
