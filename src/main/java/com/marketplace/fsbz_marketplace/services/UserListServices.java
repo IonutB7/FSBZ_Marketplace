@@ -18,6 +18,27 @@ import java.util.ArrayList;
 
 public class UserListServices {
 
+
+    public static void banUserDB(int userAcountId,String banContent) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String setUserAsBanned = "UPDATE user_account SET banned=1 WHERE account_id ="+userAcountId+";";
+        String setBanContent = "UPDATE user_account SET content ='"+banContent+"' WHERE account_id ="+userAcountId+";";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(setUserAsBanned);
+            statement.executeUpdate(setBanContent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
     public static void sendUserWarningDB(int userAcountId,String warningContent) {
 
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -46,7 +67,24 @@ public class UserListServices {
             }
         }
     }
-    public static void initializeUserList(ArrayList<User> retrivedUsers) {
+
+    public static User setBanUser(int accId){
+        User tempUser=null;
+        for(int i=0;i<UserListHolder.getInstance().getUserList().size();i++){
+            if(UserListHolder.getInstance().getUserList().get(i).getAcountId()==accId){
+                tempUser =UserListHolder.getInstance().getUserList().get(i);
+                tempUser.setBanned(true);
+            }
+        }
+
+        return tempUser;
+    }
+    public static void transferUserToBanList(User bannedUser){
+        UserListHolder.getInstance().getBannedUserList().add(bannedUser);
+        UserListHolder.getInstance().getUserList().remove(bannedUser);
+    }
+
+    public static void initializeUserList(ArrayList<User> retrivedUsers,ArrayList<User> retrivedBannedUsers) {
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
@@ -70,8 +108,12 @@ public class UserListServices {
                 tempUser.setWarned(queryResult.getBoolean("warned"));
                 tempUser.setBanned(queryResult.getBoolean("banned"));
 
+                if(tempUser.isBanned()){
+                    retrivedBannedUsers.add(tempUser);
+                }else{
+                    retrivedUsers.add(tempUser);
+                }
 
-                retrivedUsers.add(tempUser);
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -100,6 +142,10 @@ public class UserListServices {
 
     public static ObservableList<User> getUserList(){
         return FXCollections.observableArrayList(UserListHolder.getInstance().getUserList());
+    }
+
+    public static ObservableList<User> getBannedUserList(){
+        return FXCollections.observableArrayList(UserListHolder.getInstance().getBannedUserList());
     }
 
     public static void setUserTableCollumns(TableColumn<Item,Integer> userListAccountIdColumn,

@@ -1,0 +1,31 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#menu {
+    -fx-background-color: white;
+}
+
+ #storeInventoryButton, #logOutButton, #userListButton,#banListButton{
+
+    -fx-font-family: "Counter-Strike";
+    -fx-text-fill: red;
+    -fx-font-size: 30px;
+    -fx-background-color: black;
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+
+}
+
+#feedbackSectionButton {
+    -fx-font-family: "Counter-Strike";
+    -fx-text-fill: red;
+    -fx-font-size: 30px;
+    -fx-background-color: #737373;
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+}
+
+#storeInventoryButton, #logOutButton, #userListButton

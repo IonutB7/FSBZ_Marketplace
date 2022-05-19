@@ -55,7 +55,7 @@ public class AdminAddItemController implements Initializable
     }
 
     public void setCreateItemButtonOnAction(ActionEvent event){
-        if(weaponNameComboBox.getValue().isEmpty()==false&&weaponNameComboBox.getValue().isEmpty()==false||weaponNameComboBox.getValue().isEmpty()==false){
+        if(weaponNameComboBox.getValue()!=null&&weaponWearComboBox.getValue()!=null&&weaponStatTrackComboBox.getValue()!=null){
             String name =weaponNameComboBox.getValue();
             String wear = weaponWearComboBox.getValue();
             String category = InventoryServices.returnWeaponCategory(name);

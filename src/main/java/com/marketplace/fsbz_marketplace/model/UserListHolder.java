@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public final class UserListHolder {
 
     private ArrayList<User> userList;
-
+    private ArrayList<User> bannedUserList;
     private int lastUserId;
     private final static com.marketplace.fsbz_marketplace.model.UserListHolder INSTANCE = new com.marketplace.fsbz_marketplace.model.UserListHolder();
 
@@ -21,6 +21,14 @@ public final class UserListHolder {
 
     public ArrayList<User>  getUserList() {
         return this.userList;
+    }
+
+    public ArrayList<User> getBannedUserList() {
+        return bannedUserList;
+    }
+
+    public void setBannedUserList(ArrayList<User> bannedUserList) {
+        this.bannedUserList = bannedUserList;
     }
 
     public int getLastUserId() {

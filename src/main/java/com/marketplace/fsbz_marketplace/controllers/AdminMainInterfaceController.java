@@ -40,6 +40,10 @@ public class AdminMainInterfaceController {
         FxmlUtilities.sceneTransiton(userListButton,"interfaces/adminUserList.fxml",1280,720);
     }
 
+    public void setBanListButtonOnAction(ActionEvent event)throws IOException{
+        FxmlUtilities.sceneTransiton(banListButton,"interfaces/adminBanList.fxml",1280,720);
+    }
+
 
     public void setCancelButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(logOutButton,"interfaces/adminLogIn.fxml",1280,720);

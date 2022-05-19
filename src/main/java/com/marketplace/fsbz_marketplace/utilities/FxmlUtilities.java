@@ -1,6 +1,8 @@
 package com.marketplace.fsbz_marketplace.utilities;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.controllers.PopUpsController;
+import com.marketplace.fsbz_marketplace.services.UserServices;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,6 +15,7 @@ import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class FxmlUtilities {
 
@@ -35,7 +38,6 @@ public class FxmlUtilities {
         stage.setScene(scene);
         stage.show();
     }
-
     public static void sceneTransiton2(String fxmlFileName, int sceneWidth, int sceneHeight)throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource(fxmlFileName));
@@ -47,6 +49,19 @@ public class FxmlUtilities {
     public static void sceneTransiton3(Button button)throws IOException {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
+
+    public static void setSanctionPopUp(String username) throws IOException,SQLException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        String sanctionContent= UserServices.getSanctionContent(username);
+        PopUpsController myPUC = fxmlLoader.getController();
+        myPUC.setSanctionContent(sanctionContent);
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void  setTriColor(AnchorPane anchor, String id){
 
         Scene scene = anchor.getScene();
         Polygon tri = (Polygon) scene.lookup(id);

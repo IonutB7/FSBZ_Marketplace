@@ -135,6 +135,62 @@ public class UserServices {
         }
     }
 
+    public static boolean verifyIfWarned(String username)throws java.sql.SQLException {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+        String retriveIfWarned = "SELECT warned FROM user_account WHERE username = '" + username + "'";
+
+
+        Statement statement = connectionDB.createStatement();
+        ResultSet queryResult = statement.executeQuery(retriveIfWarned);
+
+        try {
+            if (queryResult.next()) {
+                int isWarned= queryResult.getInt(1);
+                if (isWarned == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }catch(Exception e){
+                e.printStackTrace();
+                e.getCause();
+            }
+
+        return false;
+
+    }
+
+
+    public static String getSanctionContent(String username)throws java.sql.SQLException {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+        String content="";
+
+        String retriveSanctionContent = "SELECT content FROM user_account WHERE username = '" + username + "'";
+
+
+        Statement statement = connectionDB.createStatement();
+        ResultSet queryResult = statement.executeQuery(retriveSanctionContent);
+
+        try {
+            if (queryResult.next()) {
+                content= queryResult.getString(1);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        return content;
+
+    }
+
+
+
     public static boolean validateLogin(String username, String password)throws CredentialsExceptions,java.sql.SQLException{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
