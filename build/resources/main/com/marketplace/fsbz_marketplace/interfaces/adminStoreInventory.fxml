@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="680.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminStoreInventoryController">
+   <children>
+      <TableView fx:id="storeInventoryTableView" layoutX="56.0" layoutY="110.0" prefHeight="464.0" prefWidth="816.0">
+         <columns>
+            <TableColumn fx:id="storeItemNumberColumn" prefWidth="84.79995727539062" text="Item Number" />
+            <TableColumn fx:id="storeInventoryIdColumn" prefWidth="119.19998168945312" text="Inventory Id" />
+            <TableColumn fx:id="storeNameColumn" prefWidth="121.60005187988281" text="Name" />
+            <TableColumn fx:id="storeDescriptionColumn" prefWidth="114.39996337890625" text="Description" />
+            <TableColumn fx:id="storeCategoryColumn" prefWidth="103.199951171875" text="Category" />
+            <TableColumn fx:id="storeWearColumn" prefWidth="81.5999755859375" text="Wear" />
+            <TableColumn fx:id="storePriceColumn" prefWidth="116.00006103515625" text="Price" />
+            <TableColumn fx:id="storeStatTrackColumn" prefWidth="75.0" text="Stat Strack" />
+         </columns>
+      </TableView>
+      <Label fx:id="storeSearchLabel" layoutX="72.0" layoutY="51.0" prefHeight="26.0" prefWidth="150.0" text="Search bar:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="storeSearchTextField" layoutX="237.0" layoutY="52.0" prefHeight="26.0" prefWidth="274.0" />
+      <Button fx:id="goBackButton" layoutX="46.0" layoutY="589.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go back" />
+      <Button fx:id="deleteItemsButton" layoutX="207.0" layoutY="589.0" mnemonicParsing="false" onAction="#setDeleteItemsButtonButtonOnAction" text="Detele items" />
+      <Button fx:id="addItemButton" layoutX="374.0" layoutY="589.0" mnemonicParsing="false" onAction="#setAddItemButton" text="Add item" />
+      <Label fx:id="storeErrorMessageLabel" layoutX="102.0" layoutY="626.0" prefHeight="39.0" prefWidth="373.0" textFill="#fc0000">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

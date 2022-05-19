@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-4:Created item selection and Store Inventory" />
+    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-27:Done partial Ban User Interface + search bar">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminSanctionControllers.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminSanctionControllers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/PopUpsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/PopUpsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserLogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/UserLogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserListServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserListServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminSanctions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminSanctions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/PopUpsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/PopUpsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/UserLogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/utilities/FxmlUtilities.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,9 +51,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
-        <option value="Class" />
+        <option value="Interface" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -42,7 +64,7 @@
   <component name="Git.Pull.Settings">
     <option name="OPTIONS">
       <set>
-        <option value="REBASE" />
+        <option value="NO_COMMIT" />
       </set>
     </option>
   </component>
@@ -55,7 +77,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Radu" />
+        <entry key="$PROJECT_DIR$" value="25563552a6b9ef195b05882805735d4c354febd5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,14 +93,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4586207&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ionut\Desktop\FSBZ_Marketplace\src\main\resources\com\marketplace\fsbz_marketplace\interfaces" />
@@ -100,6 +127,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FSBZ_Marketplace" />
+        <item itemvalue="Application.FSBZ_Marketplace" />
         <item itemvalue="Application.FSBZ_Marketplace" />
       </list>
     </recent_temporary>
@@ -124,18 +153,15 @@
       <workItem from="1652275825900" duration="19228000" />
       <workItem from="1652297032009" duration="4109000" />
       <workItem from="1652368858289" duration="13803000" />
-      <workItem from="1652445569812" duration="14099000" />
-      <workItem from="1652534763052" duration="8078000" />
-      <workItem from="1652548547160" duration="4470000" />
-      <workItem from="1652553067914" duration="10933000" />
-      <workItem from="1652570951456" duration="9606000" />
-      <workItem from="1652581983875" duration="77000" />
-      <workItem from="1652613264951" duration="5794000" />
-      <workItem from="1652629587510" duration="369000" />
-      <workItem from="1652641526930" duration="439000" />
-      <workItem from="1652691132050" duration="17971000" />
-      <workItem from="1652716273816" duration="2287000" />
-      <workItem from="1652718620988" duration="8000" />
+      <workItem from="1652445569812" duration="37492000" />
+      <workItem from="1652612508845" duration="17879000" />
+      <workItem from="1652630610763" duration="3316000" />
+      <workItem from="1652704869816" duration="10081000" />
+      <workItem from="1652715743193" duration="2924000" />
+      <workItem from="1652786523419" duration="34000" />
+      <workItem from="1652786979532" duration="12342000" />
+      <workItem from="1652802627227" duration="15159000" />
+      <workItem from="1652878997383" duration="28649000" />
     </task>
     <task id="LOCAL-00001" summary="Another Test">
       <created>1651684339335</created>
@@ -172,7 +198,182 @@
       <option name="project" value="LOCAL" />
       <updated>1652442830303</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="CM-5:Implemented user wallet(coupons system,withdraw,use coupons)+fxml code factorization">
+      <created>1652468437607</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652468437607</updated>
+    </task>
+    <task id="LOCAL-00007" summary="CM-5:Implemented user wallet(coupons system,withdraw,use coupons)+fxml code factorization">
+      <created>1652468460736</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652468460736</updated>
+    </task>
+    <task id="LOCAL-00008" summary="CM-6:The user can buy items from the shop with the wallet">
+      <created>1652554763910</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652554763910</updated>
+    </task>
+    <task id="LOCAL-00009" summary="CM-7:Implemented trading functionality">
+      <created>1652627968853</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652627968853</updated>
+    </task>
+    <task id="LOCAL-00010" summary="CM-8:Implemented sell and search functionality">
+      <created>1652635516168</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652635516168</updated>
+    </task>
+    <task id="LOCAL-00011" summary="CM-10:Complete IM-32 and IM-33 subtasks from Jira">
+      <created>1652793785084</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652793785084</updated>
+    </task>
+    <task id="LOCAL-00012" summary="CM-10:Complete IM-32 and IM-33 subtasks from Jira">
+      <created>1652793955647</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652793955647</updated>
+    </task>
+    <task id="LOCAL-00013" summary="CM-10:Complete IM-32 and IM-33 subtasks from Jira">
+      <created>1652794116546</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652794116546</updated>
+    </task>
+    <task id="LOCAL-00014" summary="CM-11:Completed IM-55,54,56,52,112,57(implementation already done for user)">
+      <created>1652797510216</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652797510216</updated>
+    </task>
+    <task id="LOCAL-00015" summary="CM-12:Completed IM-53(The admin code pop-up)">
+      <created>1652800611469</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652800611469</updated>
+    </task>
+    <task id="LOCAL-00016" summary="CM-13:Added error messages if the email or username exists">
+      <created>1652804117381</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652804117381</updated>
+    </task>
+    <task id="LOCAL-00017" summary="CM-14:Implemented IM-42,IM-45(implementation is slightly modified from the user log-in)">
+      <created>1652805843687</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1652805843687</updated>
+    </task>
+    <task id="LOCAL-00018" summary="CM-15:Added Basic Main Page For Admin">
+      <created>1652812510474</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652812510474</updated>
+    </task>
+    <task id="LOCAL-00019" summary="CM-16:Added the Admin Class,Load Admin data and Store Items">
+      <created>1652813254987</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1652813254987</updated>
+    </task>
+    <task id="LOCAL-00020" summary="CM-17:The admin now can see the store inventory + search bar">
+      <created>1652814052385</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1652814052385</updated>
+    </task>
+    <task id="LOCAL-00021" summary="CM-18:Completed IM-64 from Jira(Admin can delete items from the store)">
+      <created>1652816757826</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1652816757826</updated>
+    </task>
+    <task id="LOCAL-00022" summary="CM-19:Created DB for weapons information(name,descriptiom,price,etc)">
+      <created>1652820469295</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1652820469295</updated>
+    </task>
+    <task id="LOCAL-00023" summary="CM-20:Completed the admin &quot;Add item&quot; interface">
+      <created>1652821347157</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1652821347157</updated>
+    </task>
+    <task id="LOCAL-00024" summary="CM-21:Completed IM-65,IM-67(the admin can now add items)">
+      <created>1652889099495</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1652889099495</updated>
+    </task>
+    <task id="LOCAL-00025" summary="CM-22:Completed basic User List interface">
+      <created>1652891207232</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1652891207232</updated>
+    </task>
+    <task id="LOCAL-00026" summary="CM-23:Added a search bar and a table with all the registered users">
+      <created>1652895542978</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1652895542978</updated>
+    </task>
+    <task id="LOCAL-00027" summary="CM-24:The admin can send a warning to the player">
+      <created>1652900110702</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1652900110702</updated>
+    </task>
+    <task id="LOCAL-00028" summary="CM-25:The user now can see the reason for being warned">
+      <created>1652903864565</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1652903864565</updated>
+    </task>
+    <task id="LOCAL-00029" summary="CM-26:Completed IM-79,IM-81,IM-83+improved send warning functionality">
+      <created>1652905574956</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1652905574956</updated>
+    </task>
+    <task id="LOCAL-00030" summary="CM-27:Done partial Ban User Interface + search bar">
+      <created>1652946227176</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1652946227176</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,12 +403,41 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Another Test" />
-    <MESSAGE value="Nuke Them Files" />
-    <MESSAGE value="CM-1:" />
     <MESSAGE value="CM-1:The created acount its stored in the database" />
     <MESSAGE value="CM-3:Added User Inventory and Items System" />
     <MESSAGE value="CM-4:Created item selection and Store Inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="CM-4:Created item selection and Store Inventory" />
+    <MESSAGE value="CM-5:Implemented user wallet(coupons system,withdraw,use coupons)+fxml code factorization" />
+    <MESSAGE value="CM-6:The user can buy items from the shop with the wallet" />
+    <MESSAGE value="CM-7:Implemented trading functionality" />
+    <MESSAGE value="CM-8:Implemented sell and search functionality" />
+    <MESSAGE value="CM-10:Complete IM-32 and IM-33 subtasks from Jira" />
+    <MESSAGE value="CM-11:Completed IM-55,54,56,52,112,57(implementation already done for user)" />
+    <MESSAGE value="CM-12:Completed IM-53(The admin code pop-up)" />
+    <MESSAGE value="CM-13:Added error messages if the email or username exists" />
+    <MESSAGE value="CM-14:Implemented IM-42,IM-45(implementation is slightly modified from the user log-in)" />
+    <MESSAGE value="CM-15:Added Basic Main Page For Admin" />
+    <MESSAGE value="CM-16:Added the Admin Class,Load Admin data and Store Items" />
+    <MESSAGE value="CM-17:The admin now can see the store inventory + search bar" />
+    <MESSAGE value="CM-18:Completed IM-64 from Jira(Admin can delete items from the store)" />
+    <MESSAGE value="CM-19:Created DB for weapons information(name,descriptiom,price,etc)" />
+    <MESSAGE value="CM-20:Completed the admin &quot;Add item&quot; interface" />
+    <MESSAGE value="CM-21:Completed IM-65,IM-67(the admin can now add items)" />
+    <MESSAGE value="CM-22:Completed basic User List interface" />
+    <MESSAGE value="CM-23:Added a search bar and a table with all the registered users" />
+    <MESSAGE value="CM-24:The admin can send a warning to the player" />
+    <MESSAGE value="CM-25:The user now can see the reason for being warned" />
+    <MESSAGE value="CM-26:Completed IM-79,IM-81,IM-83+improved send warning functionality" />
+    <MESSAGE value="CM-27:Done partial Ban User Interface + search bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="CM-27:Done partial Ban User Interface + search bar" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.marketplace.fsbz_marketplace.exceptions.UsernameExistsException" package="com.marketplace.fsbz_marketplace.exceptions" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

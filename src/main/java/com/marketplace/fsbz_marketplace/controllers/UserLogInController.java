@@ -1,12 +1,11 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
-import com.marketplace.fsbz_marketplace.exceptions.BannedUserException;
-import com.marketplace.fsbz_marketplace.exceptions.InexistentUserException;
-import com.marketplace.fsbz_marketplace.exceptions.UserPasswordInvalidException;
+import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
+import com.marketplace.fsbz_marketplace.services.LedgerService;
 import com.marketplace.fsbz_marketplace.services.WalletServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
@@ -50,6 +49,7 @@ public class UserLogInController {
         User currentUser = new User();
         UserServices.initializeUser(currentUser,username);
         InventoryServices.initializeUserInventory(currentUser, currentUser.getInventoryId());
+        LedgerService.initializeUserLedger(currentUser,currentUser.getInventoryId());
         UserHolder holder = UserHolder.getInstance();
         holder.setUser(currentUser);
     }
@@ -80,26 +80,32 @@ public class UserLogInController {
     public void loginButtonOnAction(ActionEvent event){
         if(userTextField.getText().isBlank() ==false && enterPasswordField.getText().isBlank()==false){
 
-            try{
-                if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText(),loginButton)==true){
+            try {
+                try{
+                    if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText())==true){
 
-                    setUserInstance(userTextField.getText());
-                    setStoreInvetoryInstance();
-                    setStoreCouponList();
-                    FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",1280,720);
+                        if(UserServices.verifyIfWarned(userTextField.getText())==true){
+                           FxmlUtilities.setSanctionPopUp(userTextField.getText());
+                        }
+
+                        setUserInstance(userTextField.getText());
+                        setStoreInvetoryInstance();
+                        setStoreCouponList();
+                        FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",1280,720);
+                    }
+                }catch(InexistentUserException exception1){
+                    loginMessageLabel.setText(exception1.getMessage());
+                }catch (BannedUserException exception2){
+                    FxmlUtilities.setSanctionPopUp(userTextField.getText());
+                }catch(UserPasswordInvalidException exception3){
+                    loginMessageLabel.setText(exception3.getMessage());
                 }
-            }catch(InexistentUserException exception1){
-                loginMessageLabel.setText(exception1.getMessage());
-            }catch (BannedUserException exception2){
-                loginMessageLabel.setText(exception2.getMessage());
-            }catch(UserPasswordInvalidException exception3){
-                loginMessageLabel.setText(exception3.getMessage());
+
             }catch (Exception e){
                 e.printStackTrace();
                 e.getCause();
                 Platform.exit();
             }
-
         }else {
             loginMessageLabel.setText("Please enter username and password.");
         }

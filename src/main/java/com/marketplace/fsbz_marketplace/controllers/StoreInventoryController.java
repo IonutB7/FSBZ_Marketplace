@@ -1,28 +1,28 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
-import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.exceptions.StoreItemsNotSelectedException;
 import com.marketplace.fsbz_marketplace.model.Item;
-import com.marketplace.fsbz_marketplace.model.StoreInventoryHolder;
+import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
+import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
+import javafx.beans.binding.Bindings;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class StoreInventoryController implements Initializable {
 
@@ -36,15 +36,32 @@ public class StoreInventoryController implements Initializable {
     @FXML private TableColumn<Item,String> storeCategoryColumn;
     @FXML private TableColumn<Item,String> storeWearColumn;
     @FXML private TableColumn<Item,Float> storePriceColumn;
-    @FXML private TableColumn<Item,Integer> storeQuantityColumn;
+    @FXML private TableColumn<Item,Boolean> storeStatTrackColumn;
     @FXML
     private Button storeGoBackButton;
+    @FXML
+    private TextField storeSearchTextField;
 
     @FXML
-    private Button checkoutButton;
+    private Label storeSearchLabel;
+    @FXML
+    private Label storeTotalValueLabel;
+    @FXML
+    private Label storeTotalValueMessage;
+    @FXML
+    private Label checkOutMessageLabel;
+    @FXML
+    private Button checkOutButton;
     @FXML
     private Button userWalletButton;
 
+    public void setStoreSelectedItemsList(){
+        ObservableList<Item> selectedItems=storeInventoryTableView.getSelectionModel().getSelectedItems();
+        SelectedItemsHolder holder = SelectedItemsHolder.getInstance();
+        holder.setSelectedItemsStoreInventory(selectedItems);
+        float totalValue=InventoryServices.calculateTotalItemValue(selectedItems);
+        holder.setTotalValueStoreItems(totalValue+(5*totalValue)/100);
+    }
     public void setUserWalletButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(userWalletButton,"interfaces/userWallet.fxml",1280,720);
     }
@@ -53,55 +70,66 @@ public class StoreInventoryController implements Initializable {
     }
 
 
-    public void setCheckoutButtonOnAction(ActionEvent event)  throws IOException {
-        ObservableList<Item> selectedItems = storeInventoryTableView.getSelectionModel().getSelectedItems();
-        System.out.println(selectedItems);
+
+    public void setCheckOutButtonOnAction(ActionEvent event)  throws IOException {
+        try{
+            if(storeInventoryTableView.getSelectionModel().getSelectedItems().size()!=0){
+                FxmlUtilities.sceneTransiton(checkOutButton,"interfaces/paymentMethod.fxml",1280,720);
+            }else{
+                throw new StoreItemsNotSelectedException("No items selected!");
+            }
+
+        }catch (StoreItemsNotSelectedException exception){
+            checkOutMessageLabel.setText(exception.getMessage());
+        }
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        InventoryServices services = new InventoryServices();
+        services.resetSelectedStoreItem();
+
+        storeTotalValueLabel.textProperty().bind(Bindings.convert(SelectedItemsHolder.getInstance().totalValueStoreItemsProperty()));
 
         InventoryServices.setInventoryTableCollumns(storeItemNumberColumn,
-                                                    storeInventoryIdColumn,
-                                                    storeNameColumn,
-                                                    storeDescriptionColumn,
-                                                    storeCategoryColumn,
-                                                    storeWearColumn,
-                                                    storePriceColumn,
-                                                    storeQuantityColumn);
+                storeInventoryIdColumn,
+                storeNameColumn,
+                storeDescriptionColumn,
+                storeCategoryColumn,
+                storeWearColumn,
+                storePriceColumn,
+                storeStatTrackColumn);
 
         storeInventoryTableView.setItems(InventoryServices.getStoreItems());
-        storeInventoryTableView.setOnMouseClicked(event ->
-                storeInventoryTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE));
 
-        storeInventoryTableView.addEventFilter(MouseEvent.MOUSE_PRESSED, evt -> {
-            Node node = evt.getPickResult().getIntersectedNode();
-
-            while (node != null && node != storeInventoryTableView && !(node instanceof TableRow)) {
-                node = node.getParent();
-            }
-
-            if (node instanceof TableRow) {
-                evt.consume();
-
-                TableRow row = (TableRow) node;
-                TableView tv = row.getTableView();
-
-                tv.requestFocus();
-
-                if (!row.isEmpty()) {
-                    int index = row.getIndex();
-                    if (row.isSelected()) {
-                        tv.getSelectionModel().clearSelection(index);
-                    } else {
-                        tv.getSelectionModel().select(index);
-                    }
-                }
+        storeInventoryTableView.setOnMouseClicked(event -> {
+            storeInventoryTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            if (event.getButton().equals(MouseButton.PRIMARY)) {
+                setStoreSelectedItemsList();
             }
         });
 
-    }
+        FxmlUtilities.setMultipleSelctionModeEnable(storeInventoryTableView);
+        FilteredList<Item> filteredData = new FilteredList<>(InventoryServices.getStoreItems(), b -> true);
 
+        storeSearchTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(item -> {
+
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            String lowerCaseFilter = newValue.toLowerCase();
+
+            return InventoryServices.verifySearchColumns(item,lowerCaseFilter);
+        }));
+
+
+        SortedList<Item> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(storeInventoryTableView.comparatorProperty());
+        storeInventoryTableView.setItems(sortedData);
+
+    }
 
 
 

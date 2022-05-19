@@ -12,7 +12,10 @@
       <AnchorPane fx:id="right" layoutX="620.0" layoutY="90.0" prefHeight="644.0" prefWidth="660.0">
          <children>
             <Button fx:id="logOutButton" layoutX="359.0" layoutY="527.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="50.0" prefWidth="180.0" text="Log-out" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="349.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="253.0" fitWidth="288.0" layoutX="355.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image></ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="menu" prefHeight="90.0" prefWidth="1280.0">
@@ -28,9 +31,9 @@
                </font>
             </Button>
             <Button fx:id="reportButton" layoutX="1009.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="271.0" text="Report section" />
-            <Button fx:id="helpButton" layoutX="890.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="119.0" text="Help" />
+            <Button fx:id="helpButton" layoutX="890.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setHelpButtonOnAction" prefHeight="90.0" prefWidth="119.0" text="Help" />
             <Button fx:id="myWalletButton" layoutX="379.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setMyWalletButtonOnAction" prefHeight="90.0" prefWidth="147.0" text="Wallet" />
-            <Button fx:id="ledgerButton" layoutX="526.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="333.0" text="Transaction history">
+            <Button fx:id="ledgerButton" layoutX="526.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setLedgerButtonOnAction" prefHeight="90.0" prefWidth="333.0" text="Transaction history">
                <font>
                   <Font size="18.0" />
                </font>

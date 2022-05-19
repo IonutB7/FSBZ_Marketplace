@@ -57,7 +57,7 @@
             <font>
                 <Font name="Counter-Strike Regular" size="36.0" />
             </font></Button>
-        <Button id="registrationAdminButton" fx:id="registrationAdminButton" layoutX="320.0" layoutY="588.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="222.0" text="Register">
+        <Button id="registrationAdminButton" fx:id="registerAdminButton" layoutX="320.0" layoutY="588.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="52.0" prefWidth="222.0" text="Register">
             <cursor>
                 <Cursor fx:constant="DEFAULT" />
             </cursor>
@@ -85,6 +85,7 @@
         <Polygon fill="WHITE" layoutX="641.0" layoutY="429.0" points="-50.0, 39.0, -36.0, -13.0, -50.0, -13.0" stroke="WHITE" strokeType="INSIDE" />
         <Polygon fill="WHITE" layoutX="624.0" layoutY="492.0" points="-50.0, 39.0, -36.0, -13.0, -50.0, -13.0" stroke="WHITE" strokeType="INSIDE" />
         <Polygon fill="WHITE" layoutX="592.0" layoutY="601.0" points="-50.0, 39.0, -36.0, -13.0, -50.0, -13.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label fx:id="registerErrorMessage" layoutX="105.0" layoutY="542.0" prefHeight="34.0" prefWidth="445.0" />
     </children>
     <cursor>
         <Cursor fx:constant="DEFAULT" />
