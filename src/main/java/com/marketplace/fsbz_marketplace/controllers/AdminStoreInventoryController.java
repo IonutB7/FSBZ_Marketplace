@@ -19,6 +19,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -45,6 +47,8 @@ public class AdminStoreInventoryController implements Initializable {
     private Button deleteItemsButton;
     @FXML
     private Button addItemButton;
+    @FXML
+    private AnchorPane addItemAnchor;
 
     @FXML private TableColumn<Item,Integer> storeItemNumberColumn;
     @FXML private TableColumn<Item,Integer> storeInventoryIdColumn;
@@ -116,8 +120,13 @@ public class AdminStoreInventoryController implements Initializable {
     }
 
     public void setAddItemButton(ActionEvent event) throws IOException{
-        FxmlUtilities.sceneTransiton2("interfaces/adminAddItem.fxml",820,500);
+        FxmlUtilities.sceneTransiton1(addItemAnchor,"interfaces/adminAddItem.fxml",520,530);
     }
+
+    public void setAddItemButton1(MouseEvent event) throws IOException{
+        FxmlUtilities.sceneTransiton1(addItemAnchor,"interfaces/adminAddItem.fxml",520,530);
+    }
+
 
     public void setDeleteItemsButtonButtonOnAction(ActionEvent event)  throws IOException {
         try{

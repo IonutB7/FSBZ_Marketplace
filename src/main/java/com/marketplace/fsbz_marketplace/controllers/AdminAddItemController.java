@@ -51,7 +51,7 @@ public class AdminAddItemController implements Initializable
     }
 
     public void setGoBackButtonOnAction(ActionEvent event)  throws IOException {
-        FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminMainInterface.fxml",1280,720);
+        FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminStoreInventory.fxml",1280,720);
     }
 
     public void setCreateItemButtonOnAction(ActionEvent event){
