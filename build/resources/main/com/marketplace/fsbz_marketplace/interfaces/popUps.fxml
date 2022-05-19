@@ -8,7 +8,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.PopUpsController">
    <children>
       <TextArea fx:id="messageTextArea" layoutX="81.0" layoutY="26.0" prefHeight="317.0" prefWidth="465.0">
-      <TextArea fx:id="adminCodeTextArea" layoutX="178.0" layoutY="81.0" prefHeight="247.0" prefWidth="266.0">
          <font>
             <Font size="24.0" />
          </font>
