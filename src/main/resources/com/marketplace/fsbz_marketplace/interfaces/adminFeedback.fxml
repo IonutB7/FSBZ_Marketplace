@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="647.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminFeedbackController">
+<AnchorPane prefHeight="703.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminFeedbackController">
    <children>
       <TextField fx:id="searchTextField" layoutX="86.0" layoutY="8.0" prefHeight="46.0" prefWidth="564.0" promptText="Search item" />
-      <TableView fx:id="ticketTableView" layoutX="9.0" layoutY="76.0" prefHeight="516.0" prefWidth="860.0" stylesheets="@../css/transactionHistory.css">
+      <Button fx:id="goBackButton" layoutX="37.0" layoutY="632.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="Go back" />
+      <Button fx:id="viewContentButton" layoutX="268.0" layoutY="632.0" mnemonicParsing="false" onAction="#setViewContentButtonOnAction" prefHeight="46.0" prefWidth="200.0" text="View ticket content" />
+      <TableView fx:id="ticketTableView" layoutX="14.0" layoutY="94.0" prefHeight="516.0" prefWidth="860.0" stylesheets="@../css/transactionHistory.css">
          <columns>
             <TableColumn fx:id="ticketIdColumn" prefWidth="70.4000244140625" text="Id" />
             <TableColumn fx:id="ticketSendByColumn" minWidth="9.0" prefWidth="139.20001220703125" text="Send by" />
@@ -20,6 +22,6 @@
             <TableColumn fx:id="ticketStatusColumn" prefWidth="156.800048828125" text="Status" />
          </columns>
       </TableView>
-      <Button fx:id="goBackButton" layoutX="39.0" layoutY="609.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="Go back" />
+      <Label fx:id="ticketMessageLabel" layoutX="582.0" layoutY="632.0" prefHeight="46.0" prefWidth="264.0" />
    </children>
 </AnchorPane>

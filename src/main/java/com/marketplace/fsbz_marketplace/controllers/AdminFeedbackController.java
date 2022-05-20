@@ -1,8 +1,7 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
-import com.marketplace.fsbz_marketplace.model.Ticket;
-import com.marketplace.fsbz_marketplace.model.TicketListHolder;
-import com.marketplace.fsbz_marketplace.model.Transaction;
+import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.services.LedgerService;
 import com.marketplace.fsbz_marketplace.services.TicketServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
@@ -10,12 +9,12 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +36,10 @@ public class AdminFeedbackController implements Initializable {
     private TextField searchTextField;
     @FXML
     private Button goBackButton;
+    @FXML
+    private Button viewContentButton;
+    @FXML
+    private Label ticketMessageLabel;
 
 
     @Override
@@ -73,6 +76,22 @@ public class AdminFeedbackController implements Initializable {
 
     public void setGoBackButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminMainInterface.fxml",1280,720);
+    }
+    public void setViewContentButtonOnAction(ActionEvent event) throws IOException{
+        if(ticketTableView.getSelectionModel().getSelectedItem()!=null){
+            Ticket selectedTicket =ticketTableView.getSelectionModel().getSelectedItem();
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            PopUpsController myPOC = fxmlLoader.getController();
+            myPOC.setTicketContent(selectedTicket.getContent());
+            stage.setTitle("FZ:BZ Marketplace");
+            stage.setScene(scene);
+            stage.show();
+
+        }else{
+            ticketMessageLabel.setText("No ticket is selected.");
+        }
     }
 
 }
