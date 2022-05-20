@@ -59,6 +59,28 @@ public class UserListServices {
         }
     }
 
+    public static void clarUserDB(int userAcountId) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String clearBan = "UPDATE user_account SET banned=0 WHERE account_id ="+userAcountId+";";
+        String clearWarning = "UPDATE user_account SET warned=0 WHERE account_id ="+userAcountId+";";
+        String clearContent = "UPDATE user_account SET content='' WHERE account_id ="+userAcountId+";";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(clearBan);
+            statement.executeUpdate(clearWarning);
+            statement.executeUpdate(clearContent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
     public static void setWarningForUser(int accId){
         for(int i=0;i<UserListHolder.getInstance().getUserList().size();i++){
             if(UserListHolder.getInstance().getUserList().get(i).getAcountId()==accId){
@@ -79,9 +101,24 @@ public class UserListServices {
 
         return tempUser;
     }
+
+    public static void setUnbanUser(User restoredUser){
+        for(User bannedUser:UserListHolder.getInstance().getBannedUserList()){
+            if(bannedUser.getAcountId()==restoredUser.getAcountId()){
+                bannedUser.setBanned(false);
+                bannedUser.setWarned(false);
+                return;
+            }
+        }
+    }
     public static void transferUserToBanList(User bannedUser){
         UserListHolder.getInstance().getBannedUserList().add(bannedUser);
         UserListHolder.getInstance().getUserList().remove(bannedUser);
+    }
+
+    public static void transferUserFromBanList(User restoredUser){
+        UserListHolder.getInstance().getUserList().add(restoredUser);
+        UserListHolder.getInstance().getBannedUserList().remove(restoredUser);
     }
 
     public static void initializeUserList(ArrayList<User> retrivedUsers,ArrayList<User> retrivedBannedUsers) {

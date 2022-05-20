@@ -3,8 +3,10 @@ package com.marketplace.fsbz_marketplace.controllers;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.Item;
 import com.marketplace.fsbz_marketplace.model.User;
+import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.model.UserListHolder;
 import com.marketplace.fsbz_marketplace.services.InventoryServices;
+import com.marketplace.fsbz_marketplace.services.LedgerService;
 import com.marketplace.fsbz_marketplace.services.UserListServices;
 import com.marketplace.fsbz_marketplace.services.UserServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
@@ -42,7 +44,8 @@ public class AdminUserListController implements Initializable {
     private Button sendWarningButton;
     @FXML
     private Button banUserButton;
-
+    @FXML
+    private Button viewUserLedgerButton;
 
     @FXML
     private TableView<User> userListInventoryTableView;
@@ -109,6 +112,29 @@ public class AdminUserListController implements Initializable {
             stage.setTitle("FZ:BZ Marketplace");
             stage.setScene(scene);
             stage.show();
+        }else{
+            userListErrorMessageLabel.setText("No user is selected.");
+        }
+
+    }
+
+
+
+    public void setViewUserLedgerButtonOnAction(ActionEvent event) throws IOException{
+        if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
+            User selectedUser =userListInventoryTableView.getSelectionModel().getSelectedItem();
+            LedgerService.initializeUserLedger(selectedUser,selectedUser.getInventoryId());
+            UserHolder.getInstance().setUser(selectedUser);
+            Stage stage = (Stage) viewUserLedgerButton.getScene().getWindow();
+            stage.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/userTransactionHistory.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            TransactionHistoryController myTHC = fxmlLoader.getController();
+            myTHC.setUsedByAdmin(true);
+            stage.setTitle("FZ:BZ Marketplace");
+            stage.setScene(scene);
+            stage.show();
+
         }else{
             userListErrorMessageLabel.setText("No user is selected.");
         }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="618.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.ReportSectionController">
+   <children>
+      <TextField fx:id="titleTextField" layoutX="165.0" layoutY="54.0" prefHeight="33.0" prefWidth="386.0" />
+      <Label layoutX="69.0" layoutY="49.0" prefHeight="43.0" prefWidth="87.0" text="Title:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="122.0" prefHeight="50.0" prefWidth="119.0" text="Type of ticket:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="192.0" prefHeight="43.0" prefWidth="190.0" text="Content of the ticket:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="typeComboBox" layoutX="244.0" layoutY="135.0" prefWidth="150.0" />
+      <Button fx:id="goBackButton" layoutX="70.0" layoutY="331.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go back" />
+      <Button fx:id="sendTicketButton" layoutX="70.0" layoutY="269.0" mnemonicParsing="false" onAction="#setSendTicketButton" text="Send ticket" />
+      <TextArea fx:id="contentTextArea" layoutX="282.0" layoutY="209.0" prefHeight="360.0" prefWidth="452.0" />
+      <Label fx:id="ticketMessageLabel" layoutX="8.0" layoutY="411.0" prefHeight="43.0" prefWidth="274.0" />
+   </children>
+</AnchorPane>

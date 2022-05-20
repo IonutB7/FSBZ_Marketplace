@@ -27,9 +27,12 @@ public class MarketplaceInterfaceController {
     @FXML private Button ledgerButton;
     @FXML private Button helpButton;
 
-    @FXML private Button legerButton;
+    @FXML private Button reportButton;
 
+    public void setReportSectionButtonOnAction()throws IOException{
+        FxmlUtilities.sceneTransiton(reportButton,"interfaces/reportSection.fxml",1280,720);
 
+    }
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(storeInventoryButton,"interfaces/userInventory.fxml",1280,720);
     }
@@ -47,7 +50,15 @@ public class MarketplaceInterfaceController {
     }
 
     public void setLedgerButtonOnAction(ActionEvent event) throws IOException{
-        FxmlUtilities.sceneTransiton(ledgerButton,"interfaces/userTransactionHistory.fxml",1280,720);
+        Stage stage = (Stage) ledgerButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/userTransactionHistory.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        TransactionHistoryController myTHC = fxmlLoader.getController();
+        myTHC.setUsedByUser(true);
+        stage.setTitle("FZ:BZ Marketplace");
+        stage.setScene(scene);
+        stage.show();
 
     }
 

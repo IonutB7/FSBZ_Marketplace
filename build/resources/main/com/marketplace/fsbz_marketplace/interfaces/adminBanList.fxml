@@ -24,7 +24,7 @@
       <Button fx:id="goBackButton" layoutX="89.0" layoutY="630.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="go back" />
       <AnchorPane fx:id="unbanUserAnchor" layoutX="292.0" layoutY="630.0" prefHeight="47.0" prefWidth="200.0">
          <children>
-            <Button fx:id="unbanUserButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="167.0" text="unban user" />
+            <Button fx:id="unbanUserButton" mnemonicParsing="false" onAction="#setUnbanUserButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="unban user" />
             <Polygon fx:id="triangle1" fill="WHITE" layoutX="212.0" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
