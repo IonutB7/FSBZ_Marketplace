@@ -4,22 +4,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="549.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminSanctionControllers">
+<AnchorPane fx:id="adminSanctions" prefHeight="530.0" prefWidth="520.0" stylesheets="@../css/adminSanctions.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminSanctionControllers">
    <children>
-      <TextArea fx:id="sanctionContentTextArea" layoutX="135.0" layoutY="127.0" prefHeight="318.0" prefWidth="430.0" />
-      <Label fx:id="sanctionTextMessage" layoutX="34.0" layoutY="52.0" prefHeight="50.0" prefWidth="374.0">
+      <TextArea fx:id="sanctionContentTextArea" layoutX="17.0" layoutY="106.0" prefHeight="318.0" prefWidth="487.0" />
+      <Label fx:id="sanctionTextMessage" layoutX="21.0" layoutY="39.0" prefHeight="50.0" prefWidth="479.0" textFill="WHITE">
+         <font>
+            <Font name="Counter-Strike Regular" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="sanctionErrorMessage" layoutX="52.0" layoutY="479.0" prefHeight="41.0" prefWidth="417.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="cancelButton" layoutX="77.0" layoutY="494.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
-      <Button fx:id="sendButton" layoutX="579.0" layoutY="494.0" mnemonicParsing="false" onAction="#setSendButtonOnAction" text="Send" />
-      <Label fx:id="sanctionErrorMessage" layoutX="204.0" layoutY="452.0" prefHeight="41.0" prefWidth="276.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <AnchorPane fx:id="cancelAnchor" layoutX="17.0" layoutY="434.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="cancel" />
+            <Polygon fx:id="cancelTriangle" fill="WHITE" layoutX="150.0" layoutY="38.0" onMouseClicked="#setCancelButtonOnAction1" points="-32.0, -2.0, 50.0, -38.0, -32.0, -38.0" stroke="WHITE" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sendAnchor" layoutX="304.0" layoutY="434.0" prefHeight="36.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="sendButton" layoutX="82.0" mnemonicParsing="false" onAction="#setSendButtonOnAction" prefHeight="35.0" prefWidth="118.0" text="send" />
+            <Polygon fx:id="sendTriangle" fill="WHITE" layoutX="32.0" layoutY="38.0" onMouseClicked="#setSendButtonOnAction1" points="-32.0, -2.0, 50.0, -2.0, -32.0, -38.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

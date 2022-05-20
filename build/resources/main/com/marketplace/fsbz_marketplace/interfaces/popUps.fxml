@@ -7,11 +7,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.PopUpsController">
    <children>
-      <TextArea fx:id="messageTextArea" layoutX="81.0" layoutY="26.0" prefHeight="317.0" prefWidth="465.0">
+      <TextArea fx:id="messageTextArea" layoutX="68.0" layoutY="23.0" prefHeight="317.0" prefWidth="465.0">
          <font>
             <Font size="24.0" />
          </font>
       </TextArea>
-      <Button fx:id="cancelButton" layoutX="288.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
+      <Button fx:id="cancelButton" layoutX="275.0" layoutY="361.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" text="Cancel" />
    </children>
 </AnchorPane>

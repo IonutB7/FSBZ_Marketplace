@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -49,6 +50,11 @@ public class AdminSanctionControllers implements Initializable {
         stage.close();
     }
 
+    public void setCancelButtonOnAction1(MouseEvent event) throws IOException {
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
+    }
+
     public void setSendButtonOnAction(ActionEvent event) throws IOException {
             if(sanctionContentTextArea.getText().isEmpty()==false){
                 if(adminIsWarning){
@@ -69,6 +75,28 @@ public class AdminSanctionControllers implements Initializable {
             }else{
                 sanctionErrorMessage.setText("Please enter a reason for warning.");;
             }
+    }
+
+    public void setSendButtonOnAction1(MouseEvent event) throws IOException {
+        if(sanctionContentTextArea.getText().isEmpty()==false){
+            if(adminIsWarning){
+                UserListServices.sendUserWarningDB(UserListHolder.getInstance().getLastUserId(),sanctionContentTextArea.getText());
+                UserListServices.setWarningForUser(UserListHolder.getInstance().getLastUserId());
+                Stage stage = (Stage) sendButton.getScene().getWindow();
+                stage.close();
+            }
+            if(adminIsBanning){
+                UserListServices.banUserDB(UserListHolder.getInstance().getLastUserId(),sanctionContentTextArea.getText());
+                User bannedUser=UserListServices.setBanUser(UserListHolder.getInstance().getLastUserId());
+                UserListServices.transferUserToBanList(bannedUser);
+                Stage stage = (Stage) sendButton.getScene().getWindow();
+                stage.close();
+            }
+
+
+        }else{
+            sanctionErrorMessage.setText("Please enter a reason for warning.");;
+        }
     }
 
     public void setAdminIsBanning(boolean adminIsBanning) {

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+
+}
+
+#adminSanctions {
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 26px;
+    -fx-background-color: red;
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+}
+
+#cancelButton, #sendButton {
+    -fx-border-style: none;
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+    -fx-text-fill: red;
+}
+
+#cancelAnchor:hover > #cancelButton, #sendAnchor:hover > #sendButton{
+    -fx-background-color: rgb(230,0,0);
+    -fx-text-fill: white;
+}
+
+#cancelAnchor:hover > #cancelTriangle , #sendAnchor:hover > #sendTriangle {
+    -fx-fill: rgb(230,0,0);
+    -fx-stroke: rgb(230,0,0);
+
+}
+
+#sanctionContentTextArea {
+    -fx-text-fill: red;
+    -fx-font-family: "Counter-Strike";
+}

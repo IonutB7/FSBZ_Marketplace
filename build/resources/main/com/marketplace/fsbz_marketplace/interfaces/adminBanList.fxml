@@ -6,28 +6,29 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Polygon?>
 
-<AnchorPane prefHeight="646.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminBanListController">
+<AnchorPane fx:id="adminBanListAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/adminBanList.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminBanListController">
    <children>
-      <TableView fx:id="banListInventoryTableView" layoutX="22.0" layoutY="84.0" prefHeight="464.0" prefWidth="816.0">
+      <TableView fx:id="banListInventoryTableView" layoutX="89.0" layoutY="117.0" prefHeight="487.0" prefWidth="1100.0">
          <columns>
-            <TableColumn fx:id="banListAccountIdColumn" prefWidth="84.79995727539062" text="Account Id" />
-            <TableColumn fx:id="banListInventoryIdColumn" prefWidth="137.59994506835938" text="Inventory Id" />
-            <TableColumn fx:id="banListUsernameColumn" prefWidth="141.60003662109375" text="Username" />
-            <TableColumn fx:id="banListEmailColumn" prefWidth="218.4000244140625" text="Email" />
-            <TableColumn fx:id="banListBalanceColumn" prefWidth="111.20001220703125" text="Balance" />
-            <TableColumn fx:id="banListWarnedColumn" prefWidth="124.00006103515625" text="Warned" />
+            <TableColumn fx:id="banListAccountIdColumn" prefWidth="123.0" text="Account Id" />
+            <TableColumn fx:id="banListInventoryIdColumn" prefWidth="153.0" text="Inventory Id" />
+            <TableColumn fx:id="banListUsernameColumn" prefWidth="199.0" text="Username" />
+            <TableColumn fx:id="banListEmailColumn" prefWidth="267.0" text="Email" />
+            <TableColumn fx:id="banListBalanceColumn" prefWidth="180.0" text="Balance" />
+            <TableColumn fx:id="banListWarnedColumn" prefWidth="177.0" text="Warned" />
          </columns>
       </TableView>
-      <TextField fx:id="banListSearchTextField" layoutX="200.0" layoutY="41.0" prefHeight="29.0" prefWidth="256.0" />
-      <Label fx:id="banListSearchLabel" layoutX="86.0" layoutY="37.0" prefHeight="38.0" prefWidth="105.0" text="Search bar:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="goBackButton" layoutX="223.0" layoutY="596.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" text="Go back" />
-      <Button fx:id="unbanUserButton" layoutX="512.0" layoutY="596.0" mnemonicParsing="false" text="Unban user" />
-      <Label fx:id="banListErrorMessageLabel" layoutX="492.0" layoutY="37.0" prefHeight="30.0" prefWidth="288.0" />
+      <TextField fx:id="banListSearchTextField" layoutX="89.0" layoutY="44.0" prefHeight="46.0" prefWidth="640.0" promptText="Search item" />
+      <Button fx:id="goBackButton" layoutX="89.0" layoutY="630.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="go back" />
+      <AnchorPane fx:id="unbanUserAnchor" layoutX="292.0" layoutY="630.0" prefHeight="47.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="unbanUserButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="167.0" text="unban user" />
+            <Polygon fx:id="triangle1" fill="WHITE" layoutX="212.0" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="banListErrorMessageLabel" layoutX="824.0" layoutY="638.0" prefHeight="30.0" prefWidth="288.0" />
+      <Polygon fx:id="triangle11" fill="WHITE" layoutX="790.0" layoutY="44.0" points="-61.0, 46.0, -16.0, 47.0, -61.0, 0.0" stroke="WHITE" strokeType="INSIDE" />
    </children>
 </AnchorPane>

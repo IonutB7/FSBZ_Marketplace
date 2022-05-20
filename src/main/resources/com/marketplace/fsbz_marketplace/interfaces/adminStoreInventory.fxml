@@ -24,7 +24,7 @@
          </columns>
       </TableView>
       <TextField fx:id="storeSearchTextField" layoutX="89.0" layoutY="44.0" prefHeight="46.0" prefWidth="640.0" promptText="Search item" />
-      <Button fx:id="goBackButton" layoutX="89.0" layoutY="630.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="Go back" />
+      <Button fx:id="goBackButton" layoutX="89.0" layoutY="630.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="go back" />
       <Button fx:id="deleteItemsButton" layoutX="276.0" layoutY="630.0" mnemonicParsing="false" onAction="#setDeleteItemsButtonButtonOnAction" prefHeight="46.0" prefWidth="200.0" text="delete items" />
      <AnchorPane fx:id="addItemAnchor" layoutX="495.0" layoutY="630.0" prefHeight="47.0" prefWidth="200.0">
          <children>

@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -102,7 +103,7 @@ public class AdminUserListController implements Initializable {
             UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminSanctions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            Scene scene = new Scene(fxmlLoader.load(), 520, 530);
             AdminSanctionControllers myASC = fxmlLoader.getController();
             myASC.setAdminIsWarning(true);
             stage.setTitle("FZ:BZ Marketplace");
@@ -119,7 +120,24 @@ public class AdminUserListController implements Initializable {
             UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminSanctions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            Scene scene = new Scene(fxmlLoader.load(), 520, 530);
+            AdminSanctionControllers myASC = fxmlLoader.getController();
+            myASC.setAdminIsBanning(true);
+            stage.setTitle("FZ:BZ Marketplace");
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            userListErrorMessageLabel.setText("No user is selected.");
+        }
+
+    }
+
+    public void setBanUserButtonOnAction1(MouseEvent event) throws IOException{
+        if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
+            UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminSanctions.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 520, 530);
             AdminSanctionControllers myASC = fxmlLoader.getController();
             myASC.setAdminIsBanning(true);
             stage.setTitle("FZ:BZ Marketplace");
