@@ -3,12 +3,21 @@ package com.marketplace.fsbz_marketplace.model;
 import java.sql.Timestamp;
 
 public class Ticket {
+    private int ticketId;
     private String sendByUser;
     private String title;
     private String type;
     private String content;
     private Timestamp sendDate;
     private String status;
+
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
+    }
 
     public String getSendByUser() {
         return sendByUser;

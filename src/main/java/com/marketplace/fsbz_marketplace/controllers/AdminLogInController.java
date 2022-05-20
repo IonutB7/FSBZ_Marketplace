@@ -46,6 +46,13 @@ public class AdminLogInController {
         holder.setAdmin(currentAdmin);
     }
 
+    private void setTicketList() {
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        TicketServices.initializeTicketList(ticketList);
+        TicketListHolder holder = TicketListHolder.getInstance();
+        holder.setTicketList(ticketList);
+    }
+
     private void setStoreInvetoryInstance() {
         ArrayList<Item> storeInventory = new ArrayList<>();
         InventoryServices.initializeStoreInventory(storeInventory);
@@ -86,6 +93,7 @@ public class AdminLogInController {
                     setStoreInvetoryInstance();
                     setWeaponInformationsTable();
                     setUserLists();
+                    setTicketList();
                     FxmlUtilities.sceneTransiton(loginAdminButton,"interfaces/adminMainInterface.fxml",1280,720);
                 }
             }catch(InexistentUserException exception1){
