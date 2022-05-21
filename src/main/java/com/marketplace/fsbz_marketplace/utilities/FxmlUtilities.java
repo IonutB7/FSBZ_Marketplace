@@ -53,7 +53,7 @@ public class FxmlUtilities {
     public static void setSanctionPopUp(String username) throws IOException,SQLException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 520, 530);
         String sanctionContent= UserServices.getSanctionContent(username);
         PopUpsController myPUC = fxmlLoader.getController();
         myPUC.setSanctionContent(sanctionContent);

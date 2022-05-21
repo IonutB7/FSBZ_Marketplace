@@ -84,14 +84,13 @@ public class UserLogInController {
                 try{
                     if(UserServices.validateLogin(userTextField.getText(), enterPasswordField.getText())==true){
 
-                        if(UserServices.verifyIfWarned(userTextField.getText())==true){
-                           FxmlUtilities.setSanctionPopUp(userTextField.getText());
-                        }
-
                         setUserInstance(userTextField.getText());
                         setStoreInvetoryInstance();
                         setStoreCouponList();
                         FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",1280,720);
+                        if(UserServices.verifyIfWarned(userTextField.getText())==true){
+                            FxmlUtilities.setSanctionPopUp(userTextField.getText());
+                        }
                     }
                 }catch(InexistentUserException exception1){
                     loginMessageLabel.setText(exception1.getMessage());
