@@ -45,6 +45,8 @@ public class AdminService {
         }
 
     }
+
+
     public static boolean validateLogin(String adminUsername, String adminPassword,String adminCode)throws CredentialsExceptions,java.sql.SQLException{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
@@ -80,13 +82,31 @@ public class AdminService {
         return false;
     }
 
+    public static void activateAdminAccount(String adminUsername) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String activateAdminAccount = "UPDATE admin_db SET activated=1 WHERE username='"+adminUsername+"';";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(activateAdminAccount);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
     public static void registerAdmin(String firstname, String lastname, String email, String username, String saltvalue, String encryptedPass,String adminCode){
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
 
-        int activated = 1;
+        int activated = 0;
 
 
         String insertFields = "INSERT INTO admin_db(firstname,lastname,email,username,encryptedPass,salt,adminCode,activated) VALUES ('";
@@ -99,6 +119,25 @@ public class AdminService {
             statement.executeUpdate(insertToRegister);
 
         }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public static void declineAdminRequest(String adminUsername){
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+
+        String deleteAdminAcount = "DELETE FROM admin_db" + " WHERE username='" + adminUsername + "';";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(deleteAdminAcount);
+        } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }

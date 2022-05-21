@@ -59,7 +59,7 @@ public class UserListServices {
         }
     }
 
-    public static void clarUserDB(int userAcountId) {
+    public static void clearUserDB(int userAcountId) {
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();

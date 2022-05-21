@@ -3,22 +3,31 @@ package com.marketplace.fsbz_marketplace.controllers;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.model.UserHolder;
+import com.marketplace.fsbz_marketplace.services.UserListServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class MarketplaceInterfaceController {
+public class MarketplaceInterfaceController implements Initializable {
 
+    @FXML
+    private Label userHelloMessageLabel;
     @FXML
     private Button myInventoryButton;
     @FXML private Button logOutButton;
@@ -28,6 +37,14 @@ public class MarketplaceInterfaceController {
     @FXML private Button helpButton;
 
     @FXML private Button reportButton;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
+
+        userHelloMessageLabel.setText("Hi,"+UserHolder.getInstance().getUser().getUsername());
+
+    }
 
     public void setReportSectionButtonOnAction()throws IOException{
         FxmlUtilities.sceneTransiton(reportButton,"interfaces/reportSection.fxml",1280,720);

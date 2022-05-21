@@ -2,8 +2,10 @@ package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.*;
+import com.marketplace.fsbz_marketplace.services.AdminService;
 import com.marketplace.fsbz_marketplace.services.LedgerService;
 import com.marketplace.fsbz_marketplace.services.TicketServices;
+import com.marketplace.fsbz_marketplace.services.UserListServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -39,12 +41,13 @@ public class AdminFeedbackController implements Initializable {
     @FXML
     private Button viewContentButton;
     @FXML
+    private Button acceptButton;
+    @FXML
+    private Button declineButton;
+    @FXML
     private Label ticketMessageLabel;
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-
+    public void UpdateTable(){
         TicketServices.setTicketTableCollumns(ticketIdColumn,
                 ticketSendByColumn,
                 ticketTitleColumn,
@@ -53,6 +56,13 @@ public class AdminFeedbackController implements Initializable {
                 ticketStatusColumn);
 
         ticketTableView.setItems(TicketServices.getTicketList());
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
+        UpdateTable();
 
 
         FilteredList<Ticket> filteredData = new FilteredList<>(TicketServices.getTicketList(), b -> true);
@@ -80,6 +90,9 @@ public class AdminFeedbackController implements Initializable {
     public void setViewContentButtonOnAction(ActionEvent event) throws IOException{
         if(ticketTableView.getSelectionModel().getSelectedItem()!=null){
             Ticket selectedTicket =ticketTableView.getSelectionModel().getSelectedItem();
+            TicketServices.changeTicketStatusDB(selectedTicket.getTicketId(),"Viewed");
+            TicketServices.changeTicketStatus(selectedTicket.getTicketId(),"Viewed");
+            UpdateTable();
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/popUps.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
@@ -90,6 +103,38 @@ public class AdminFeedbackController implements Initializable {
             stage.show();
 
         }else{
+            ticketMessageLabel.setText("No ticket is selected.");
+        }
+    }
+
+    public void setDeclineButtonOnAction(ActionEvent event) {
+        if (ticketTableView.getSelectionModel().getSelectedItem() != null) {
+            if (ticketTableView.getSelectionModel().getSelectedItem().getType().equals("Activation")) {
+                Ticket selectedTicket = ticketTableView.getSelectionModel().getSelectedItem();
+                TicketServices.changeTicketStatusDB(selectedTicket.getTicketId(), "Rejected");
+                TicketServices.changeTicketStatus(selectedTicket.getTicketId(), "Rejected");
+                AdminService.declineAdminRequest(selectedTicket.getSendByUser());
+                UpdateTable();
+            }else{
+                ticketMessageLabel.setText("The ticket is not an admin request!");
+            }
+        } else {
+            ticketMessageLabel.setText("No ticket is selected.");
+        }
+    }
+
+    public void setAcceptButtonOnAction(ActionEvent event) {
+        if (ticketTableView.getSelectionModel().getSelectedItem() != null) {
+            if (ticketTableView.getSelectionModel().getSelectedItem().getType().equals("Activation")) {
+                Ticket selectedTicket = ticketTableView.getSelectionModel().getSelectedItem();
+                TicketServices.changeTicketStatusDB(selectedTicket.getTicketId(), "Accepted");
+                TicketServices.changeTicketStatus(selectedTicket.getTicketId(), "Accepted");
+                AdminService.activateAdminAccount(selectedTicket.getSendByUser());
+                UpdateTable();
+            }else{
+                ticketMessageLabel.setText("The ticket is not an admin request!");
+            }
+        } else {
             ticketMessageLabel.setText("No ticket is selected.");
         }
     }

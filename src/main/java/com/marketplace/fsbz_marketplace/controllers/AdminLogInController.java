@@ -9,6 +9,7 @@ import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.services.*;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -50,7 +51,7 @@ public class AdminLogInController {
         ArrayList<Ticket> ticketList = new ArrayList<>();
         TicketServices.initializeTicketList(ticketList);
         TicketListHolder holder = TicketListHolder.getInstance();
-        holder.setTicketList(ticketList);
+        holder.setTicketList(FXCollections.observableArrayList(ticketList));
     }
 
     private void setStoreInvetoryInstance() {

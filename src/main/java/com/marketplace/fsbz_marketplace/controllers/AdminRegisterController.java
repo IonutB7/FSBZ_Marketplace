@@ -3,6 +3,7 @@ package com.marketplace.fsbz_marketplace.controllers;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.services.AdminService;
+import com.marketplace.fsbz_marketplace.services.TicketServices;
 import com.marketplace.fsbz_marketplace.services.UserServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import com.marketplace.fsbz_marketplace.utilities.PassBasedEnc;
@@ -62,6 +63,8 @@ public class AdminRegisterController {
                 UserServices.verifyEmailCorrectness(email);
                 UserServices.verifyPasswordCorrectness(password);
                 AdminService.registerAdmin(firstname, lastname, email, username,saltvalue,encryptedPass,adminCode);
+                TicketServices.addTicketToDB(username,"Admin creation request","Activation","The new admin account was created and it needs to be activated.");
+
 
                 FxmlUtilities.sceneTransiton(registerAdminButton,"interfaces/adminLogIn.fxml",1280,720);
                 Stage stage = new Stage();

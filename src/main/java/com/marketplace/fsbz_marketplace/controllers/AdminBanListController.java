@@ -97,7 +97,7 @@ public class AdminBanListController implements Initializable {
     public void setUnbanUserButtonOnAction(ActionEvent event) throws IOException {
         if (banListInventoryTableView.getSelectionModel().getSelectedItem() != null) {
             User restoredUser= banListInventoryTableView.getSelectionModel().getSelectedItem();
-            UserListServices.clarUserDB(restoredUser.getAcountId());
+            UserListServices.clearUserDB(restoredUser.getAcountId());
             UserListServices.setUnbanUser(restoredUser);
             UserListServices.transferUserFromBanList(restoredUser);
             UpdateTable();
