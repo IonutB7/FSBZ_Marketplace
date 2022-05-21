@@ -37,6 +37,11 @@
          </font>
       </Label>
       <Polygon fill="WHITE" layoutX="793.0" layoutY="53.0" points="-64.0, 37.0, -30.0, 37.0, -64.0, -9.0" stroke="WHITE" strokeType="INSIDE" />
-      <Button fx:id="viewUserLedgerButton" layoutX="746.0" layoutY="623.0" mnemonicParsing="false" onAction="#setViewUserLedgerButtonOnAction" prefHeight="60.0" prefWidth="200.0" text="View Ledger" />
+      <AnchorPane fx:id="viewTransactions" layoutX="845.0" layoutY="44.0" prefHeight="47.0" prefWidth="343.0">
+         <children>
+            <Button fx:id="viewUserLedgerButton" layoutX="29.0" mnemonicParsing="false" onAction="#setViewUserLedgerButtonOnAction" prefHeight="47.0" prefWidth="315.0" text="view transaction history" />
+            <Polygon fx:id="blkTriangle" layoutX="45.0" onMouseClicked="#setViewUserLedgerButtonOnAction1" points="-47.0, 0.0, -16.0, 47.0, -16.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

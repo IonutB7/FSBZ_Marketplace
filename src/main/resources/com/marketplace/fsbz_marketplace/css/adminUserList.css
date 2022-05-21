@@ -84,12 +84,20 @@
     -fx-background-radius: 0px;
 }
 
-#banUserAnchor:hover > #triangle1 {
+#viewUserLedgerButton {
+    -fx-background-color: black;
+    -fx-text-fill: red;
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+}
+
+
+#banUserAnchor:hover > #triangle1, #viewTransactions:hover > #blkTriangle {
     -fx-fill: red;
     -fx-stroke: red;
 }
 
-#sendWarningButton:hover, #goBackButton:hover,#banUserAnchor:hover > #banUserButton {
+#sendWarningButton:hover, #goBackButton:hover,#banUserAnchor:hover > #banUserButton, #viewTransactions:hover > #viewUserLedgerButton {
     -fx-background-color: red;
     -fx-text-fill: white;
 }

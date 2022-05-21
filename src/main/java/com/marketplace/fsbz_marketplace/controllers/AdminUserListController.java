@@ -141,6 +141,27 @@ public class AdminUserListController implements Initializable {
 
     }
 
+    public void setViewUserLedgerButtonOnAction1(MouseEvent event) throws IOException{
+        if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
+            User selectedUser =userListInventoryTableView.getSelectionModel().getSelectedItem();
+            LedgerService.initializeUserLedger(selectedUser,selectedUser.getInventoryId());
+            UserHolder.getInstance().setUser(selectedUser);
+            Stage stage = (Stage) viewUserLedgerButton.getScene().getWindow();
+            stage.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/userTransactionHistory.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            TransactionHistoryController myTHC = fxmlLoader.getController();
+            myTHC.setUsedByAdmin(true);
+            stage.setTitle("FZ:BZ Marketplace");
+            stage.setScene(scene);
+            stage.show();
+
+        }else{
+            userListErrorMessageLabel.setText("No user is selected.");
+        }
+
+    }
+
     public void setBanUserButtonOnAction(ActionEvent event) throws IOException{
         if(userListInventoryTableView.getSelectionModel().getSelectedItem()!=null){
             UserListHolder.getInstance().setLastUserId(userListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
