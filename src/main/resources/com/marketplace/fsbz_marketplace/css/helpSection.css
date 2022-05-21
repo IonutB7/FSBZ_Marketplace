@@ -5,28 +5,20 @@
 }
 
 #helpSection {
+    -fx-background-color: red;
     -fx-font-family: "Counter-Strike";
     -fx-font-size: 17px;
+}
+
+#returnButton {
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: white;
+}
+
+#returnButton:hover{
+    -fx-background-color: rgb(230,0,0);
     -fx-text-fill: white;
 }
 
-.text-area .content {
-    -fx-background-color: rgba(0,0,0,0);
-
-}
-
-.text-area .content{
-    -fx-background-color: black;
-}
-
-#textAnchor {
-
-    -fx-background-color: rgba(0,0,0,0.5);
-
-}
-
-#helpSection {
-
-    -fx-background-image: url("../images/background1.jpg");
-}
 

@@ -43,7 +43,7 @@
             <AnchorPane fx:id="feedBackAnchor" layoutX="859.0" layoutY="1.0" prefHeight="90.0" prefWidth="411.0">
                <children>
                   <Polygon fx:id="grayTriangle" fill="#737373" layoutX="89.0" layoutY="85.0" points="-90.0, 5.0, -58.0, -83.0, -90.0, -83.0" rotate="180.0" stroke="#737373" strokeType="INSIDE" />
-                  <Button fx:id="feedbackSectionButton" layoutX="31.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="390.0" text="feedback section" />
+                  <Button fx:id="feedbackSectionButton" layoutX="31.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setFeedbackSectionButtonOnAction" prefHeight="90.0" prefWidth="390.0" text="feedback section" />
                </children>
             </AnchorPane>
          </children>

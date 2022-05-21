@@ -19,6 +19,8 @@ public class PopUpsController implements Initializable {
     private boolean fromAdminRegister=false;
     private String sanctionContent;
     private boolean isSanctioned=false;
+    private String ticketContent;
+    private boolean viewTicket=false;
     @FXML
     private TextArea messageTextArea;
     @FXML
@@ -33,6 +35,8 @@ public class PopUpsController implements Initializable {
                 messageTextArea.setText("Your admin code is:"+adminCode);
             if(isSanctioned)
                 messageTextArea.setText(sanctionContent);
+            if(viewTicket)
+                messageTextArea.setText(ticketContent);
             });
     }
 
@@ -49,5 +53,10 @@ public class PopUpsController implements Initializable {
     public void setAdminCode(String adminCode){
         this.adminCode=adminCode;
         fromAdminRegister=true;
+    }
+
+    public void setTicketContent(String ticketContent) {
+        this.ticketContent = ticketContent;
+        viewTicket=true;
     }
 }

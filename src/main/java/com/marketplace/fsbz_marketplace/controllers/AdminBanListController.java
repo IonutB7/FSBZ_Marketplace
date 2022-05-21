@@ -2,10 +2,13 @@ package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
 import com.marketplace.fsbz_marketplace.model.Item;
+import com.marketplace.fsbz_marketplace.model.SelectedItemsHolder;
 import com.marketplace.fsbz_marketplace.model.User;
 import com.marketplace.fsbz_marketplace.model.UserListHolder;
+import com.marketplace.fsbz_marketplace.services.InventoryServices;
 import com.marketplace.fsbz_marketplace.services.UserListServices;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -14,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -54,7 +58,7 @@ public class AdminBanListController implements Initializable {
                 banListBalanceColumn,
                 banListWarnedColumn);
 
-        banListInventoryTableView.setItems(UserListServices.getUserList());
+        banListInventoryTableView.setItems(UserListServices.getBannedUserList());
     }
 
     @Override
@@ -62,7 +66,6 @@ public class AdminBanListController implements Initializable {
 
 
         UpdateTable();
-
 
         FilteredList<User> filteredData = new FilteredList<>(UserListServices.getBannedUserList(), b -> true);
 
@@ -93,17 +96,13 @@ public class AdminBanListController implements Initializable {
 
     public void setUnbanUserButtonOnAction(ActionEvent event) throws IOException {
         if (banListInventoryTableView.getSelectionModel().getSelectedItem() != null) {
-            UserListHolder.getInstance().setLastUserId(banListInventoryTableView.getSelectionModel().getSelectedItem().getAcountId());
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(FSBZ_Marketplace.class.getResource("interfaces/adminSanctions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-            AdminSanctionControllers myASC = fxmlLoader.getController();
-            myASC.setAdminIsBanning(true);
-            stage.setTitle("FZ:BZ Marketplace");
-            stage.setScene(scene);
-            stage.show();
+            User restoredUser= banListInventoryTableView.getSelectionModel().getSelectedItem();
+            UserListServices.clarUserDB(restoredUser.getAcountId());
+            UserListServices.setUnbanUser(restoredUser);
+            UserListServices.transferUserFromBanList(restoredUser);
+            UpdateTable();
         } else {
-            banListErrorMessageLabel.setText("No user is selected.");
+            banListErrorMessageLabel.setText("No user is selected!");
         }
     }
 }

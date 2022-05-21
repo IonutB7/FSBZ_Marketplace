@@ -24,6 +24,9 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class TransactionHistoryController implements Initializable {
+
+    private boolean isUsedByUser=false;
+    private boolean isUsedByAdmin=false;
     @FXML
     private TableView<Transaction> userLedgerTableView;
     @FXML private TableColumn<Transaction,Integer> transactionNumberColumn;
@@ -44,10 +47,6 @@ public class TransactionHistoryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-
-        InventoryServices services = new InventoryServices();
-        services.resetSelectedUserItem();
-
 
         LedgerService.setLedgerTableCollumns(transactionNumberColumn,
                 inventoryIdColumn,
@@ -81,11 +80,21 @@ public class TransactionHistoryController implements Initializable {
     }
 
     public void setGoBackButtonOnAction(ActionEvent event) throws IOException {
-        FxmlUtilities.sceneTransiton(goBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
+        if(isUsedByUser)
+         FxmlUtilities.sceneTransiton(goBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
+        if(isUsedByAdmin)
+            FxmlUtilities.sceneTransiton(goBackButton,"interfaces/adminUserList.fxml",1280,720);
     }
 
     public void setGoBackButtonOnAction1(MouseEvent event) throws IOException {
         FxmlUtilities.sceneTransiton(goBackButton,"interfaces/marketplaceInterface.fxml",1280,720);
     }
 
+    public void setUsedByUser(boolean usedByUser) {
+        isUsedByUser = usedByUser;
+    }
+
+    public void setUsedByAdmin(boolean usedByAdmin) {
+        isUsedByAdmin = usedByAdmin;
+    }
 }

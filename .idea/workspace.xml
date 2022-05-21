@@ -4,12 +4,84 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-27:Done partial Ban User Interface + search bar">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+    <list default="true" id="3be98883-c16b-42b4-b056-e5d04bc4b8c7" name="Changes" comment="CM-31:Done admin feedback interface(basic)+ searchbar">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/AdminBanListController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/UserListServices.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/file-system.probe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_10_08_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/AdminBanListController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/UserListServices.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/file-system.probe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_20_2022_10_34_AM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/ReportSectionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/model/Ticket.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/TicketServices.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/reportSection.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminFeedbackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/ReportSectionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/Ticket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/model/TicketListHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/TicketServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/reportSection.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminFeedback.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/reportSection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminBanListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminBanListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminMainInterfaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminMainInterfaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminUserListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/AdminUserListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/PopUpsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/PopUpsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/TransactionHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/controllers/TransactionHistoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserListServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/marketplace/fsbz_marketplace/services/UserListServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/FSBZ_Marketplace-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/css/helpSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/css/helpSection.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminBanList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminBanList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminMainInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminMainInterface.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminUserList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/adminUserList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/helpSectionController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/helpSectionController.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/marketplaceInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/marketplace/fsbz_marketplace/interfaces/marketplaceInterface.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminBanListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminBanListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminLogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminMainInterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminMainInterfaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminUserListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/AdminUserListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/MarketplaceInterfaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/PopUpsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/PopUpsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/TransactionHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/controllers/TransactionHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/UserListServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marketplace/fsbz_marketplace/services/UserListServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/helpSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/css/helpSection.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminBanList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminBanList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminMainInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminMainInterface.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminUserList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/adminUserList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/helpSectionController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/helpSectionController.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/marketplaceInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/marketplace/fsbz_marketplace/interfaces/marketplaceInterface.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +109,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
         <option value="CSS File" />
       </list>
     </option>
@@ -66,11 +138,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp_11_FxmlUtilities.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp_8_FxmlUtilities.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp_9_FxmlUtilities.class" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -145,6 +212,7 @@
       <workItem from="1652786979532" duration="12342000" />
       <workItem from="1652802627227" duration="15159000" />
       <workItem from="1652878997383" duration="28649000" />
+      <workItem from="1653032072101" duration="13019000" />
     </task>
     <task id="LOCAL-00001" summary="Another Test">
       <created>1651684339335</created>
@@ -356,7 +424,42 @@
       <option name="project" value="LOCAL" />
       <updated>1652946227176</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="CM-29:Done IM-98,the admin can see the ledger of the users">
+      <created>1653036305859</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1653036305859</updated>
+    </task>
+    <task id="LOCAL-00032" summary="CM-30:Done IM-90,107.Now the user can send tickets to the admins">
+      <created>1653042842297</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1653042842297</updated>
+    </task>
+    <task id="LOCAL-00033" summary="CM-30:Done IM-90,107.Now the user can send tickets to the admins">
+      <created>1653042910803</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1653042910804</updated>
+    </task>
+    <task id="LOCAL-00034" summary="CM-30:Done IM-90,107.Now the user can send tickets to the admins">
+      <created>1653043031210</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1653043031210</updated>
+    </task>
+    <task id="LOCAL-00035" summary="CM-31:Done admin feedback interface(basic)+ searchbar">
+      <created>1653045459996</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653045459996</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,9 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="CM-1:The created acount its stored in the database" />
-    <MESSAGE value="CM-3:Added User Inventory and Items System" />
-    <MESSAGE value="CM-4:Created item selection and Store Inventory" />
     <MESSAGE value="CM-5:Implemented user wallet(coupons system,withdraw,use coupons)+fxml code factorization" />
     <MESSAGE value="CM-6:The user can buy items from the shop with the wallet" />
     <MESSAGE value="CM-7:Implemented trading functionality" />
@@ -411,7 +511,10 @@
     <MESSAGE value="CM-25:The user now can see the reason for being warned" />
     <MESSAGE value="CM-26:Completed IM-79,IM-81,IM-83+improved send warning functionality" />
     <MESSAGE value="CM-27:Done partial Ban User Interface + search bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="CM-27:Done partial Ban User Interface + search bar" />
+    <MESSAGE value="CM-29:Done IM-98,the admin can see the ledger of the users" />
+    <MESSAGE value="CM-30:Done IM-90,107.Now the user can send tickets to the admins" />
+    <MESSAGE value="CM-31:Done admin feedback interface(basic)+ searchbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="CM-31:Done admin feedback interface(basic)+ searchbar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

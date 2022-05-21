@@ -49,6 +49,10 @@ public class AdminMainInterfaceController {
         FxmlUtilities.sceneTransiton(logOutButton,"interfaces/adminLogIn.fxml",1280,720);
     }
 
+    public void setFeedbackSectionButtonOnAction(ActionEvent event) throws IOException{
+        FxmlUtilities.sceneTransiton(feedbackSectionButton,"interfaces/adminFeedback.fxml",1280,720);
+
+    }
 
 
 }
