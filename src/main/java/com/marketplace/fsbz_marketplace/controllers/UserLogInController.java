@@ -4,9 +4,7 @@ import com.marketplace.fsbz_marketplace.db.DatabaseConnection;
 import com.marketplace.fsbz_marketplace.exceptions.*;
 import com.marketplace.fsbz_marketplace.model.*;
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
-import com.marketplace.fsbz_marketplace.services.InventoryServices;
-import com.marketplace.fsbz_marketplace.services.LedgerService;
-import com.marketplace.fsbz_marketplace.services.WalletServices;
+import com.marketplace.fsbz_marketplace.services.*;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -89,8 +87,10 @@ public class UserLogInController {
                         setStoreCouponList();
                         FxmlUtilities.sceneTransiton(loginButton,"interfaces/marketplaceInterface.fxml",1280,720);
                         if(UserServices.verifyIfWarned(userTextField.getText())==true){
+                            UserServices.clearUserWarning(userTextField.getText());
                             FxmlUtilities.setSanctionPopUp(userTextField.getText());
                         }
+
                     }
                 }catch(InexistentUserException exception1){
                     loginMessageLabel.setText(exception1.getMessage());

@@ -6,22 +6,45 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminFeedbackController">
+<AnchorPane fx:id="adminFeedbackPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/adminFeedback.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminFeedbackController">
    <children>
-      <TextField fx:id="searchTextField" layoutX="86.0" layoutY="8.0" prefHeight="46.0" prefWidth="564.0" promptText="Search item" />
-      <Button fx:id="goBackButton" layoutX="37.0" layoutY="632.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="Go back" />
-      <Button fx:id="viewContentButton" layoutX="268.0" layoutY="632.0" mnemonicParsing="false" onAction="#setViewContentButtonOnAction" prefHeight="46.0" prefWidth="200.0" text="View ticket content" />
-      <TableView fx:id="ticketTableView" layoutX="14.0" layoutY="94.0" prefHeight="516.0" prefWidth="860.0" stylesheets="@../css/transactionHistory.css">
+      <TextField fx:id="searchTextField" layoutX="89.0" layoutY="44.0" prefHeight="46.0" prefWidth="640.0" promptText="Search item" />
+      <Button fx:id="goBackButton" layoutX="89.0" layoutY="630.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="go back" />
+      <TableView fx:id="ticketTableView" layoutX="89.0" layoutY="117.0" prefHeight="487.0" prefWidth="1100.0">
          <columns>
             <TableColumn fx:id="ticketIdColumn" prefWidth="70.4000244140625" text="Id" />
             <TableColumn fx:id="ticketSendByColumn" minWidth="9.0" prefWidth="139.20001220703125" text="Send by" />
-            <TableColumn fx:id="ticketTitleColumn" minWidth="8.0" prefWidth="143.99996948242188" text="Title" />
-            <TableColumn fx:id="ticketTypeColumn" minWidth="0.0" prefWidth="117.60003662109375" text="Type" />
-            <TableColumn fx:id="ticketSentDateColumn" prefWidth="232.79998779296875" text="Date" />
-            <TableColumn fx:id="ticketStatusColumn" prefWidth="156.800048828125" text="Status" />
+            <TableColumn fx:id="ticketTitleColumn" minWidth="8.0" prefWidth="266.0" text="Title" />
+            <TableColumn fx:id="ticketTypeColumn" minWidth="0.0" prefWidth="163.0" text="Type" />
+            <TableColumn fx:id="ticketSentDateColumn" prefWidth="293.0" text="Date" />
+            <TableColumn fx:id="ticketStatusColumn" prefWidth="166.0" text="Status" />
          </columns>
       </TableView>
-      <Label fx:id="ticketMessageLabel" layoutX="582.0" layoutY="632.0" prefHeight="46.0" prefWidth="264.0" />
+      <Label fx:id="ticketMessageLabel" layoutX="855.0" layoutY="44.0" prefHeight="46.0" prefWidth="334.0">
+         <font>
+            <Font name="Counter-Strike Regular" size="24.0" />
+         </font></Label>
+      <AnchorPane fx:id="viewTicketContentAnchor" layoutX="282.0" layoutY="630.0" prefHeight="46.0" prefWidth="319.0">
+         <children>
+            <Button fx:id="viewContentButton" mnemonicParsing="false" onAction="#setViewContentButtonOnAction" prefHeight="46.0" prefWidth="277.0" text="View ticket content" />
+            <Polygon fx:id="viewTickTriangle" fill="WHITE" layoutX="277.0" layoutY="106.0" onMouseClicked="#setViewContentButtonOnAction1" points="0.0, -60.0, 41.0, -106.0, 0.0, -106.0" stroke="WHITE" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="acceptAnchor" layoutX="783.0" layoutY="630.0" prefHeight="46.0" prefWidth="194.0">
+         <children>
+            <Button fx:id="acceptButton" layoutX="41.0" mnemonicParsing="false" onAction="#setAcceptButtonOnAction" prefHeight="46.0" prefWidth="152.0" text="Accept" />
+            <Polygon fx:id="acceptTriangle" layoutY="106.0" onMouseClicked="#setAcceptButtonOnAction1" points="41.0, -60.0, 41.0, -106.0, 0.0, -106.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="declineAnchor" layoutX="995.0" layoutY="630.0" prefHeight="46.0" prefWidth="194.0">
+         <children>
+            <Button fx:id="declineButton" mnemonicParsing="false" onAction="#setDeclineButtonOnAction" prefHeight="46.0" prefWidth="152.0" text="Decline" />
+            <Polygon fx:id="declineTriangle" layoutX="152.0" layoutY="106.0" onMouseClicked="#setDeclineButtonOnAction1" points="0.0, -60.0, 41.0, -106.0, 0.0, -106.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Polygon fill="WHITE" layoutX="729.0" layoutY="150.0" points="0.0, -60.0, 42.0, -60.0, 0.0, -106.0" stroke="WHITE" strokeType="INSIDE" />
    </children>
 </AnchorPane>

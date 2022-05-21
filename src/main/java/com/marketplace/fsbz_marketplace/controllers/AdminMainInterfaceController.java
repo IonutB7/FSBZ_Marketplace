@@ -1,18 +1,27 @@
 package com.marketplace.fsbz_marketplace.controllers;
 
 import com.marketplace.fsbz_marketplace.FSBZ_Marketplace;
+import com.marketplace.fsbz_marketplace.model.AdminHolder;
 import com.marketplace.fsbz_marketplace.model.AdminStoreControllerHolder;
+import com.marketplace.fsbz_marketplace.model.UserHolder;
 import com.marketplace.fsbz_marketplace.utilities.FxmlUtilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AdminMainInterfaceController {
+public class AdminMainInterfaceController implements Initializable {
+
+    @FXML
+    private Label adminHelloMessageLabel;
     @FXML
     private Button logOutButton;
     @FXML
@@ -23,6 +32,14 @@ public class AdminMainInterfaceController {
     private Button banListButton;
     @FXML
     private Button feedbackSectionButton;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
+
+        adminHelloMessageLabel.setText("hi "+ AdminHolder.getInstance().getAdmin().getUsername());
+
+    }
+
 
     public void setMyInventoryButtonOnAction(ActionEvent event) throws IOException {
 

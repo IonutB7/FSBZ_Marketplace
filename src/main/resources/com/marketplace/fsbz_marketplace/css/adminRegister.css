@@ -32,7 +32,7 @@
     -fx-font-size: 24;
 
 }
-#registrationButton:hover, #cancelButton:hover {
+#registrationAdminButton:hover, #cancelAdminButton:hover {
 
     -fx-background-color: #EAEAEA;
 

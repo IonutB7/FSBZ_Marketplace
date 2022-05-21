@@ -162,7 +162,23 @@ public class UserServices {
         return false;
 
     }
+    public static void clearUserWarning(String username) {
 
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String updateTicketStatus = "UPDATE user_account SET warned =0 WHERE username='"+username+"';";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(updateTicketStatus);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     public static String getSanctionContent(String username)throws java.sql.SQLException {
         DatabaseConnection connectNow = new DatabaseConnection();

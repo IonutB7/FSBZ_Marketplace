@@ -18,7 +18,7 @@ import java.util.Date;
 public class TicketServices {
 
     public static ObservableList<Ticket> getTicketList(){
-        return FXCollections.observableArrayList(TicketListHolder.getInstance().getTicketList());
+        return TicketListHolder.getInstance().getTicketList();
     }
 
     public static void initializeTicketList(ArrayList<Ticket> retrivedTicketList) {
@@ -72,6 +72,35 @@ public class TicketServices {
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
+        }
+    }
+
+
+
+    public static void changeTicketStatusDB(int ticketID,String newStatus) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+
+
+        String updateTicketStatus = "UPDATE ticket_db SET status ='" + newStatus + "' WHERE ticket_id="+ticketID+";";
+
+        try {
+
+            Statement statement = connectionDB.createStatement();
+            statement.executeUpdate(updateTicketStatus);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+
+
+    public static void changeTicketStatus(int ticketID,String newStatus){
+        for(int i=0;i<TicketListHolder.getInstance().getTicketList().size();i++){
+            if(TicketListHolder.getInstance().getTicketList().get(i).getTicketId()==ticketID)
+                TicketListHolder.getInstance().getTicketList().get(i).setStatus(newStatus);
         }
     }
 
