@@ -23,28 +23,6 @@
     -fx-background-color: white;
 }
 
-.text-area .virtual-flow .scroll-bar:vertical,
-.text-area .virtual-flow .scroll-bar:vertical .track,
-.text-area .virtual-flow .scroll-bar:vertical .track-background,
-.text-area .virtual-flow .scroll-bar:horizontal,
-.text-area .virtual-flow .scroll-bar:horizontal .track,
-.text-area .virtual-flow .scroll-bar:horizontal .track-background {
-    -fx-background-color: transparent;
-}
-
-.#messageTextArea .virtual-flow .scroll-bar:vertical .thumb{
-    -fx-background-color:  linear-gradient(to bottom, white, red);
-}
-
-#messageTextArea .virtual-flow .scroll-bar:horizontal .thumb {
-    -fx-background-color:  linear-gradient(to right, white, red);
-}
-
-.text-area {
-    -fx-background-color: rgba(255,255,255,0.6);
-
-}
-
 #cancelButton:hover {
     -fx-background-color: rgb(230,0,0);
     -fx-text-fill: white;

@@ -50,6 +50,13 @@
 
 }
 
+.table-row-cell:selected .text {
+    -fx-fill: red ;
+}
+.table-row-cell .text {
+    -fx-fill: white ;
+}
+
 
 .table-view .column-header{
     -fx-background-color: white;

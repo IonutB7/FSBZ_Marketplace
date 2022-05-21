@@ -48,14 +48,24 @@
 .table-view .column-header{
     -fx-background-color: white;
     -fx-background-radius: 0px;
-    -fx-text-fill: white;
 }
 
 .table-view .table-cell{
     -fx-border-color: transparent;
-    -fx-text-fill: white;
     -fx-text-alignment: center;
     -fx-padding: 10px;
+    -fx-text-fill: white;
+}
+.table-row-cell:selected .text {
+    -fx-fill: red ;
+}
+.table-row-cell .text {
+    -fx-fill: white ;
+}
+
+
+.table-view:selected {
+    -fx-text-fill: white;
 }
 
 
