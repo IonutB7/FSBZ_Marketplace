@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addItemPage" prefHeight="530.0" prefWidth="520.0" stylesheets="@../css/adminAddItem.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminAddItemController">
+   <children>
+      <Button fx:id="createItemButton" layoutX="151.0" layoutY="396.0" mnemonicParsing="false" onAction="#setCreateItemButtonOnAction" prefHeight="48.0" prefWidth="218.0" text="create Item" textFill="RED" />
+      <ComboBox fx:id="weaponNameComboBox" layoutX="346.0" layoutY="170.0" prefWidth="150.0" />
+      <Label fx:id="textLabel" layoutX="81.0" layoutY="166.0" prefHeight="39.0" prefWidth="196.0" text="select a weapon:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="textLabel" layoutX="59.0" layoutY="230.0" prefHeight="39.0" prefWidth="240.0" text="wear of the weapon:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="weaponWearComboBox" layoutX="346.0" layoutY="234.0" prefWidth="150.0" />
+      <Label fx:id="textLabel" layoutX="15.0" layoutY="291.0" prefHeight="39.0" prefWidth="327.0" text="will the item be stattrack?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="weaponStatTrackComboBox" layoutX="346.0" layoutY="295.0" prefWidth="150.0" />
+      <Label layoutX="117.0" layoutY="339.0" prefHeight="48.0" prefWidth="286.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="goBackButton" layoutX="186.0" layoutY="455.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="48.0" prefWidth="150.0" text="go back" textFill="RED" />
+      <Label fx:id="addItemMessage" layoutX="132.0" layoutY="343.0" prefHeight="39.0" prefWidth="257.0" />
+      <Label layoutX="120.0" layoutY="73.0" text="add new item" textFill="WHITE">
+         <font>
+            <Font name="Counter-Strike Regular" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

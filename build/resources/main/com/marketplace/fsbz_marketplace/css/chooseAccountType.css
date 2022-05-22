@@ -1,0 +1,22 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#userAnchor:hover {
+
+    -fx-background-color: #FF0000;
+}
+#adminAnchor:hover {
+    -fx-background-color: #FF0000;
+}
+
+#chooseAccType {
+    -fx-font-family: "Counter-Strike";
+}
+
+#accType {
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 36;
+}

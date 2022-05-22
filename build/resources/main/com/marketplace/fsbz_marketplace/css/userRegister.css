@@ -1,0 +1,39 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#firstnameTextField, #lastnameTextField, #emailTextField, #usernameTextField, #setPasswordField, #confirmPasswordField {
+    -fx-border-style: solid;
+    -fx-border-radius: 0px;
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 40px;
+}
+#loginMessageLabel {
+    -fx-font-family: "Counter-Strike";
+}
+
+#registrationButton, #cancelButton {
+
+    fx-text-fill: black;
+    -fx-border-style: solid;
+    -fx-border-radius: 0px;
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
+}
+
+#registerPage {
+    -fx-background-color: #ff0000;
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 24;
+
+}
+#registrationButton:hover, #cancelButton:hover {
+
+    -fx-background-color: #EAEAEA;
+
+}

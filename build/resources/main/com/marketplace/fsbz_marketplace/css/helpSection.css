@@ -1,0 +1,24 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#helpSection {
+    -fx-background-color: red;
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 17px;
+}
+
+#returnButton {
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: white;
+}
+
+#returnButton:hover{
+    -fx-background-color: rgb(230,0,0);
+    -fx-text-fill: white;
+}
+
+

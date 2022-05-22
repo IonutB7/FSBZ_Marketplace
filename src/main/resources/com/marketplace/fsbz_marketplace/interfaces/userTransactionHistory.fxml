@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+
+<AnchorPane fx:id="transactionHistoryPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/transactionHistory.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.TransactionHistoryController">
+   <children>
+      <TableView fx:id="userLedgerTableView" layoutX="89.0" layoutY="103.0" prefHeight="533.0" prefWidth="1102.0" stylesheets="@../css/transactionHistory.css">
+         <columns>
+            <TableColumn fx:id="transactionNumberColumn" prefWidth="49.0" text="id" />
+            <TableColumn fx:id="inventoryIdColumn" minWidth="9.0" prefWidth="109.0" text="Inventory Id" />
+            <TableColumn fx:id="userOfferColumn" minWidth="8.0" prefWidth="193.0" text="User Offer" />
+            <TableColumn fx:id="storeOfferColumn" minWidth="0.0" prefWidth="191.0" text="Store Offer" />
+            <TableColumn fx:id="totalPriceColumn" prefWidth="140.0" text="Total Price" />
+            <TableColumn fx:id="transactionTypeColumn" prefWidth="114.0" text="type" />
+            <TableColumn fx:id="dateColumn" prefWidth="185.0" text="Date" />
+            <TableColumn fx:id="statusColumn" prefWidth="120.0" text="Status" />
+         </columns>
+      </TableView>
+      <TextField fx:id="searchTextField" layoutX="89.0" layoutY="44.0" prefHeight="46.0" prefWidth="564.0" promptText="Search item" />
+      <AnchorPane fx:id="goBack" layoutX="89.0" layoutY="649.0" prefHeight="47.0" prefWidth="250.0">
+         <children>
+            <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="       go back" />
+            <Polygon fx:id="triangle1" fill="WHITE" layoutX="256.0" onMouseClicked="#setGoBackButtonOnAction1" points="-89.0, 47.0, 14.0, 0.0, -89.0, 0.0" stroke="WHITE" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Polygon fx:id="triangle11" fill="WHITE" layoutX="727.0" layoutY="44.0" onMouseClicked="#setGoBackButtonOnAction1" points="-74.0, 46.0, 64.0, 46.0, -74.0, 0.0" stroke="WHITE" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

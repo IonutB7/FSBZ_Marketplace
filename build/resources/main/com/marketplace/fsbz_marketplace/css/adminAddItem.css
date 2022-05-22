@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+
+}
+
+#addItemPage {
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 28px;
+    -fx-background-color: red;
+}
+
+#textLabel {
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+}
+
+#createItemButton, #goBackButton, #weaponNameComboBox, #weaponWearComboBox, #weaponStatTrackComboBox {
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: white;
+
+}
+#weaponNameComboBox, #weaponWearComboBox, #weaponStatTrackComboBox {
+    -fx-font-size: 22px;
+}
+
+#createItemButton:hover, #goBackButton:hover, #weaponNameComboBox:hover, #weaponWearComboBox:hover, #weaponStatTrackComboBox:hover {
+
+    -fx-background-color: rgb(230,0,0);
+    -fx-text-fill: white;
+}
+
+#addItemMessage {
+    -fx-font-family: "Counter-Strike";
+    -fx-text-fill: white;
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/userLogIn.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.UserLogInController">
+   <children>
+      <AnchorPane fx:id="right" layoutX="575.0" prefHeight="720.0" prefWidth="705.0">
+         <children>
+            <TextField fx:id="userTextField" layoutX="123.0" layoutY="308.0" prefHeight="60.0" prefWidth="460.0" promptText="Username" />
+            <PasswordField fx:id="enterPasswordField" layoutX="123.0" layoutY="409.0" prefHeight="60.0" prefWidth="460.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="123.0" layoutY="542.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="38.0" prefWidth="460.0" text="Log-in" textAlignment="CENTER" />
+            <Button fx:id="cancelButton" layoutX="123.0" layoutY="607.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Cancel" />
+            <Button fx:id="registerButton" layoutX="366.0" layoutY="607.0" mnemonicParsing="false" onAction="#setRegisterButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Register" />
+           <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="90.0" layoutY="488.0" prefHeight="19.0" prefWidth="525.0" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="262.0" fitWidth="229.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="left" prefHeight="720.0" prefWidth="575.0">
+         <children>
+            <ImageView fitHeight="720.0" fitWidth="575.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.jpg" />
+               </image>
+            </ImageView>
+            <Polygon fill="RED" layoutX="492.0" layoutY="268.0" points="-30.0, 452.0, 83.0, 452.0, 83.0, -268.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

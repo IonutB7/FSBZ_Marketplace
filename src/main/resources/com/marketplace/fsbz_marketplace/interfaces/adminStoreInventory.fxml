@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="storeInventoryPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/adminStoreInventory.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminStoreInventoryController">
+   <children>
+      <TableView fx:id="storeInventoryTableView" layoutX="89.0" layoutY="117.0" prefHeight="487.0" prefWidth="1100.0">
+         <columns>
+            <TableColumn fx:id="storeItemNumberColumn" prefWidth="120.0" text="item number" />
+            <TableColumn fx:id="storeInventoryIdColumn" prefWidth="129.0" text="inventory id" />
+            <TableColumn fx:id="storeNameColumn" prefWidth="173.0" text="name" />
+            <TableColumn fx:id="storeDescriptionColumn" prefWidth="134.0" text="description" />
+            <TableColumn fx:id="storeCategoryColumn" prefWidth="147.0" text="category" />
+            <TableColumn fx:id="storeWearColumn" prefWidth="162.0" text="wear" />
+            <TableColumn fx:id="storePriceColumn" prefWidth="121.0" text="price" />
+            <TableColumn fx:id="storeStatTrackColumn" prefWidth="113.0" text="stattrak" />
+         </columns>
+      </TableView>
+      <TextField fx:id="storeSearchTextField" layoutX="89.0" layoutY="44.0" prefHeight="46.0" prefWidth="640.0" promptText="Search item" />
+      <Button fx:id="goBackButton" layoutX="89.0" layoutY="630.0" mnemonicParsing="false" onAction="#setGoBackButtonOnAction" prefHeight="46.0" prefWidth="167.0" text="go back" />
+      <Button fx:id="deleteItemsButton" layoutX="276.0" layoutY="630.0" mnemonicParsing="false" onAction="#setDeleteItemsButtonButtonOnAction" prefHeight="46.0" prefWidth="200.0" text="delete items" />
+     <AnchorPane fx:id="addItemAnchor" layoutX="495.0" layoutY="630.0" prefHeight="47.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="addItemButton" mnemonicParsing="false" onAction="#setAddItemButton" prefHeight="46.0" prefWidth="167.0" text="add item" />
+            <Polygon fx:id="triangle1" fill="WHITE" layoutX="212.0" onMouseClicked="#setAddItemButton1" points="-45.0, 47.0, -16.0, 47.0, -16.0, 0.0" rotate="180.0" stroke="WHITE" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+
+      <Label fx:id="storeErrorMessageLabel" layoutX="816.0" layoutY="634.0" prefHeight="39.0" prefWidth="373.0" textFill="#fc0000">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Polygon fx:id="triangle11" fill="WHITE" layoutX="782.0" layoutY="44.0" onMouseClicked="#setAddItemButton1" points="-53.0, 46.0, -23.0, 46.0, -53.0, 0.0" stroke="WHITE" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

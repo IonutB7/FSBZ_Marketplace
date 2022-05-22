@@ -1,0 +1,29 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+
+#popUp {
+    -fx-background-color: red;
+    -fx-font-family: "Counter-Strike";
+    -fx-font-size: 24px;
+}
+
+#cancelButton {
+    -fx-border-style: none;
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+}
+
+#messageTextArea {
+    -fx-background-radius: 0px;
+    -fx-border-style: none;
+    -fx-background-color: white;
+}
+
+#cancelButton:hover {
+    -fx-background-color: rgb(230,0,0);
+    -fx-text-fill: white;
+}

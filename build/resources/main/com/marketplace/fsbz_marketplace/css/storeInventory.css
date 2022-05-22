@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+
+}
+
+#storeInventoryPage {
+    -fx-font-family: "Counter-Strike";
+    -fx-background-image: url("../images/backgroundTables.jpg");
+    -fx-font-size: 24px;
+}
+
+#storeSearchTextField {
+
+    -fx-background-color: white;
+    -fx-text-fill: red;
+    -fx-background-radius: 0px;
+    -fx-border-style: none;
+    -fx-prompt-text-fill: red;
+}
+
+#storeInventoryTableView {
+    -fx-font-size: 20px;
+}
+
+#storeTotalValueMessage {
+    -fx-font-family: "Counter-Strike";
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, white, black);
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, white, black);
+}
+
+.table-view {
+    -fx-background-color: rgba(0,0,0,0.6);
+
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: red ;
+}
+.table-row-cell .text {
+    -fx-fill: white ;
+}
+
+
+.table-view .column-header{
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+    -fx-text-fill: white;
+}
+
+#totalValueAnchor {
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-padding: 10px;
+}
+
+
+.table-row-cell:odd{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+
+}
+
+.table-row-cell:even{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+
+}
+
+#userWalletButton {
+
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+    -fx-background-color: black;
+    -fx-text-fill: red;
+
+}
+
+ #checkOutButton, #storeGoBackButton{
+    -fx-background-color: white;
+    -fx-text-fill: red;
+    -fx-border-style: none;
+    -fx-background-radius: 0px;
+}
+
+#checkOut:hover > #triangle1 , #checkOut:hover > #triangle2{
+    -fx-fill: red;
+    -fx-stroke: red;
+}
+
+#checkOut:hover > #checkOutButton , #storeGoBackButton:hover{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+
+#storeInventoryTableView > .TableColumnBase {
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+
+#myWlt:hover > #triangle {
+    -fx-stroke: red;
+    -fx-fill: red;
+}
+
+#myWlt:hover > #userWalletButton {
+    -fx-background-color: red;
+    -fx-text-fill: black;
+}
+
+#checkOutMessageLabel, #storeTotalValueLabel, #storeTotalValueLabel1 {
+    -fx-font-family: "Counter-Strike";
+}

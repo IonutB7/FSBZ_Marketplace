@@ -1,0 +1,23 @@
+@font-face
+{
+    font-family: "Counter-Strike";
+    src: url("cs_regular.ttf") ;
+}
+
+#reportSection {
+    -fx-background-color: red;
+    -fx-font-size: 24px;
+}
+
+#contentTextArea, #titleTextField, #typeComboBox, #goBackButton, #sendTicketButton{
+    -fx-font-family: "Counter-Strike";
+    -fx-border-style: none;
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+}
+#goBackButton:hover, #sendTicketButton:hover {
+    -fx-background-color: rgb(230,0,0);
+    -fx-text-fill: white;
+}
+
+

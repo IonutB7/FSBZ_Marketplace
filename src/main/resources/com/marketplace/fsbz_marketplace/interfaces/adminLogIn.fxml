@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/adminLogIn.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marketplace.fsbz_marketplace.controllers.AdminLogInController">
+    <children>
+        <AnchorPane prefHeight="720.0" prefWidth="575.0">
+         <children>
+            <ImageView fitHeight="720.0" fitWidth="575.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.jpg" />
+               </image>
+            </ImageView>
+             <Polygon fill="RED" layoutX="492.0" layoutY="268.0" points="-30.0, 452.0, 83.0, 452.0, 83.0, -268.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+         </children></AnchorPane>
+        <AnchorPane fx:id="right" layoutX="575.0" prefHeight="720.0" prefWidth="705.0">
+            <children>
+                <TextField fx:id="adminTextField" layoutX="123.0" layoutY="308.0" prefHeight="60.0" prefWidth="460.0" promptText="Username" />
+                <PasswordField fx:id="adminPasswordField" layoutX="123.0" layoutY="385.0" prefHeight="60.0" prefWidth="460.0" promptText="Password" />
+                <TextField fx:id="adminCodeField" layoutX="123.0" layoutY="463.0" prefHeight="38.0" prefWidth="460.0" promptText="Admin Code" text="TWRHKDpW5R" />
+                <Button fx:id="loginAdminButton" layoutX="123.0" layoutY="542.0" mnemonicParsing="false" onAction="#adminLoginButtonOnAction" prefHeight="38.0" prefWidth="460.0" text="Log-in" />
+                <Button fx:id="cancelAdminButton" layoutX="123.0" layoutY="607.0" mnemonicParsing="false" onAction="#setAdminCancelButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Cancel" />
+                <Button fx:id="registerAdminButton" layoutX="366.0" layoutY="607.0" mnemonicParsing="false" onAction="#setAdminRegisterButtonOnAction" prefHeight="38.0" prefWidth="217.0" text="Register" />
+            <ImageView fitHeight="262.0" fitWidth="229.0" layoutX="249.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/admin.png" />
+               </image></ImageView>
+            <Label layoutX="90.0" layoutY="515.0" prefHeight="19.0" prefWidth="525.0" />
+            <Label fx:id="loginMessageLabel" layoutX="110.0" layoutY="660.0" prefHeight="54.0" prefWidth="494.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
